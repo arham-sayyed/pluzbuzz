@@ -15,7 +15,7 @@ import Rebrand from '@/components/home/Rebrand';
 import GlobalPresence from '@/components/home/GlobalPresence';
 import Journal from '@/components/home/Journal';
 import StrategyTicket from '@/components/home/StrategyTicket';
-import { WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Digital Agency London | SEO, Marketing & Web Development UK | PluzBuzz',
@@ -35,7 +35,7 @@ const DISCOVER: NavLink[] = [
   { href: '#work', label: 'Our Work', hideOnMobile: true },
   { href: '#journal', label: 'Insights' },
   { href: '#global', label: 'Global Presence' },
-  { href: '#contact', label: 'Contact' },
+  { href: CONTACT, label: 'Contact' },
   { href: '#about', label: 'About' }
 ];
 const SERVICE_LINKS: NavLink[] = [

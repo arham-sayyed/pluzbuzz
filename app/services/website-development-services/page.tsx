@@ -14,7 +14,7 @@ import Reviews from '@/components/services/website-development/Reviews';
 import Faq from '@/components/services/website-development/Faq';
 import Related from '@/components/services/website-development/Related';
 import { FAQS } from '@/components/services/website-development/data';
-import { HOME, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, HOME, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Website Development Services London | Web Design Agency UK | PluzBuzz',
@@ -33,7 +33,7 @@ const DISCOVER: NavLink[] = [
   { href: '/#work', label: 'Our Work', hideOnMobile: true },
   { href: '/#journal', label: 'Insights' },
   { href: '/#global', label: 'Global Presence' },
-  { href: '#contact', label: 'Contact' }
+  { href: CONTACT, label: 'Contact' }
 ];
 const SERVICE_LINKS: NavLink[] = [
   { href: '#top', label: 'Web Development', current: true },

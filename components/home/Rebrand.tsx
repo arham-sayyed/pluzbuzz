@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import type { PaperCrumpleState } from '@/components/PaperCrumple';
+import { CONTACT } from '@/lib/site';
 
 // three.js is heavy: only fetch it once the sheet is about to scroll into view.
 const PaperCrumple = dynamic(() => import('@/components/PaperCrumple'), { ssr: false });
@@ -101,7 +103,7 @@ export default function Rebrand() {
             <p style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#55566a" }}>{hint}</p>
             {crumpled && (<>
               <button className="hv2" type="button" onClick={() => { setResetKey(k => k + 1); setPaper('flat'); }} style={{ padding: "10px 16px", border: "1.5px solid #0a0c24", borderRadius: "6px", background: "#fff", fontWeight: "600", fontSize: "14px", cursor: "pointer" }}>Bring it back</button>
-              <a className="hv1" href="#contact" style={{ padding: "11px 18px", borderRadius: "6px", background: "#080b38", color: "#fff", fontWeight: "600", fontSize: "14px" }}>Start a rebrand</a>
+              <Link className="hv1" href={CONTACT} style={{ padding: "11px 18px", borderRadius: "6px", background: "#080b38", color: "#fff", fontWeight: "600", fontSize: "14px" }}>Start a rebrand</Link>
             </>)}
           </div>
         </div>

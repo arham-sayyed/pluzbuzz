@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CONTACT } from '@/lib/site';
 import BuildPreview from './BuildPreview';
 
 export default function Hero() {
@@ -18,7 +19,7 @@ export default function Hero() {
           <div style={{ display: "flex", flexDirection: "column", gap: "28px", maxWidth: "560px" }}>
             <p data-r="up" data-d="240" style={{ fontSize: "clamp(18px,1.6vw,23px)", lineHeight: "1.45", fontWeight: "500", textWrap: "pretty" }}>PluzBuzz is a website development agency in London, UK, building conversion-focused websites, landing pages, and SEO-ready digital experiences for ambitious brands and global growth teams.</p>
             <div data-r="up" data-d="300" style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <a className="hv1" href="#contact" style={{ display: "flex", alignItems: "center", gap: "10px", padding: "17px 26px", background: "#080b38", color: "#fff", borderRadius: "6px", fontWeight: "600" }}>Talk to our team <span aria-hidden="true">→</span></a>
+              <Link className="hv1" href={CONTACT} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "17px 26px", background: "#080b38", color: "#fff", borderRadius: "6px", fontWeight: "600" }}>Talk to our team <span aria-hidden="true">→</span></Link>
               <a className="hv2" href="#live" style={{ padding: "17px 26px", border: "1.5px solid #0a0c24", borderRadius: "6px", fontWeight: "600" }}>See live builds</a>
             </div>
             <ul data-r="up" data-d="360" style={{ listStyle: "none", margin: "0", padding: "0", display: "flex", flexDirection: "column", gap: "10px", fontFamily: "'IBM Plex Mono'", fontSize: "13px", color: "#55566a" }}>

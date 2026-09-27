@@ -256,10 +256,14 @@ button {
     padding: 10px 16px 14px !important;
   }
 
+  /* !important: the desktop grid sets overflow: hidden inline, which would clip the chip row instead of scrolling it */
   .wd-opts {
     display: flex !important;
     gap: 6px !important;
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
     margin: 0 -16px;
     padding: 2px 16px;
     background: transparent !important;

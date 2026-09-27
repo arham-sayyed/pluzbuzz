@@ -71,7 +71,7 @@ export default function ContactPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPage).replace(/</g, '\\u003c') }} />
       <MotionRoot intro={false}>
-        <SiteHeader links={NAV} homeHref={HOME} />
+        <SiteHeader links={NAV} homeHref={HOME} ctaHref="#contact" />
         <main>
           <Hero />
           <ContactSection

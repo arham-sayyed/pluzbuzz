@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { NavLink } from '@/lib/site';
+import { CONTACT, type NavLink } from '@/lib/site';
 import NavAnchor from './NavAnchor';
 import { MOBILE_BP, useNarrowerThan } from '@/lib/use-viewport';
 
 const currentStyle = { boxShadow: 'inset 0 -3px 0 #ffc83d', paddingBottom: '2px' };
 
-export default function SiteHeader({ links, homeHref = '#home' }: { links: NavLink[]; homeHref?: string }) {
+/** `ctaHref`: where "Book a strategy call" goes; the contact page points it at its own form. */
+export default function SiteHeader({ links, homeHref = '#home', ctaHref = CONTACT }: { links: NavLink[]; homeHref?: string; ctaHref?: string }) {
   const headRef = useRef<HTMLElement>(null);
   const mobile = useNarrowerThan(MOBILE_BP);
   const [menu, setMenu] = useState(false);
@@ -37,7 +38,7 @@ export default function SiteHeader({ links, homeHref = '#home' }: { links: NavLi
             {links.map(l => (
               <NavAnchor key={l.label} href={l.href} aria-current={l.current ? 'page' : undefined} style={l.current ? currentStyle : undefined}>{l.label}</NavAnchor>
             ))}
-            <a className="hv1" href="#contact" style={{ display: "flex", alignItems: "center", gap: "8px", padding: "13px 20px", background: "#080b38", color: "#fff", borderRadius: "6px" }}>Book a strategy call</a>
+            <NavAnchor className="hv1" href={ctaHref} style={{ display: "flex", alignItems: "center", gap: "8px", padding: "13px 20px", background: "#080b38", color: "#fff", borderRadius: "6px" }}>Book a strategy call</NavAnchor>
         </nav>
         <button className="site-burger" type="button" aria-label="Toggle menu" aria-expanded={menu} onClick={() => setMenu(m => !m)} style={{ width: "48px", height: "48px", border: "0", borderRadius: "6px", background: "#080b38", color: "#fff", fontSize: "18px", cursor: "pointer" }}>{menu ? '✕' : '☰'}</button>
       </div>
@@ -46,7 +47,7 @@ export default function SiteHeader({ links, homeHref = '#home' }: { links: NavLi
           {links.filter(l => !l.hideOnMobile).map(l => (
             <NavAnchor key={l.label} href={l.href} onClick={closeMenu} style={{ padding: "8px 0" }}>{l.label}</NavAnchor>
           ))}
-          <a href="#contact" onClick={closeMenu} style={{ marginTop: "10px", padding: "14px 18px", background: "#080b38", color: "#fff", borderRadius: "6px", fontSize: "22px" }}>Book a strategy call</a>
+          <NavAnchor href={ctaHref} onClick={closeMenu} style={{ marginTop: "10px", padding: "14px 18px", background: "#080b38", color: "#fff", borderRadius: "6px", fontSize: "22px" }}>Book a strategy call</NavAnchor>
         </nav>
       )}
     </header>

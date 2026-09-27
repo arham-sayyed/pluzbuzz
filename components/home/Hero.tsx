@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { CONTACT } from '@/lib/site';
+
 export default function Hero() {
   return (
     <section id="home" data-screen-label="Hero" style={{ padding: "clamp(120px,13vw,160px) clamp(20px,4vw,56px) clamp(40px,5vw,64px)" }}>
@@ -14,7 +17,7 @@ export default function Hero() {
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "28px" }}>
             <p data-r="up" data-d="260" style={{ fontSize: "clamp(18px,1.6vw,24px)", lineHeight: "1.4", fontWeight: "500", maxWidth: "520px", textWrap: "pretty" }}>Built in London to increase qualified traffic, leads, and revenue — commercial growth, not vanity metrics.</p>
             <div data-r="up" data-d="340" style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <a className="hv1" href="#contact" style={{ display: "flex", alignItems: "center", gap: "10px", padding: "17px 26px", background: "#080b38", color: "#fff", borderRadius: "6px", fontWeight: "600" }}>Book a strategy call</a>
+              <Link className="hv1" href={CONTACT} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "17px 26px", background: "#080b38", color: "#fff", borderRadius: "6px", fontWeight: "600" }}>Book a strategy call</Link>
               <a className="hv2" href="#work" style={{ padding: "17px 26px", border: "1.5px solid #0a0c24", borderRadius: "6px", fontWeight: "600" }}>See our work</a>
             </div>
           </div>

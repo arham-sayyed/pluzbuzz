@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import TearTicket from '@/components/TearTicket';
+import { CONTACT } from '@/lib/site';
 import { useHydrated } from '@/lib/use-viewport';
 
 const mono = { fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', textTransform: 'uppercase' } as const;
@@ -23,8 +25,8 @@ export default function StrategyTicket() {
           )}
           {claimed && (<>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px" }}>
-              <p style={{ fontWeight: "600" }}>Ticket claimed. Tell us about your goals below.</p>
-              <a className="hv1" href="#contact" style={{ padding: "11px 18px", borderRadius: "6px", background: "#080b38", color: "#fff", fontWeight: "600", fontSize: "14px" }}>Go to the form</a>
+              <p style={{ fontWeight: "600" }}>Ticket claimed. Tell us about your goals.</p>
+              <Link className="hv1" href={CONTACT} style={{ padding: "11px 18px", borderRadius: "6px", background: "#080b38", color: "#fff", fontWeight: "600", fontSize: "14px" }}>Go to the form</Link>
               <button type="button" onClick={() => setClaimed(false)} style={{ padding: "10px 14px", border: "0", background: "transparent", fontSize: "14px", textDecoration: "underline", cursor: "pointer", color: "#55566a" }}>Reset ticket</button>
             </div>
           </>)}
