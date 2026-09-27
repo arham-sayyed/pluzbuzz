@@ -6,6 +6,7 @@ export type NavLink = { href: string; label: string; current?: boolean; hideOnMo
 export const HOME = '/';
 export const WEBSITE_DEVELOPMENT = '/services/website-development-services';
 export const CONTACT = '/contact';
+export const SERVICES_INDEX = '/services';
 
 export const SOCIAL_LINKS: NavLink[] = [
   { href: 'https://www.instagram.com/pluzbuzz/', label: 'Instagram' },
@@ -36,5 +37,5 @@ export const SERVICES: Record<ServiceKey, ServiceStyle> = {
   app: { name: 'App & SaaS Development', blurb: 'Custom apps and scalable SaaS product systems for growing teams', href: '/#svc-4', bg: '#555AFE', fg: '#ffffff', sub: 'rgba(255,255,255,.8)', accent: '#F2D458', border: '#555AFE', motif: 'phone' },
   ai: { name: 'AI Enablement', blurb: 'Smarter workflows, creative systems, and automation support.', href: '/#svc-5', bg: '#0a0c24', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#E453EE', border: '#0a0c24', motif: 'nodes' },
   media: { name: 'Photo + Video Production', blurb: 'Directed visual assets for launches, campaigns, and content.', href: '/#svc-6', bg: '#141414', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#ff4d4d', border: '#141414', motif: 'viewfinder' },
-  all: { name: 'All Services', blurb: 'See the complete PluzBuzz service catalogue', href: '/#services', bg: '#f4f4f7', fg: '#0a0c24', sub: '#55566a', accent: '#3a5bff', border: '#f4f4f7', motif: 'grid' }
+  all: { name: 'All Services', blurb: 'See the complete PluzBuzz service catalogue', href: SERVICES_INDEX, bg: '#f4f4f7', fg: '#0a0c24', sub: '#55566a', accent: '#3a5bff', border: '#f4f4f7', motif: 'grid' }
 };

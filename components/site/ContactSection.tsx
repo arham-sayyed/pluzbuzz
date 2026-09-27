@@ -17,9 +17,11 @@ export interface ContactSectionProps {
   flames?: boolean;
   /** Frosted form panel. */
   frosted?: boolean;
+  /** Short status beside the form title, e.g. what another section just added to the enquiry. */
+  note?: string;
 }
 
-export default function ContactSection({ heading, intro, services, messagePlaceholder, flames = false, frosted = false }: ContactSectionProps) {
+export default function ContactSection({ heading, intro, services, messagePlaceholder, flames = false, frosted = false, note }: ContactSectionProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const flameRef = useRef<HTMLCanvasElement>(null);
   const slideBoxRef = useRef<HTMLDivElement>(null);
@@ -62,7 +64,10 @@ export default function ContactSection({ heading, intro, services, messagePlaceh
           <p data-r="up" data-d="180" style={{ fontFamily: "'IBM Plex Mono'", fontSize: "13px", color: "rgba(255,255,255,.6)", lineHeight: "1.7" }}>Old Street, Shoreditch, London<br />Mon–Sat · 10:00–19:00</p>
         </div>
         <form data-r="up" data-d="100" ref={formRef} onSubmit={e => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: "14px", background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.12)", borderRadius: "10px", padding: "clamp(22px,2.6vw,34px)", ...(frosted ? { backdropFilter: "blur(6px)" } : {}) }}>
-          <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "700", fontSize: "30px", textTransform: "uppercase" }}>Let’s talk, get in touch!</h3>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+            <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "700", fontSize: "30px", textTransform: "uppercase" }}>Let’s talk, get in touch!</h3>
+            {note && <span role="status" style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#ffc83d" }}>{note}</span>}
+          </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,220px),1fr))", gap: "12px" }}>
             <label style={labelStyle}>Name<input className="fc1" type="text" name="name" required placeholder="Your name" autoComplete="name" style={fieldStyle} /></label>
             <label style={labelStyle}>Email<input className="fc1" type="email" name="email" required placeholder="Work email address" autoComplete="email" style={fieldStyle} /></label>

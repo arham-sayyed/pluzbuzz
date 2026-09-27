@@ -6,7 +6,7 @@ import ContactSection from '@/components/site/ContactSection';
 import Hero from '@/components/contact/Hero';
 import Headquarters from '@/components/contact/Headquarters';
 import GlobalOffices from '@/components/contact/GlobalOffices';
-import { CONTACT, HOME, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, HOME, SERVICES_INDEX, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact PluzBuzz | Digital Agency London | PluzBuzz',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const NAV: NavLink[] = [
   { href: HOME, label: 'Home' },
   { href: '/#about', label: 'About' },
-  { href: '/#services', label: 'Services' },
+  { href: SERVICES_INDEX, label: 'Services' },
   { href: '/#journal', label: 'Blogs' }
 ];
 const DISCOVER: NavLink[] = [

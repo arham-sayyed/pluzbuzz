@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CONTACT } from '@/lib/site';
+import { CONTACT, SERVICES_INDEX } from '@/lib/site';
 import BuildPreview from './BuildPreview';
 
 export default function Hero() {
@@ -8,7 +8,7 @@ export default function Hero() {
       <div style={{ maxWidth: "1440px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "clamp(28px,3.4vw,44px)" }}>
         <nav aria-label="Breadcrumb" data-r="up" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px", fontFamily: "'IBM Plex Mono'", fontSize: "13px", letterSpacing: ".06em", textTransform: "uppercase", color: "#55566a" }}>
           <span style={{ width: "8px", height: "8px", background: "#ffc83d", borderRadius: "50%" }}></span>
-          <Link href="/#services" style={{ color: "#55566a" }}>Services</Link><span aria-hidden="true">/</span><span style={{ color: "#0a0c24" }}>Website Development</span>
+          <Link href={SERVICES_INDEX} style={{ color: "#55566a" }}>Services</Link><span aria-hidden="true">/</span><span style={{ color: "#0a0c24" }}>Website Development</span>
         </nav>
         <h1 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(56px,10vw,168px)", lineHeight: ".86", letterSpacing: "-.01em", textTransform: "uppercase" }}>
           <span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>Website</span></span>

@@ -673,3 +673,230 @@ button {
     min-height: 440px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Services catalogue (/services)
+   --------------------------------------------------------------------------- */
+
+/* Guard against sideways scroll (e.g. the custom-request ticket before it measures its column). clip, unlike
+   hidden, keeps the filter bar sticky. */
+.sv-section {
+  overflow-x: clip;
+}
+
+.sv-browse {
+  color: #0a0c24;
+}
+
+.sv-browse:hover {
+  color: #3a5bff;
+}
+
+.sv-kbd {
+  display: grid;
+}
+
+.sv-clear {
+  color: #55566a;
+}
+
+.sv-clear:hover {
+  color: #0a0c24;
+  background: #e8e9ef !important;
+}
+
+.sv-search:focus-within {
+  border-color: #080b38 !important;
+}
+
+.sv-chips {
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.sv-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.sv-chip {
+  background: transparent;
+  color: #55566a;
+}
+
+.sv-chip:hover {
+  color: #0a0c24;
+}
+
+.sv-chip[aria-pressed='true'] {
+  background: #080b38;
+  color: #fff;
+}
+
+.sv-link {
+  color: #0a0c24;
+}
+
+.sv-link:hover {
+  color: #3a5bff;
+}
+
+.sv-link--quiet {
+  color: #55566a;
+  border-bottom: 1px solid transparent !important;
+}
+
+.sv-link--quiet:hover {
+  color: #0a0c24;
+}
+
+/* Service grid: a plain row grid until Catalogue measures the cards, then a 4px-row masonry */
+.sv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  column-gap: 16px;
+  row-gap: 16px;
+  align-items: start;
+}
+
+.sv-grid.is-masonry {
+  grid-auto-rows: 4px;
+  row-gap: 0;
+}
+
+.sv-card {
+  width: 100%;
+  transition: border-color 0.3s, transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s;
+}
+
+.sv-card:focus-visible {
+  outline: 2px solid #3a5bff;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .sv-card:hover {
+    border-color: #080b38 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 22px 40px -28px rgba(8, 11, 56, 0.45) !important;
+    color: #0a0c24;
+  }
+}
+
+.sv-empty {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 64px);
+  min-height: 380px;
+}
+
+@keyframes sv-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes sv-play {
+  from {
+    left: 4%;
+  }
+  to {
+    left: 96%;
+  }
+}
+
+.sv-dash {
+  animation: sv-dash 2.4s linear infinite;
+}
+
+.sv-playhead {
+  animation: sv-play 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-dash,
+  .sv-playhead {
+    animation: none;
+  }
+
+  .sv-card {
+    transition: none;
+  }
+}
+
+@media (max-width: 939.98px) {
+  .sv-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639.98px) {
+  .sv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Services catalogue on phones: a compact sticky bar, shorter artwork, tighter cards */
+@media (max-width: 639.98px) {
+  .sv-hero__cta {
+    justify-content: flex-start !important;
+  }
+
+  .sv-bar {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .sv-bar__inner {
+    row-gap: 6px !important;
+  }
+
+  .sv-search {
+    height: 44px !important;
+  }
+
+  .sv-kbd {
+    display: none;
+  }
+
+  .sv-chip {
+    height: 36px !important;
+    padding: 0 10px !important;
+  }
+
+  /* Filter row scrolls sideways; fade whichever edge has more chips behind it */
+  .sv-chips[data-fade='right'] {
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+
+  .sv-chips[data-fade='left'] {
+    mask-image: linear-gradient(to left, #000 calc(100% - 32px), transparent);
+  }
+
+  .sv-chips[data-fade='both'] {
+    mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  }
+
+  .sv-card__art {
+    height: calc(var(--art) * 0.72) !important;
+  }
+
+  .sv-card h3 {
+    font-size: 26px !important;
+  }
+
+  .sv-empty {
+    min-height: 0;
+  }
+}
+
+/* Short landscape screens: the header already takes a big share, so the filter bar scrolls away instead of sticking */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sv-bar {
+    position: relative !important;
+    top: auto !important;
+  }
+}
