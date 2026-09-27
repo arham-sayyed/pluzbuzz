@@ -562,3 +562,68 @@ button {
 .slide-commit.pb-slide .slide-commit__text--plain {
   color: color-mix(in srgb, #ffffff 55%, transparent);
 }
+
+/* Contact: HQ map beside the address card, stacked on phones */
+.ct-hq {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+}
+
+.ct-hq__map {
+  min-height: 420px;
+}
+
+.ct-hq__aside {
+  border-left: 1.5px solid #0a0c24;
+}
+
+/* Contact: office list + globe; the list drops under the globe below 1100px */
+.ct-globe {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+}
+
+.ct-globe__stage {
+  min-height: 680px;
+}
+
+.ct-office {
+  background: transparent;
+}
+
+.ct-office:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ct-office[aria-selected='true'] {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1099.98px) {
+  .ct-globe {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ct-globe__list {
+    order: 2;
+  }
+}
+
+@media (max-width: 899.98px) {
+  .ct-hq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ct-hq__map {
+    min-height: 320px;
+  }
+
+  .ct-hq__aside {
+    border-left: 0;
+    border-top: 1.5px solid #0a0c24;
+  }
+
+  .ct-globe__stage {
+    min-height: 640px;
+  }
+}

@@ -1,14 +1,5 @@
+import { OFFICES } from '@/lib/offices';
 import LocalTime from './LocalTime';
-
-const OFFICES = [
-  ['GB', 'United Kingdom', 'London', 'Europe/London'],
-  ['IN', 'India', 'Mumbai', 'Asia/Kolkata'],
-  ['AE', 'United Arab Emirates', 'Dubai', 'Asia/Dubai'],
-  ['US', 'United States', 'New York', 'America/New_York'],
-  ['KE', 'Kenya', 'Nairobi', 'Africa/Nairobi'],
-  ['UG', 'Uganda', 'Kampala', 'Africa/Kampala'],
-  ['PL', 'Poland', 'Warsaw', 'Europe/Warsaw']
-];
 
 export default function GlobalPresence() {
   return (
@@ -29,8 +20,7 @@ export default function GlobalPresence() {
       </div>
       <div style={{ maxWidth: "calc(1440px + 2 * clamp(20px,4vw,56px))", margin: "0 auto", padding: "0 clamp(20px,4vw,56px)", display: "flex", flexWrap: "wrap", gap: "10px" }}>
         {/* Wrapping flex, not grid: each row stretches to full width, so 7 cards never leave a lone orphan */}
-        {OFFICES.map(([flag, country, city, tz], i) => {
-          const hub = i === 0;
+        {OFFICES.map(({ code: flag, country, city, tz, hub }) => {
           return (
             <div key={city} style={{ flex: "1 1 150px", borderRadius: "8px", padding: "18px", display: "flex", flexDirection: "column", gap: "26px", background: hub ? '#080b38' : '#fff', color: hub ? '#fff' : '#0a0c24' }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", letterSpacing: ".1em", opacity: ".7" }}>{flag}</span><LocalTime timeZone={tz} color={hub ? '#ffc83d' : '#55566a'} /></div>

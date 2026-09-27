@@ -5,6 +5,7 @@ export type NavLink = { href: string; label: string; current?: boolean; hideOnMo
 
 export const HOME = '/';
 export const WEBSITE_DEVELOPMENT = '/services/website-development-services';
+export const CONTACT = '/contact';
 
 export const SOCIAL_LINKS: NavLink[] = [
   { href: 'https://www.instagram.com/pluzbuzz/', label: 'Instagram' },
