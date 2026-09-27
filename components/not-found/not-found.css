@@ -1,0 +1,202 @@
+/* 404: the stage's words fall and can be thrown (lib/use-falling-text.ts) */
+
+.nf-main {
+  /* Clears the fixed header: its tallest control plus 16px padding top and bottom */
+  --nf-head: calc(max(48px, clamp(40px, 4vw, 58px)) + 32px);
+  padding-top: var(--nf-head);
+}
+
+.nf-stage {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(10, 12, 36, 0.1);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nf-stage:not(.is-fallen) {
+  cursor: pointer;
+}
+
+.nf-layout {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: max(560px, calc(100svh - var(--nf-head)));
+  padding: clamp(64px, 6vw, 80px) clamp(20px, 4vw, 56px) clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 1.8vw, 24px);
+}
+
+.nf-stage [data-w] {
+  will-change: transform;
+}
+
+/* Once things have fallen they're grabbable; before that a swipe over them still scrolls the page on phones */
+.nf-stage.is-fallen [data-w] {
+  cursor: grab;
+  touch-action: none;
+}
+
+.nf-pill {
+  display: block;
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(10, 12, 36, 0.2);
+  background: #fff;
+  color: #55566a;
+  font-family: 'IBM Plex Mono';
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nf-digits {
+  display: flex;
+  gap: 0.02em;
+  font-size: min(30vw, 44svh);
+  line-height: 0.74;
+  padding-top: 0.02em;
+}
+
+.nf-digits span {
+  display: block;
+  padding-bottom: 0.035em;
+}
+
+.nf-hint {
+  position: absolute;
+  top: clamp(20px, 3vw, 32px);
+  right: clamp(20px, 4vw, 56px);
+  z-index: 3;
+  pointer-events: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #55566a;
+}
+
+@media (max-width: 899.98px) {
+  .nf-hint {
+    left: clamp(20px, 4vw, 56px);
+    font-size: 11px;
+  }
+}
+
+.nf-outline:hover {
+  border-color: #3a5bff !important;
+}
+
+.nf-reset:hover {
+  color: #0a0c24 !important;
+}
+
+.nf-match:hover {
+  color: #fff !important;
+}
+
+.nf-search::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.nf-search::-webkit-search-cancel-button {
+  display: none;
+}
+
+@keyframes nf-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.nf-caret {
+  flex: none;
+  width: 8px;
+  height: 16px;
+  background: #ffc83d;
+  animation: nf-blink 1s steps(1) infinite;
+}
+
+.nf-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.nf-result:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffc83d;
+}
+
+/* Numbered by counter so the list stays 01, 02, 03 when a desktop-only card is hidden on phones */
+.nf-dests {
+  counter-reset: nf-dest;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.nf-dest {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(10, 12, 36, 0.14);
+  transition: border-color 0.3s, background 0.3s, transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.nf-dest {
+  counter-increment: nf-dest;
+}
+
+.nf-dest__n::before {
+  content: counter(nf-dest, decimal-leading-zero);
+}
+
+.nf-dest--dark {
+  border-color: #080b38;
+  color: #fff;
+}
+
+.nf-dest:hover {
+  border-color: #080b38;
+  transform: translateY(-3px);
+  color: #0a0c24;
+}
+
+.nf-dest--dark:hover {
+  background: #3a5bff !important;
+  border-color: #3a5bff;
+  color: #fff;
+}
+
+/* Phones: stacked cards don't need the staggered heights */
+@media (max-width: 599.98px) {
+  .nf-dest {
+    min-height: 150px !important;
+    gap: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-caret {
+    animation: none;
+  }
+
+  .nf-dest {
+    transition: none;
+  }
+}
