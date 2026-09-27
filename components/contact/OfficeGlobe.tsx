@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { geoContains, geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
+import { geoCentroid, geoContains, geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import type { Feature, Geometry } from 'geojson';
 import type { GeometryCollection, Topology } from 'topojson-specification';
@@ -14,6 +14,36 @@ type Rotation = [number, number, number];
 const HQ = OFFICES[0];
 const OFFICE_IDS = new Set(OFFICES.map(o => o.id));
 const monoLabel = { fontFamily: "'IBM Plex Mono'", fontSize: "12px", letterSpacing: ".1em", textTransform: "uppercase" } as const;
+
+/* Colour mode: a natural-looking earth. Countries get a tone from where they sit, not real land cover. */
+const ICE = '#e6edf1';
+const SAND = ['#d8c08a', '#cfb57d', '#e0c994'];
+const FOREST = ['#3f7447', '#4a7d4f', '#56875a'];
+const GREEN = ['#5c9a52', '#6ba35a', '#7aa860', '#8fb26b', '#5e8f58'];
+// Mostly-arid countries (ISO numeric), so the Sahara, Arabia, Central Asia and Australia read as desert.
+// Ice-sheet land: Greenland, Antarctica, French Southern Lands. Picked by id so big northern countries stay green.
+const ICY = new Set(['304', '010', '260']);
+const ARID = new Set(['012', '434', '818', '732', '478', '466', '562', '148', '729', '682', '887', '512', '368', '400', '364', '004', '586', '036', '496', '398', '795', '860', '516', '072', '504', '788', '760', '784', '634', '414', '706', '232', '262']);
+
+function countryColour(f: Country) {
+  const id = String(f.id ?? '');
+  const hash = [...(id || f.properties.name)].reduce((h, c) => h * 31 + c.charCodeAt(0), 7);
+  const pickTone = (tones: string[]) => tones[Math.abs(hash) % tones.length];
+  if (ICY.has(id)) return ICE;
+  const lat = Math.abs(geoCentroid(f)[1]);
+  if (ARID.has(id)) return pickTone(SAND);
+  return pickTone(lat > 45 ? FOREST : GREEN);
+}
+
+const BLUE_THEME = {
+  glow: 'rgba(58,91,255,.22)', seaLight: '#16206e', seaDark: '#0a0f45', grid: 'rgba(255,255,255,.06)',
+  land: '#232a72', landHover: '#2e3685', border: 'rgba(255,255,255,.13)', office: '#3a4598', officeBorder: 'rgba(170,182,255,.7)'
+};
+// `land` is unused here: colour mode fills each country with its own tone.
+const COLOUR_THEME = {
+  glow: 'rgba(90,180,255,.26)', seaLight: '#2f86c4', seaDark: '#0b3563', grid: 'rgba(255,255,255,.09)',
+  land: '', landHover: '#b4d692', border: 'rgba(16,40,24,.38)', office: '#6f82e8', officeBorder: 'rgba(255,255,255,.75)'
+};
 
 const easeCubicInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -48,12 +78,19 @@ export default function OfficeGlobe() {
   const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const selRef = useRef(0);
+  const [colour, setColour] = useState(false);
+  const colourRef = useRef(false);
   const flyToRef = useRef<(i: number) => void>(() => {});
 
   const pick = (i: number) => {
     selRef.current = i;
     setSel(i);
     flyToRef.current(i);
+  };
+  // The canvas redraws every frame, so flipping the ref is enough; the state only restyles the button.
+  const toggleColour = () => {
+    colourRef.current = !colourRef.current;
+    setColour(colourRef.current);
   };
   const pickRef = useRef(pick);
   useEffect(() => {
@@ -77,6 +114,7 @@ export default function OfficeGlobe() {
     let raf = 0;
     let W = 0, H = 0, dpr = 1, R = 0, CY = 0;
     let land: Country[] | null = null;
+    const tones = new Map<string, Country[]>();
     let hoverF: Country | null = null;
     let fly: { r0: Rotation; r1: Rotation; t0: number; dur: number; dip: number } | null = null;
     let hoverT = 0;
@@ -144,17 +182,20 @@ export default function OfficeGlobe() {
       ctx.clearRect(0, 0, W, H);
       proj.scale(r).translate([cx, cy]).rotate(rot);
 
+      const colourOn = colourRef.current;
+      const theme = colourOn ? COLOUR_THEME : BLUE_THEME;
+
       const glow = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.25);
-      glow.addColorStop(0, 'rgba(58,91,255,.22)');
-      glow.addColorStop(1, 'rgba(58,91,255,0)');
+      glow.addColorStop(0, theme.glow);
+      glow.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = glow;
       ctx.beginPath();
       ctx.arc(cx, cy, r * 1.25, 0, 7);
       ctx.fill();
 
       const sea = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.4, r * 0.1, cx, cy, r);
-      sea.addColorStop(0, '#16206e');
-      sea.addColorStop(1, '#0a0f45');
+      sea.addColorStop(0, theme.seaLight);
+      sea.addColorStop(1, theme.seaDark);
       ctx.beginPath();
       path({ type: 'Sphere' });
       ctx.fillStyle = sea;
@@ -162,24 +203,35 @@ export default function OfficeGlobe() {
 
       ctx.beginPath();
       path(grat);
-      ctx.strokeStyle = 'rgba(255,255,255,.06)';
+      ctx.strokeStyle = theme.grid;
       ctx.lineWidth = 0.6;
       ctx.stroke();
 
       if (land) {
-        ctx.beginPath();
-        land.forEach(f => {
-          if (!OFFICE_IDS.has(String(f.id)) && f !== hoverF) path(f);
-        });
-        ctx.fillStyle = '#232a72';
-        ctx.fill();
-        ctx.strokeStyle = 'rgba(255,255,255,.13)';
+        const plain = (f: Country) => !OFFICE_IDS.has(String(f.id)) && f !== hoverF;
+        if (colourOn) {
+          // One fill per tone rather than per country.
+          tones.forEach((fs, tone) => {
+            ctx.beginPath();
+            fs.forEach(f => plain(f) && path(f));
+            ctx.fillStyle = tone;
+            ctx.fill();
+          });
+          ctx.beginPath();
+          land.forEach(f => plain(f) && path(f));
+        } else {
+          ctx.beginPath();
+          land.forEach(f => plain(f) && path(f));
+          ctx.fillStyle = theme.land;
+          ctx.fill();
+        }
+        ctx.strokeStyle = theme.border;
         ctx.lineWidth = 0.6;
         ctx.stroke();
         if (hoverF && !OFFICE_IDS.has(String(hoverF.id))) {
           ctx.beginPath();
           path(hoverF);
-          ctx.fillStyle = '#2e3685';
+          ctx.fillStyle = theme.landHover;
           ctx.fill();
           ctx.strokeStyle = 'rgba(255,255,255,.4)';
           ctx.stroke();
@@ -189,12 +241,23 @@ export default function OfficeGlobe() {
           const on = f.id === selected.id, hov = f === hoverF;
           ctx.beginPath();
           path(f);
-          ctx.fillStyle = on ? '#3a5bff' : hov ? '#5268d6' : '#3a4598';
+          ctx.fillStyle = on ? '#3a5bff' : hov ? '#5268d6' : theme.office;
           ctx.fill();
-          ctx.strokeStyle = on ? '#fff' : 'rgba(170,182,255,.7)';
+          ctx.strokeStyle = on ? '#fff' : theme.officeBorder;
           ctx.lineWidth = on ? 1.1 : 0.7;
           ctx.stroke();
         });
+        if (colourOn) {
+          // Soft daylight from the top left, falling off towards the rim, so the colours read as a sphere.
+          const shade = ctx.createRadialGradient(cx - r * 0.4, cy - r * 0.45, r * 0.05, cx, cy, r);
+          shade.addColorStop(0, 'rgba(255,255,255,.16)');
+          shade.addColorStop(0.55, 'rgba(255,255,255,0)');
+          shade.addColorStop(1, 'rgba(4,12,40,.42)');
+          ctx.beginPath();
+          path({ type: 'Sphere' });
+          ctx.fillStyle = shade;
+          ctx.fill();
+        }
       }
 
       // Routes from the London hub; the selected one is solid, the rest march.
@@ -344,6 +407,10 @@ export default function OfficeGlobe() {
       if (disposed) return;
       const topo = (mod.default ?? mod) as unknown as Topology<{ countries: GeometryCollection<{ name: string }> }>;
       land = feature(topo, topo.objects.countries).features as Country[];
+      land.forEach(f => {
+        const tone = countryColour(f);
+        tones.set(tone, [...(tones.get(tone) ?? []), f]);
+      });
       flyTo(selRef.current, 1800);
     }).catch(() => {});
 
@@ -384,8 +451,14 @@ export default function OfficeGlobe() {
 
       <div ref={stageRef} className="ct-globe__stage" style={{ position: "relative", border: "1px solid rgba(255,255,255,.12)", borderRadius: "12px", overflow: "hidden", backgroundColor: "#080b38", backgroundImage: "linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px)", backgroundSize: "48px 48px" }}>
         <canvas ref={canvasRef} role="img" aria-label="Interactive globe showing PluzBuzz office locations" style={{ position: "absolute", inset: "0", width: "100%", height: "100%", cursor: "grab", touchAction: "pan-y" }}></canvas>
-        <div style={{ position: "absolute", left: "16px", top: "14px", right: "16px", display: "flex", justifyContent: "space-between", gap: "12px", fontFamily: "'IBM Plex Mono'", fontSize: "11px", letterSpacing: ".08em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", pointerEvents: "none" }}>
-          <span>{hover.coord || 'Drag to explore'}</span><span>{hover.name}</span>
+        <div style={{ position: "absolute", left: "16px", top: "14px", right: "16px", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "12px", fontFamily: "'IBM Plex Mono'", fontSize: "11px", letterSpacing: ".08em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", pointerEvents: "none" }}>
+          <span style={{ display: "flex", flexDirection: "column", gap: "4px", minWidth: "0" }}><span>{hover.coord || 'Drag to explore'}</span><span>{hover.name}</span></span>
+          <button type="button" className="ct-globe__toggle" aria-pressed={colour} aria-label="Show the globe in colour" onClick={toggleColour} style={{ pointerEvents: "auto", flex: "none", display: "flex", alignItems: "center", gap: "8px", padding: "7px 11px", borderRadius: "999px", fontFamily: "inherit", fontSize: "11px", letterSpacing: ".08em", textTransform: "uppercase", cursor: "pointer", transition: "background .2s,color .2s,border-color .2s" }}>
+            <span aria-hidden="true" style={{ display: "grid", gridTemplateColumns: "repeat(2,5px)", gap: "2px" }}>
+              {['#2f86c4', '#5c9a52', '#d8c08a', '#e6edf1'].map(c => <span key={c} style={{ width: "5px", height: "5px", borderRadius: "50%", background: colour ? c : 'currentColor' }}></span>)}
+            </span>
+            Colour
+          </button>
         </div>
         <article aria-live="polite" style={{ position: "absolute", left: "clamp(12px,1.6vw,20px)", bottom: "clamp(12px,1.6vw,20px)", width: "min(320px,calc(100% - 24px))", display: "flex", flexDirection: "column", gap: "12px", padding: "18px 20px", borderRadius: "10px", background: "rgba(8,11,56,.86)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.14)" }}>
           <div style={{ ...monoLabel, fontSize: "11px", display: "flex", justifyContent: "space-between", gap: "10px" }}><span style={{ color: "#ffc83d" }}>{o.code} · {o.hub ? 'Main hub' : 'Regional delivery'}</span><span style={{ color: "rgba(255,255,255,.55)" }}>{num} / 07</span></div>

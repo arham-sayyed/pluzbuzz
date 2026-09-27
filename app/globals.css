@@ -599,6 +599,23 @@ button {
   background: rgba(255, 255, 255, 0.1);
 }
 
+.ct-globe__toggle {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(8, 11, 56, 0.72);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ct-globe__toggle:hover {
+  border-color: #ffc83d;
+  color: #fff;
+}
+
+.ct-globe__toggle[aria-pressed='true'] {
+  border-color: #fff;
+  background: #fff;
+  color: #080b38;
+}
+
 @media (max-width: 1099.98px) {
   .ct-globe {
     grid-template-columns: minmax(0, 1fr);
