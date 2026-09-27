@@ -14,7 +14,7 @@ import Reviews from '@/components/services/website-development/Reviews';
 import Faq from '@/components/services/website-development/Faq';
 import Related from '@/components/services/website-development/Related';
 import { FAQS } from '@/components/services/website-development/data';
-import { CONTACT, HOME, SERVICES_INDEX, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, HOME, SERVICES_INDEX, WEBSITE_DEVELOPMENT, catalogueHref, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Website Development Services London | Web Design Agency UK | PluzBuzz',
@@ -37,12 +37,12 @@ const DISCOVER: NavLink[] = [
 ];
 const SERVICE_LINKS: NavLink[] = [
   { href: '#top', label: 'Web Development', current: true },
-  { href: '/#svc-2', label: 'SEO Services' },
-  { href: '/#svc-3', label: 'Digital Marketing' },
-  { href: '/#svc-4', label: 'App & SaaS' },
-  { href: '/#svc-5', label: 'AI Marketing' },
-  { href: '/#svc-6', label: 'Photography' },
-  { href: '/#svc-6', label: 'Video Production' }
+  { href: catalogueHref('seo'), label: 'SEO Services' },
+  { href: catalogueHref('digital-marketing'), label: 'Digital Marketing' },
+  { href: catalogueHref('app-saas-development'), label: 'App & SaaS' },
+  { href: catalogueHref('ai-marketing'), label: 'AI Marketing' },
+  { href: catalogueHref('photo-shoot'), label: 'Photography' },
+  { href: catalogueHref('video-shoot'), label: 'Video Production' }
 ];
 
 const serviceSchema = {

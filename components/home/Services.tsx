@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { MOBILE_BP, useNarrowerThan } from '@/lib/use-viewport';
 import Link from 'next/link';
-import { WEBSITE_DEVELOPMENT } from '@/lib/site';
+import { SERVICES, WEBSITE_DEVELOPMENT } from '@/lib/site';
 
 const PREVIEW_LABELS = ['website preview', 'seo preview', 'campaign preview', 'app / saas preview', 'ai workflow preview', 'photo + video still'];
 
@@ -75,31 +75,31 @@ export default function Services() {
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>02 — Core lane</span>
             <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(36px,4vw,60px)", lineHeight: ".95", textTransform: "uppercase" }}>SEO &amp; Content</h3>
             <p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>Search visibility, content structure, and intent-led growth.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>SEO Services</span><a href="#svc-2" style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</a></div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>SEO Services</span><Link href={SERVICES.seo.href} style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</Link></div>
           </article>
           <article id="svc-3" data-svcrow="" style={{ padding: "clamp(28px,3.4vw,44px) 0", borderTop: "1px solid rgba(10,12,36,.14)", transition: "opacity .35s", display: "flex", flexDirection: "column", gap: "14px", scrollMarginTop: "100px" }}>
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>03 — Core lane</span>
             <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(36px,4vw,60px)", lineHeight: ".95", textTransform: "uppercase" }}>Growth Marketing</h3>
             <p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>Performance campaigns built to improve lead quality.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Digital Marketing</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Social Media</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Advertising</span><a href="#svc-3" style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</a></div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Digital Marketing</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Social Media</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Advertising</span><Link href={SERVICES.growth.href} style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</Link></div>
           </article>
           <article id="svc-4" data-svcrow="" style={{ padding: "clamp(28px,3.4vw,44px) 0", borderTop: "1px solid rgba(10,12,36,.14)", transition: "opacity .35s", display: "flex", flexDirection: "column", gap: "14px", scrollMarginTop: "100px" }}>
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>04 — Core lane</span>
             <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(36px,4vw,60px)", lineHeight: ".95", textTransform: "uppercase" }}>App / SaaS Systems</h3>
             <p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>Sharper product journeys and scalable digital experiences.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>App &amp; SaaS</span><a href="#svc-4" style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</a></div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>App &amp; SaaS</span><Link href={SERVICES.app.href} style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</Link></div>
           </article>
           <article id="svc-5" data-svcrow="" style={{ padding: "clamp(28px,3.4vw,44px) 0", borderTop: "1px solid rgba(10,12,36,.14)", transition: "opacity .35s", display: "flex", flexDirection: "column", gap: "14px", scrollMarginTop: "100px" }}>
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>05 — Core lane</span>
             <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(36px,4vw,60px)", lineHeight: ".95", textTransform: "uppercase" }}>AI Enablement</h3>
             <p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>Smarter workflows, creative systems, and automation support.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>AI Marketing</span><a href="#svc-5" style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</a></div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>AI Marketing</span><Link href={SERVICES.ai.href} style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</Link></div>
           </article>
           <article id="svc-6" data-svcrow="" style={{ padding: "clamp(28px,3.4vw,44px) 0", borderTop: "1px solid rgba(10,12,36,.14)", borderBottom: "1px solid rgba(10,12,36,.14)", transition: "opacity .35s", display: "flex", flexDirection: "column", gap: "14px", scrollMarginTop: "100px" }}>
             <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>06 — Core lane</span>
             <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(36px,4vw,60px)", lineHeight: ".95", textTransform: "uppercase" }}>Photo + Video Production</h3>
             <p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>Directed visual assets for launches, campaigns, and content.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Photography</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Video Production</span><a href="#svc-6" style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</a></div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Photography</span><span style={{ padding: "6px 12px", borderRadius: "4px", background: "#f4f4f7", fontSize: "13px", fontWeight: "500" }}>Video Production</span><Link href={SERVICES.media.href} style={{ marginLeft: "auto", fontWeight: "600", fontSize: "15px" }}>Explore service →</Link></div>
           </article>
         </div>
       </div>

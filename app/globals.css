@@ -775,6 +775,17 @@ button {
   outline-offset: 3px;
 }
 
+/* Hash jumps to a card (/services#seo) clear the fixed header and the sticky filter bar */
+.sv-card {
+  scroll-margin-top: 180px;
+}
+
+@media (max-width: 899.98px) {
+  .sv-card {
+    scroll-margin-top: 230px;
+  }
+}
+
 @media (hover: hover) {
   .sv-card:hover {
     border-color: #080b38 !important;

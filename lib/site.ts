@@ -8,6 +8,22 @@ export const WEBSITE_DEVELOPMENT = '/services/website-development-services';
 export const CONTACT = '/contact';
 export const SERVICES_INDEX = '/services';
 
+/** A service's card in the /services catalogue: the destination for services without a page of their own. */
+export const catalogueHref = (slug: string) => `${SERVICES_INDEX}#${slug}`;
+
+/** The footer's service column, shared by every page. */
+export const SERVICE_LINKS: NavLink[] = [
+  { href: WEBSITE_DEVELOPMENT, label: 'Web Development' },
+  { href: catalogueHref('seo'), label: 'SEO Services' },
+  { href: catalogueHref('digital-marketing'), label: 'Digital Marketing' },
+  { href: catalogueHref('app-saas-development'), label: 'App & SaaS' },
+  { href: catalogueHref('ai-marketing'), label: 'AI Marketing' },
+  { href: catalogueHref('photo-shoot'), label: 'Photography' },
+  { href: catalogueHref('video-shoot'), label: 'Video Production' },
+  { href: catalogueHref('social-media'), label: 'Social Media' },
+  { href: catalogueHref('advertising'), label: 'Advertising' }
+];
+
 export const SOCIAL_LINKS: NavLink[] = [
   { href: 'https://www.instagram.com/pluzbuzz/', label: 'Instagram' },
   { href: 'https://x.com/PluzBuzz', label: 'X' },
@@ -32,10 +48,10 @@ export interface ServiceStyle {
 
 export const SERVICES: Record<ServiceKey, ServiceStyle> = {
   web: { name: 'Website Development', blurb: 'Conversion-ready websites and landing systems.', href: WEBSITE_DEVELOPMENT, bg: '#080b38', fg: '#ffffff', sub: 'rgba(255,255,255,.72)', accent: '#ffc83d', border: '#080b38', motif: 'browser' },
-  seo: { name: 'SEO Agency London', blurb: 'SEO strategy for websites built to rank', href: '/#svc-2', bg: '#ffffff', fg: '#0a0c24', sub: '#55566a', accent: '#2fbf71', border: '#0a0c24', motif: 'search' },
-  growth: { name: 'Growth Marketing', blurb: 'Performance campaigns built to improve lead quality.', href: '/#svc-3', bg: '#ffc83d', fg: '#080b38', sub: 'rgba(8,11,56,.72)', accent: '#080b38', border: '#ffc83d', motif: 'bars' },
-  app: { name: 'App & SaaS Development', blurb: 'Custom apps and scalable SaaS product systems for growing teams', href: '/#svc-4', bg: '#555AFE', fg: '#ffffff', sub: 'rgba(255,255,255,.8)', accent: '#F2D458', border: '#555AFE', motif: 'phone' },
-  ai: { name: 'AI Enablement', blurb: 'Smarter workflows, creative systems, and automation support.', href: '/#svc-5', bg: '#0a0c24', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#E453EE', border: '#0a0c24', motif: 'nodes' },
-  media: { name: 'Photo + Video Production', blurb: 'Directed visual assets for launches, campaigns, and content.', href: '/#svc-6', bg: '#141414', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#ff4d4d', border: '#141414', motif: 'viewfinder' },
+  seo: { name: 'SEO Agency London', blurb: 'SEO strategy for websites built to rank', href: catalogueHref('seo'), bg: '#ffffff', fg: '#0a0c24', sub: '#55566a', accent: '#2fbf71', border: '#0a0c24', motif: 'search' },
+  growth: { name: 'Growth Marketing', blurb: 'Performance campaigns built to improve lead quality.', href: catalogueHref('digital-marketing'), bg: '#ffc83d', fg: '#080b38', sub: 'rgba(8,11,56,.72)', accent: '#080b38', border: '#ffc83d', motif: 'bars' },
+  app: { name: 'App & SaaS Development', blurb: 'Custom apps and scalable SaaS product systems for growing teams', href: catalogueHref('app-saas-development'), bg: '#555AFE', fg: '#ffffff', sub: 'rgba(255,255,255,.8)', accent: '#F2D458', border: '#555AFE', motif: 'phone' },
+  ai: { name: 'AI Enablement', blurb: 'Smarter workflows, creative systems, and automation support.', href: catalogueHref('ai-marketing'), bg: '#0a0c24', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#E453EE', border: '#0a0c24', motif: 'nodes' },
+  media: { name: 'Photo + Video Production', blurb: 'Directed visual assets for launches, campaigns, and content.', href: catalogueHref('photo-shoot'), bg: '#141414', fg: '#ffffff', sub: 'rgba(255,255,255,.7)', accent: '#ff4d4d', border: '#141414', motif: 'viewfinder' },
   all: { name: 'All Services', blurb: 'See the complete PluzBuzz service catalogue', href: SERVICES_INDEX, bg: '#f4f4f7', fg: '#0a0c24', sub: '#55566a', accent: '#3a5bff', border: '#f4f4f7', motif: 'grid' }
 };

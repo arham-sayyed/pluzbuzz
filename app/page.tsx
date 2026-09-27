@@ -15,7 +15,7 @@ import Rebrand from '@/components/home/Rebrand';
 import GlobalPresence from '@/components/home/GlobalPresence';
 import Journal from '@/components/home/Journal';
 import StrategyTicket from '@/components/home/StrategyTicket';
-import { CONTACT, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, SERVICE_LINKS, SERVICES_INDEX, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Digital Agency London | SEO, Marketing & Web Development UK | PluzBuzz',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const NAV: NavLink[] = [
-  { href: '#services', label: 'Services' },
+  { href: SERVICES_INDEX, label: 'Services' },
   { href: '#work', label: 'Work', hideOnMobile: true },
   { href: '#about', label: 'About' },
   { href: '#global', label: 'Global' },
@@ -37,17 +37,6 @@ const DISCOVER: NavLink[] = [
   { href: '#global', label: 'Global Presence' },
   { href: CONTACT, label: 'Contact' },
   { href: '#about', label: 'About' }
-];
-const SERVICE_LINKS: NavLink[] = [
-  { href: WEBSITE_DEVELOPMENT, label: 'Web Development' },
-  { href: '#svc-2', label: 'SEO Services' },
-  { href: '#svc-3', label: 'Digital Marketing' },
-  { href: '#svc-4', label: 'App & SaaS' },
-  { href: '#svc-5', label: 'AI Marketing' },
-  { href: '#svc-6', label: 'Photography' },
-  { href: '#svc-6', label: 'Video Production' },
-  { href: '#svc-3', label: 'Social Media' },
-  { href: '#svc-3', label: 'Advertising' }
 ];
 
 const localBusiness = {

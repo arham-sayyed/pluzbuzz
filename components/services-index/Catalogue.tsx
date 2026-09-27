@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent a
 import NavAnchor from '@/components/site/NavAnchor';
 import TearTicket from '@/components/TearTicket';
 import ContactSection from '@/components/site/ContactSection';
-import { CATALOGUE, CATEGORIES, MAX_QUERY, SEARCH_HINTS, cardTag, categoryLabel, type CategoryKey } from './data';
+import { CATALOGUE, CATEGORIES, MAX_QUERY, SEARCH_HINTS, cardTag, categoryLabel, hasOwnPage, type CategoryKey } from './data';
 import { categoryCount, requestNumber, searchCatalogue, type SearchResult } from './search';
 import { ILLUSTRATIONS } from './Illustrations';
 
@@ -270,6 +270,29 @@ export default function Catalogue() {
     return () => cancelAnimationFrame(raf);
   }, [q, cat]);
 
+  // Deep links (/services#seo, from the footer and the home page) land on that card below the header and sticky bar
+  // once the masonry has settled, then flash it so it's easy to spot.
+  useEffect(() => {
+    const land = () => {
+      const s = CATALOGUE.find(c => c.slug === decodeURIComponent(location.hash.slice(1)));
+      if (!s) return;
+      reset(false);
+      const go = () => {
+        const card = gridRef.current?.querySelector<HTMLElement>(`[data-card="${s.id}"]`);
+        const bar = barRef.current;
+        if (!card) return;
+        scrollBelowHeader(card, (bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight : 0) + 16);
+        if (!reducedMotion() && typeof card.animate === 'function') {
+          card.animate([{ boxShadow: '0 0 0 3px #3a5bff' }, { boxShadow: '0 0 0 3px #3a5bff', offset: 0.6 }, { boxShadow: '0 0 0 3px rgba(58,91,255,0)' }], { duration: 1800, delay: 350, easing: 'ease-out' });
+        }
+      };
+      (document.fonts?.ready ?? Promise.resolve()).then(() => timers.current.push(setTimeout(go, 120)));
+    };
+    land();
+    addEventListener('hashchange', land);
+    return () => removeEventListener('hashchange', land);
+  }, [reset]);
+
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
 
   const onKeyDown = (e: ReactKeyboardEvent<HTMLInputElement>) => {
@@ -285,9 +308,9 @@ export default function Catalogue() {
     }
   };
 
-  // Tearing the ticket adds the query to the enquiry's "Services interested in" field, then moves to the form.
-  const addToEnquiry = () => {
-    const text = r.raw;
+  // Tearing the ticket (or picking a service without its own page) adds it to the enquiry's "Services interested in"
+  // field, then moves to the form.
+  const addToEnquiry = (text: string) => {
     const form = document.querySelector<HTMLFormElement>('#contact form');
     const field = form?.elements.namedItem('services');
     if (field instanceof HTMLInputElement) {
@@ -349,14 +372,25 @@ export default function Catalogue() {
         </div>
         <p aria-live="polite" style={{ maxWidth: "1440px", margin: "18px auto 0", ...mono, fontSize: "12px", letterSpacing: ".04em", color: "#55566a" }}>{statusLine(r, cat)}</p>
 
-        {r.empty && <EmptyState r={r} cat={cat} onPick={pick} onAll={() => reset(true)} onCategoryAll={() => setCat('all')} onTear={addToEnquiry} />}
+        {r.empty && <EmptyState r={r} cat={cat} onPick={pick} onAll={() => reset(true)} onCategoryAll={() => setCat('all')} onTear={() => addToEnquiry(r.raw)} />}
 
         <div ref={gridRef} id="service-grid" className="sv-grid" style={{ maxWidth: "1440px", margin: "14px auto 0" }}>
           {CATALOGUE.map(s => {
             const Art = ILLUSTRATIONS[s.id];
             const hit = r.hits[s.id];
+            const own = hasOwnPage(s);
             return (
-              <NavAnchor key={s.id} data-card={s.id} data-r="up" href={s.href} className="sv-card" style={{ display: shownIds.has(s.id) ? 'flex' : 'none', flexDirection: "column", borderRadius: "10px", border: "1px solid rgba(10,12,36,.14)", background: s.tint, color: "#0a0c24", overflow: "hidden", boxShadow: "0 1px 0 rgba(10,12,36,.04)" }}>
+              <NavAnchor
+                key={s.id}
+                id={s.slug}
+                data-card={s.id}
+                data-r="up"
+                href={own ? s.href : '#contact'}
+                onClick={own ? undefined : e => {
+                  e.preventDefault();
+                  addToEnquiry(s.name);
+                }}
+                className="sv-card" style={{ display: shownIds.has(s.id) ? 'flex' : 'none', flexDirection: "column", borderRadius: "10px", border: "1px solid rgba(10,12,36,.14)", background: s.tint, color: "#0a0c24", overflow: "hidden", boxShadow: "0 1px 0 rgba(10,12,36,.04)" }}>
                 <div aria-hidden="true" className="sv-card__art" style={{ position: "relative", height: `${s.art}px`, ['--art' as string]: `${s.art}px`, borderBottom: "1px solid rgba(10,12,36,.1)" }}>
                   <Art />
                 </div>
@@ -367,7 +401,7 @@ export default function Catalogue() {
                   </div>
                   <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "700", fontSize: "30px", lineHeight: ".95", textTransform: "uppercase" }}>{s.name}</h3>
                   <p style={{ fontSize: "15px", lineHeight: "1.55", color: "#55566a" }}>{s.blurb}</p>
-                  <span style={{ marginTop: "6px", paddingTop: "14px", borderTop: "1px solid rgba(10,12,36,.08)", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "14px", fontWeight: "600" }}>Explore Service <span aria-hidden="true">→</span></span>
+                  <span style={{ marginTop: "6px", paddingTop: "14px", borderTop: "1px solid rgba(10,12,36,.08)", display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "14px", fontWeight: "600" }}>{own ? 'Explore Service' : 'Enquire about this'} <span aria-hidden="true">→</span></span>
                 </div>
               </NavAnchor>
             );

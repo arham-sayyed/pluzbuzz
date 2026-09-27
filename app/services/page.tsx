@@ -5,7 +5,7 @@ import SiteFooter from '@/components/site/SiteFooter';
 import Hero from '@/components/services-index/Hero';
 import Catalogue from '@/components/services-index/Catalogue';
 import { CATALOGUE } from '@/components/services-index/data';
-import { CONTACT, HOME, SERVICES_INDEX, WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+import { CONTACT, HOME, SERVICES_INDEX, SERVICE_LINKS, type NavLink } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Digital Agency Services | SEO, Web, Apps, AI Marketing | PluzBuzz',
@@ -25,17 +25,6 @@ const DISCOVER: NavLink[] = [
   { href: '/#journal', label: 'Insights' },
   { href: CONTACT + '#global', label: 'Global Presence' },
   { href: CONTACT, label: 'Contact' }
-];
-const SERVICE_LINKS: NavLink[] = [
-  { href: WEBSITE_DEVELOPMENT, label: 'Web Development' },
-  { href: '/#svc-2', label: 'SEO Services' },
-  { href: '/#svc-3', label: 'Digital Marketing' },
-  { href: '/#svc-4', label: 'App & SaaS' },
-  { href: '/#svc-5', label: 'AI Marketing' },
-  { href: '/#svc-6', label: 'Photography' },
-  { href: '/#svc-6', label: 'Video Production' },
-  { href: '/#svc-3', label: 'Social Media' },
-  { href: '/#svc-3', label: 'Advertising' }
 ];
 
 const provider = { '@type': 'LocalBusiness', name: 'PluzBuzz', url: 'https://pluzbuzz.com/' };
