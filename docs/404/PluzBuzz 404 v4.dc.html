@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Page Not Found | PluzBuzz</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff;color:#0a0c24;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#0a0c24;text-decoration:none}
+a:hover{color:#3a5bff}
+h1,h2,h3,h4,p{margin:0}
+input,button{font:inherit}
+::selection{background:#ffc83d;color:#080b38}
+input::placeholder{color:rgba(255,255,255,.4)}
+input[type=search]::-webkit-search-cancel-button{display:none}
+@keyframes pbBlink{50%{opacity:0}}
+</style>
+</helmet>
+
+<div style="position:relative;background:#fff;min-height:100vh;display:flex;flex-direction:column">
+
+<header ref="{{ headRef }}" style="position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid rgba(10,12,36,.08)">
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="PluzBuzz%20Home%20v4.dc.html" aria-label="PluzBuzz home" style="display:block;flex:none"><img src="assets/logo.gif" alt="PluzBuzz logo" width="1200" height="224" style="display:block;height:clamp(40px,4vw,58px);width:auto"></a>
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);font-size:15px;font-weight:500;white-space:nowrap">
+        <a href="PluzBuzz%20Home%20v4.dc.html">Home</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#about">About</a>
+        <a href="PluzBuzz%20Services%20v2.dc.html">Services</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#journal">Blogs</a>
+        <a href="PluzBuzz%20Contact.dc.html" style="display:flex;align-items:center;gap:8px;padding:13px 20px;background:#080b38;color:#fff;border-radius:6px" style-hover="background:#3a5bff;color:#fff">Contact Us</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+      <button type="button" aria-label="Toggle menu" onClick="{{ toggleMenu }}" style="width:48px;height:48px;border:0;border-radius:6px;background:#080b38;color:#fff;font-size:18px;cursor:pointer">{{ burgerIcon }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;background:#fff;border-bottom:1px solid rgba(10,12,36,.12);font-family:'Barlow Condensed';font-weight:700;font-size:34px;text-transform:uppercase">
+      <a href="PluzBuzz%20Home%20v4.dc.html" style="padding:8px 0">Home</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#about" style="padding:8px 0">About</a>
+      <a href="PluzBuzz%20Services%20v2.dc.html" style="padding:8px 0">Services</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#journal" style="padding:8px 0">Blogs</a>
+      <a href="PluzBuzz%20Contact.dc.html" style="margin-top:10px;padding:14px 18px;background:#080b38;color:#fff;border-radius:6px;font-size:22px">Contact Us</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main style="flex:1">
+<section data-screen-label="404 stage">
+  <div ref="{{ stageRef }}" style="position:relative;height:max(620px,calc(100svh - 90px));overflow:hidden;border-bottom:1px solid rgba(10,12,36,.1);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:{{ stageCursor }}">
+    <div ref="{{ layoutRef }}" style="position:absolute;inset:0;max-width:1440px;margin:0 auto;padding:clamp(24px,4vw,56px) clamp(20px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,1.8vw,24px)">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span data-w="" style="display:block;white-space:nowrap;padding:8px 14px;border-radius:999px;background:#ffc83d;color:#080b38;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:grab;touch-action:none">Lost</span>
+        <span data-w="" style="display:block;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid rgba(10,12,36,.2);background:#fff;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#55566a;cursor:grab;touch-action:none">Error 404</span>
+        <span data-w="" style="display:block;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid rgba(10,12,36,.2);background:#fff;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#55566a;cursor:grab;touch-action:none">Page not found</span>
+      </div>
+      <div aria-hidden="true" style="display:flex;gap:.02em;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:min(30vw,44svh);line-height:.74;padding-top:.02em">
+        <span data-w="" style="display:block;color:#080b38;cursor:grab;touch-action:none;padding-bottom:.035em">4</span>
+        <span data-w="" style="display:block;color:{{ accent }};cursor:grab;touch-action:none;padding-bottom:.035em">0</span>
+        <span data-w="" style="display:block;color:#080b38;cursor:grab;touch-action:none;padding-bottom:.035em">4</span>
+      </div>
+      <h1 aria-label="This page went off-brief." style="display:flex;flex-wrap:wrap;gap:0 .22em;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(40px,5.6vw,92px);line-height:.92;text-transform:uppercase">
+        <sc-for list="{{ headWords }}" as="w" hint-placeholder-count="0">
+          <span data-w="" aria-hidden="true" style="display:block;white-space:nowrap;color:{{ w.c }};cursor:grab;touch-action:none">{{ w.t }}</span>
+        </sc-for>
+      </h1>
+      <p aria-label="{{ ledeFull }}" style="display:flex;flex-wrap:wrap;gap:.2em .3em;max-width:600px;font-size:clamp(16px,1.3vw,19px);line-height:1.45;color:#55566a">
+        <sc-for list="{{ ledeWords }}" as="w" hint-placeholder-count="0">
+          <span data-w="" aria-hidden="true" style="display:block;white-space:nowrap;color:{{ w.c }};font-weight:{{ w.fw }};cursor:grab;touch-action:none">{{ w.t }}</span>
+        </sc-for>
+      </p>
+    </div>
+    <sc-if value="{{ showHint }}" hint-placeholder-val="{{ true }}">
+      <p style="position:absolute;top:clamp(20px,3vw,32px);right:clamp(20px,4vw,56px);z-index:3;pointer-events:none;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#55566a">{{ hint }}</p>
+    </sc-if>
+  </div>
+</section>
+
+<section data-screen-label="Recovery" style="padding:clamp(28px,4vw,48px) clamp(20px,4vw,56px) clamp(56px,7vw,100px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,4vw,72px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:20px;min-width:0">
+      <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#55566a">Ways out</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,4.6vw,72px);line-height:.9;text-transform:uppercase;text-wrap:balance">Done playing? <span style="color:#3a5bff">Let’s get you back.</span></h2>
+      <p style="font-size:clamp(16px,1.25vw,18px);line-height:1.6;color:#55566a;max-width:520px;text-wrap:pretty">Try the closest match in the log, search the site, or head back home.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:6px">
+        <a href="PluzBuzz%20Home%20v4.dc.html" style="padding:15px 24px;background:#080b38;color:#fff;border-radius:6px;font-weight:600;font-size:15px" style-hover="background:#3a5bff;color:#fff">Back to home →</a>
+        <a href="PluzBuzz%20Services%20v2.dc.html" style="padding:15px 24px;border:1px solid #0a0c24;border-radius:6px;font-weight:600;font-size:15px" style-hover="border-color:#3a5bff">All services</a>
+        <button type="button" onClick="{{ reset }}" style="padding:15px 18px;border:0;background:none;color:#55566a;font-weight:500;font-size:15px;cursor:pointer;text-decoration:underline;text-underline-offset:4px" style-hover="color:#0a0c24">{{ resetLabel }}</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;border-radius:10px;background:#080b38;color:#fff;overflow:hidden;min-width:0;font-family:'IBM Plex Mono';font-size:13px">
+      <div style="display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1)">
+        <span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)"></span>
+        <span style="margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)">Request log</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;padding:18px 18px 16px;line-height:1.5;overflow-wrap:anywhere">
+        <p><span style="color:rgba(255,255,255,.45)">$ GET </span>{{ reqPath }}</p>
+        <p><span style="color:#ff8a7a">✕ 404</span><span style="color:rgba(255,255,255,.7)"> Not Found · pluzbuzz.com</span></p>
+        <p style="color:rgba(255,255,255,.7)">→ closest match <a href="{{ best.h }}" style="color:#ffc83d;border-bottom:1px solid rgba(255,200,61,.5)" style-hover="color:#fff">{{ best.s }}</a></p>
+        <p style="color:rgba(255,255,255,.45)">{{ knockLine }}</p>
+      </div>
+      <label style="display:flex;align-items:center;gap:10px;margin:0 18px;padding:0 12px;height:46px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);cursor:text">
+        <span style="color:#ffc83d">&gt;</span>
+        <input type="search" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" aria-label="Search pages" placeholder="Search pages" autoComplete="off" spellCheck="false" maxLength="60" style="flex:1;min-width:0;height:100%;border:0;outline:none;background:transparent;color:#fff;font-family:'IBM Plex Mono';font-size:13px">
+        <sc-if value="{{ noQ }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="width:8px;height:16px;background:#ffc83d;animation:pbBlink 1s steps(1) infinite"></span></sc-if>
+      </label>
+      <div style="display:flex;flex-direction:column;padding:10px 8px 12px">
+        <sc-for list="{{ results }}" as="r" hint-placeholder-count="4">
+          <a href="{{ r.h }}" style="display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 10px;border-radius:5px;color:#fff" style-hover="background:rgba(255,255,255,.07);color:#ffc83d">
+            <span style="font-family:'Schibsted Grotesk';font-size:15px;font-weight:500">{{ r.n }}</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.s }}</span>
+          </a>
+        </sc-for>
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <p style="padding:10px;color:rgba(255,255,255,.6)">Nothing for “{{ q }}”. <a href="PluzBuzz%20Contact.dc.html" style="color:#ffc83d">Ask us instead →</a></p>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Destinations" style="padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px);background:#f6f6f8;border-top:1px solid rgba(10,12,36,.1)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:22px">
+    <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#55566a">Where people usually go</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;align-items:start">
+      <a href="PluzBuzz%20Services%20v2.dc.html" style="display:flex;flex-direction:column;gap:40px;padding:24px;min-height:220px;border-radius:10px;border:1px solid rgba(10,12,36,.14);background:#dfe5f3;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="border-color:#080b38;transform:translateY(-3px);color:#0a0c24">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">01</span>
+        <span style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Barlow Condensed';font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">Services</span><span style="display:flex;justify-content:space-between;font-size:14px;color:#55566a">All 10 services<span style="color:#0a0c24">→</span></span></span>
+      </a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#work" style="display:flex;flex-direction:column;gap:40px;padding:24px;min-height:260px;border-radius:10px;border:1px solid rgba(10,12,36,.14);background:#e1eadf;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="border-color:#080b38;transform:translateY(-3px);color:#0a0c24">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">02</span>
+        <span style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Barlow Condensed';font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">Our Work</span><span style="display:flex;justify-content:space-between;font-size:14px;color:#55566a">Recent projects<span style="color:#0a0c24">→</span></span></span>
+      </a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#journal" style="display:flex;flex-direction:column;gap:40px;padding:24px;min-height:200px;border-radius:10px;border:1px solid rgba(10,12,36,.14);background:#e6e1f1;transition:border-color .3s,transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="border-color:#080b38;transform:translateY(-3px);color:#0a0c24">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">03</span>
+        <span style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Barlow Condensed';font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">Blogs</span><span style="display:flex;justify-content:space-between;font-size:14px;color:#55566a">Insights and notes<span style="color:#0a0c24">→</span></span></span>
+      </a>
+      <a href="PluzBuzz%20Contact.dc.html" style="display:flex;flex-direction:column;gap:40px;padding:24px;min-height:240px;border-radius:10px;border:1px solid #080b38;background:#080b38;color:#fff;transition:background .3s,transform .35s cubic-bezier(.2,.7,.2,1)" style-hover="background:#3a5bff;transform:translateY(-3px);color:#fff">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:rgba(255,255,255,.6)">04</span>
+        <span style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><span style="font-family:'Barlow Condensed';font-weight:700;font-size:34px;line-height:.95;text-transform:uppercase">Contact Us</span><span style="display:flex;justify-content:space-between;font-size:14px;color:rgba(255,255,255,.75)">Tell us what you were looking for<span style="color:#ffc83d">→</span></span></span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding:24px clamp(20px,4vw,56px);border-top:1px solid rgba(10,12,36,.12)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:#55566a">
+    <p>© 2026 — PluzBuzz All rights reserved.</p>
+    <div style="display:flex;gap:20px;flex-wrap:wrap"><a href="https://www.instagram.com/pluzbuzz/" target="_blank" rel="noreferrer" style="color:#55566a">Instagram</a><a href="https://x.com/PluzBuzz" target="_blank" rel="noreferrer" style="color:#55566a">X</a><a href="https://in.linkedin.com/company/pluzbuzz" target="_blank" rel="noreferrer" style="color:#55566a">LinkedIn</a></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;trigger&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;auto&quot;,&quot;click&quot;,&quot;hover&quot;,&quot;scroll&quot;],&quot;default&quot;:&quot;hover&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;gravity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0.2,&quot;max&quot;:2,&quot;step&quot;:0.05,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;},&quot;stiffness&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0.05,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;default&quot;:0.2,&quot;tsType&quot;:&quot;number&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#3a5bff&quot;,&quot;#ffc83d&quot;,&quot;#E453EE&quot;,&quot;#080b38&quot;],&quot;default&quot;:&quot;#3a5bff&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showHint&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { w: 1440, menu: false, q: '', fallen: false, throws: 0 };
+  headRef = React.createRef(); stageRef = React.createRef(); layoutRef = React.createRef();
+  PAGES = [
+    { n: 'Home', s: '/', h: 'PluzBuzz%20Home%20v4.dc.html' },
+    { n: 'Services', s: '/services', h: 'PluzBuzz%20Services%20v2.dc.html' },
+    { n: 'Website Development', s: '/services/website-development', h: 'PluzBuzz%20Service%20-%20Website%20Development.dc.html' },
+    { n: 'Search Engine Optimization', s: '/services/seo', h: 'PluzBuzz%20Home%20v4.dc.html#svc-2' },
+    { n: 'Digital Marketing', s: '/services/digital-marketing', h: 'PluzBuzz%20Home%20v4.dc.html#svc-3' },
+    { n: 'App & SaaS Development', s: '/services/app-saas-development', h: 'PluzBuzz%20Home%20v4.dc.html#svc-4' },
+    { n: 'AI Enabled Marketing', s: '/services/ai-marketing', h: 'PluzBuzz%20Home%20v4.dc.html#svc-5' },
+    { n: 'Photo & Video Production', s: '/services/photo-video', h: 'PluzBuzz%20Home%20v4.dc.html#svc-6' },
+    { n: 'About', s: '/about', h: 'PluzBuzz%20Home%20v4.dc.html#about' },
+    { n: 'Our Work', s: '/work', h: 'PluzBuzz%20Home%20v4.dc.html#work' },
+    { n: 'Blogs', s: '/blogs', h: 'PluzBuzz%20Home%20v4.dc.html#journal' },
+    { n: 'Contact', s: '/contact', h: 'PluzBuzz%20Contact.dc.html' }
+  ];
+
+  HEAD = 'This page went off-brief.';
+  LEDE = 'The link may be old, mistyped, or the page has moved somewhere new. Grab anything here and throw it around, then find your way out below.';
+
+  constructor(p) {
+    super(p);
+    let p0 = '';
+    try { const u = new URLSearchParams(location.search).get('path'); p0 = u || decodeURIComponent(location.pathname); } catch (e) {}
+    this.reqPath = !p0 || /\.dc\.html$|404/i.test(p0) ? '/servcies/website-desgin' : p0.slice(0, 80);
+  }
+  lev(a, b) { const m = a.length, n = b.length; if (!m) return n; if (!n) return m; let p = Array.from({ length: n + 1 }, (_, i) => i); for (let i = 1; i <= m; i++) { const c = [i]; for (let j = 1; j <= n; j++) c[j] = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); p = c; } return p[n]; }
+  best() {
+    if (this._best) return this._best;
+    const r = this.reqPath.toLowerCase().replace(/\/+$/, '');
+    let b = this.PAGES[0], bs = 1e9;
+    this.PAGES.forEach(pg => { if (pg.s === '/') return; const s = this.lev(r, pg.s) / Math.max(r.length, pg.s.length); if (s < bs) { bs = s; b = pg; } });
+    return (this._best = bs < 0.6 ? b : this.PAGES[0]);
+  }
+
+  componentDidMount() {
+    this.reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const st = this.stageRef.current;
+    this.onResize = () => {
+      const w = innerWidth;
+      if (w !== this.state.w) this.setState({ w, menu: w < 900 ? this.state.menu : false });
+      if (this.engine && Math.abs(w - this.builtW) > 60) { clearTimeout(this.rsT); this.rsT = setTimeout(() => this.reset(), 250); }
+    };
+    this.onDown = e => {
+      if (e.button > 0) return;
+      if (!this.engine) { if ((this.props.trigger ?? 'auto') !== 'scroll') this.start(); return; }
+      const el = e.target.closest && e.target.closest('[data-w]'), p = this.pt(e);
+      if (el && this.byEl.has(el)) {
+        const b = this.byEl.get(el), M = window.Matter;
+        this.drag = M.Constraint.create({ pointA: p, bodyB: b, pointB: { x: p.x - b.position.x, y: p.y - b.position.y }, angleB: b.angle, stiffness: this.props.stiffness ?? 0.2, damping: 0.1, length: 0 });
+        M.Composite.add(this.engine.world, this.drag); st.setPointerCapture(e.pointerId); el.style.cursor = 'grabbing'; this.dragEl = el; e.preventDefault();
+      } else this.burst(p);
+    };
+    this.onMove = e => { if (this.drag) this.drag.pointA = this.pt(e); };
+    this.onUp = () => { if (!this.drag) return; window.Matter.Composite.remove(this.engine.world, this.drag); this.drag = null; if (this.dragEl) this.dragEl.style.cursor = 'grab'; this.dragEl = null; this.setState(s => ({ throws: s.throws + 1 })); };
+    this.onEnter = () => { if ((this.props.trigger ?? 'auto') === 'hover') this.start(); };
+    addEventListener('resize', this.onResize);
+    st.addEventListener('pointerdown', this.onDown); st.addEventListener('pointermove', this.onMove); st.addEventListener('pointerup', this.onUp); st.addEventListener('pointercancel', this.onUp); st.addEventListener('pointerenter', this.onEnter);
+    this.onResize();
+    this.arm();
+  }
+  componentWillUnmount() {
+    removeEventListener('resize', this.onResize); clearTimeout(this.autoT); clearTimeout(this.rsT); this.io && this.io.disconnect(); this.stop();
+  }
+  arm() {
+    const t = this.props.trigger ?? 'auto'; clearTimeout(this.autoT); this.io && this.io.disconnect();
+    if (this.reduce) return;
+    if (t === 'auto') this.autoT = setTimeout(() => this.start(), 1400);
+    else if (t === 'scroll') { this.io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { this.io.disconnect(); this.autoT = setTimeout(() => this.start(), 500); } }, { threshold: 0.4 }); this.io.observe(this.stageRef.current); }
+  }
+  pt(e) { const r = this.stageRef.current.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+
+  async start() {
+    if (this.engine || this.starting) return; this.starting = true;
+    const tries = async () => { for (let i = 0; i < 60 && !window.Matter; i++) await new Promise(r => setTimeout(r, 100)); };
+    await tries(); if (document.fonts) await document.fonts.ready;
+    const M = window.Matter, st = this.stageRef.current, lay = this.layoutRef.current; this.starting = false;
+    if (!M || !st || !lay) return;
+    const sr = st.getBoundingClientRect(), lr = lay.getBoundingClientRect(), W = sr.width, H = sr.height;
+    this.off = { x: lr.left - sr.left, y: lr.top - sr.top }; this.builtW = innerWidth;
+    const els = [...lay.querySelectorAll('[data-w]')];
+    const boxes = els.map(el => { const r = el.getBoundingClientRect(); return { el, x: r.left - sr.left + r.width / 2, y: r.top - sr.top + r.height / 2, w: r.width, h: r.height }; });
+    const eng = M.Engine.create(); eng.gravity.y = this.props.gravity ?? 1; eng.positionIterations = 8;
+    const wall = { isStatic: true };
+    M.Composite.add(eng.world, [M.Bodies.rectangle(W / 2, H + 50, W * 3, 100, wall), M.Bodies.rectangle(-50, H / 2, 100, H * 4, wall), M.Bodies.rectangle(W + 50, H / 2, 100, H * 4, wall), M.Bodies.rectangle(W / 2, -H - 50, W * 3, 100, wall)]);
+    this.items = []; this.byEl = new Map();
+    boxes.forEach(b => {
+      const big = b.h > 100;
+      const body = M.Bodies.rectangle(b.x, b.y, b.w, b.h, { restitution: big ? 0.2 : 0.35, friction: 0.3, frictionAir: 0.012, density: big ? 0.0006 : 0.0012, chamfer: { radius: Math.min(8, b.h / 4) } });
+      M.Body.setVelocity(body, { x: (Math.random() - 0.5) * (big ? 2 : 4), y: 0 });
+      M.Body.setAngularVelocity(body, (Math.random() - 0.5) * (big ? 0.02 : 0.05));
+      M.Composite.add(eng.world, body);
+      b.el.style.width = b.w + 'px'; b.el.style.height = b.h + 'px'; b.el.style.boxSizing = 'border-box';
+      this.items.push({ el: b.el, body }); this.byEl.set(b.el, body);
+    });
+    this.items.forEach(({ el }) => { el.style.position = 'absolute'; el.style.left = '0'; el.style.top = '0'; });
+    this.engine = eng; this.W = W; this.H = H;
+    const loop = () => {
+      M.Engine.update(eng, 1000 / 60);
+      for (const { el, body } of this.items) el.style.transform = `translate(${(body.position.x - this.off.x).toFixed(1)}px,${(body.position.y - this.off.y).toFixed(1)}px) translate(-50%,-50%) rotate(${body.angle.toFixed(4)}rad)`;
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+    this.setState({ fallen: true });
+  }
+  burst(p) {
+    const M = window.Matter, R = Math.max(this.W, this.H) * 0.35;
+    this.items.forEach(({ body }) => { const dx = body.position.x - p.x, dy = body.position.y - p.y, d = Math.hypot(dx, dy) || 1; if (d > R) return; const k = (1 - d / R) * 14; M.Body.setVelocity(body, { x: body.velocity.x + dx / d * k, y: body.velocity.y + dy / d * k - k * 0.6 }); M.Body.setAngularVelocity(body, body.angularVelocity + (Math.random() - 0.5) * 0.1); });
+  }
+  stop() {
+    cancelAnimationFrame(this.raf);
+    if (this.engine) { window.Matter.Composite.clear(this.engine.world, false); window.Matter.Engine.clear(this.engine); }
+    this.engine = null; this.drag = null;
+    (this.items || []).forEach(({ el }) => { ['position', 'left', 'top', 'width', 'height', 'transform', 'boxSizing'].forEach(k => { el.style[k] = ''; }); });
+    this.items = []; this.byEl = new Map();
+  }
+  reset = () => { this.stop(); this.setState({ fallen: false, throws: 0 }); this.arm(); };
+
+  renderVals() {
+    const st = this.state, P = this.props, q = st.q.trim().toLowerCase(), best = this.best(), acc = P.accent ?? '#3a5bff';
+    const results = (q ? this.PAGES.filter(p => (p.n + ' ' + p.s).toLowerCase().includes(q)) : [best, ...this.PAGES.filter(p => p !== best && ['/services', '/work', '/contact'].includes(p.s))]).slice(0, 5);
+    const hl = ['off-brief.', 'moved', 'throw'];
+    const words = s => s.split(' ').map(t => { const on = hl.includes(t.toLowerCase()); return { t, c: on ? acc : 'inherit', fw: on ? 600 : 400 }; });
+    const trig = P.trigger ?? 'auto';
+    return {
+      headRef: this.headRef, stageRef: this.stageRef, layoutRef: this.layoutRef, accent: acc,
+      showLinks: st.w >= 900, showBurger: st.w < 900, menuVisible: st.w < 900 && st.menu, burgerIcon: st.menu ? '✕' : '☰',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      headWords: words(this.HEAD), ledeWords: words(this.LEDE), ledeFull: this.LEDE,
+      showHint: P.showHint ?? true, stageCursor: st.fallen ? 'default' : 'pointer',
+      hint: st.fallen ? 'Grab anything · click empty space to shake' : trig === 'hover' ? 'Hover to drop it' : trig === 'auto' && !this.reduce ? 'Hold on…' : 'Click to drop it',
+      reset: this.reset, resetLabel: 'Reset the page',
+      reqPath: this.reqPath, best,
+      knockLine: st.fallen ? '→ status: everything fell over' + (st.throws ? ` · ${st.throws} ${st.throws === 1 ? 'throw' : 'throws'}` : '') : '→ status: holding together',
+      q: st.q, noQ: !st.q, onQ: e => this.setState({ q: e.target.value }),
+      onKey: e => { if (e.key === 'Enter' && results[0]) location.href = results[0].h; else if (e.key === 'Escape') this.setState({ q: '' }); },
+      results, noResults: !!q && !results.length
+    };
+  }
+}
+</script>
+</body>
+</html>
