@@ -2,6 +2,24 @@
 
 export const FLAME_COLORS = ['#555AFE', '#E453EE', '#F2D458'] as const;
 
+/**
+ * `waveWidth`: the width the wave pattern spans (defaults to the canvas width, so every screen shows the same number
+ * of tongues). `base` / `spread`: each band's height is base + spread × tongue, as a fraction of its full height.
+ */
+export interface FlameShape {
+  waveWidth?: number;
+  base: number;
+  spread: number;
+}
+
+export const DEFAULT_FLAME_SHAPE: FlameShape = { base: 0.16, spread: 0.84 };
+
+/**
+ * Phones: the default pattern squeezes the same tongues into a narrow, tall screen, so they turn into tall thin
+ * spikes. Spread the waves as if the screen were wider and soften the peaks and troughs.
+ */
+export const PHONE_FLAME_SHAPE: FlameShape = { waveWidth: 1000, base: 0.3, spread: 0.46 };
+
 const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function drawFlames(
@@ -10,8 +28,10 @@ export function drawFlames(
   h: number,
   t: number,
   amp: number,
-  colors: readonly string[] = FLAME_COLORS
+  colors: readonly string[] = FLAME_COLORS,
+  shape: FlameShape = DEFAULT_FLAME_SHAPE
 ) {
+  const span = shape.waveWidth ?? w;
   ctx.clearRect(0, 0, w, h);
   if (amp <= 0.001) return;
   const L = [
@@ -24,13 +44,13 @@ export function drawFlames(
     ctx.beginPath();
     ctx.moveTo(-20, h + 20);
     for (let x = -20; x <= w + 20; x += 4) {
-      const u = x / w;
+      const u = x / span;
       const n =
         Math.sin(u * 8 + t * l.sp * 1.6 + l.o) * 0.5 +
         Math.sin(u * 21 - t * l.sp * 2.5 + l.o * 1.7) * 0.32 +
         Math.sin(u * 43 + t * l.sp * 4.1) * 0.18;
       const tongue = Math.pow(Math.max(0, (n + 1) / 2), 2.1);
-      ctx.lineTo(x, h - h * l.s * amp * (0.16 + 0.84 * tongue));
+      ctx.lineTo(x, h - h * l.s * amp * (shape.base + shape.spread * tongue));
     }
     ctx.lineTo(w + 20, h + 20);
     ctx.closePath();

@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { drawFlames } from '@/lib/flames';
+import { DEFAULT_FLAME_SHAPE, drawFlames, FLAME_COLORS, PHONE_FLAME_SHAPE } from '@/lib/flames';
+import { MOBILE_BP } from '@/lib/use-viewport';
 
 type RevealEl = HTMLElement & { __d?: number; __rev?: HTMLElement };
 
@@ -198,11 +199,12 @@ export default function MotionRoot({ intro = true, children }: { intro?: boolean
       document.documentElement.style.overflow = 'hidden';
       const w = (cv.width = innerWidth);
       const h = (cv.height = innerHeight);
+      const shape = w < MOBILE_BP ? PHONE_FLAME_SHAPE : DEFAULT_FLAME_SHAPE;
       const t0 = performance.now();
       const frame = (now: number) => {
         const e = now - t0;
         const amp = e < 900 ? easeOut(e / 900) : e < 1700 ? 1 : e < 2400 ? 1 - easeIn((e - 1700) / 700) : 0;
-        drawFlames(ctx, w, h, e / 1000, amp);
+        drawFlames(ctx, w, h, e / 1000, amp, FLAME_COLORS, shape);
         if (e < 2400) introRaf = requestAnimationFrame(frame);
         else {
           ctx.clearRect(0, 0, w, h);
