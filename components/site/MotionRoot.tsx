@@ -23,7 +23,8 @@ function countUp(el: HTMLElement) {
 /**
  * Page shell: plays the flame + logo intro, then drives the scroll reveals
  * (`data-r`), word highlighting (`data-words`), counters (`data-count`) and
- * horizontal scroll parallax (`data-sx`) for everything rendered inside it.
+ * horizontal scroll parallax (`data-sx`: a factor, or "traverse" to pan a long line end to end
+ * while it is on screen) for everything rendered inside it.
  */
 export default function MotionRoot({ intro = true, children }: { intro?: boolean; children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -124,9 +125,18 @@ export default function MotionRoot({ intro = true, children }: { intro?: boolean
         }
       });
       sx.forEach(el => {
-        const r = el.parentElement!.getBoundingClientRect();
+        const box = el.parentElement!;
+        const r = box.getBoundingClientRect();
         if (r.bottom < -100 || r.top > vh + 100) return;
-        el.style.transform = `translate3d(${(r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.sx ?? '0')}px,0,0)`;
+        if (el.dataset.sx === 'traverse') {
+          // 0 as the line enters at the bottom, 1 as it leaves at the top: it travels from its first word to its last.
+          const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+          const inset = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+          const travel = Math.max(0, el.scrollWidth - box.clientWidth + inset);
+          el.style.transform = `translate3d(${-p * travel}px,0,0)`;
+        } else {
+          el.style.transform = `translate3d(${(r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.sx ?? '0')}px,0,0)`;
+        }
       });
     };
     const onScroll = () => {
@@ -226,6 +236,7 @@ export default function MotionRoot({ intro = true, children }: { intro?: boolean
       {introVisible && (
         <div
           ref={introRef}
+          className="pb-intro"
           onClick={() => skipRef.current()}
           aria-hidden="true"
           style={{ position: 'fixed', inset: '0', zIndex: '200', background: '#220848', overflow: 'hidden', cursor: 'pointer', willChange: 'transform' }}

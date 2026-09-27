@@ -1,6 +1,7 @@
 /* Site-wide routes and link sets shared by the header, footer and service cards. */
 
-export type NavLink = { href: string; label: string; current?: boolean };
+/** `hideOnMobile`: the target section is desktop-only, so drop the link below the mobile breakpoint. */
+export type NavLink = { href: string; label: string; current?: boolean; hideOnMobile?: boolean };
 
 export const HOME = '/';
 export const WEBSITE_DEVELOPMENT = '/services/website-development-services';

@@ -21,6 +21,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           rel="stylesheet"
         />
         <link rel="preload" as="image" href="/assets/logo-intro.gif" />
+        {/* Without JS the intro can't play or dismiss itself; skip it entirely. */}
+        <noscript>
+          <style>{'.pb-intro{display:none}'}</style>
+        </noscript>
       </head>
       <body>{children}</body>
     </html>

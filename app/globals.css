@@ -91,6 +91,372 @@ button {
   box-shadow: 0 30px 50px -30px rgba(8, 11, 56, 0.5) !important;
 }
 
+/* ---------------------------------------------------------------------------
+   Layout breakpoints. The design has one main breakpoint (900px). These live in
+   CSS rather than JS so the server-rendered HTML is already correct on phones.
+   --------------------------------------------------------------------------- */
+
+/* Header: desktop nav vs burger */
+.site-nav {
+  display: flex;
+}
+
+.site-burger,
+.site-menu {
+  display: none;
+}
+
+@media (max-width: 899.98px) {
+  .site-nav {
+    display: none;
+  }
+
+  .site-burger {
+    display: block;
+  }
+
+  .site-menu {
+    display: flex;
+  }
+}
+
+/* Desktop-only content: Selected Work is a hover wall, pointless on touch phones */
+@media (max-width: 899.98px) {
+  .work-section,
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Home: services preview panel is desktop-only */
+@media (max-width: 899.98px) {
+  .svc-preview {
+    display: none;
+  }
+}
+
+/* Home: Services heading column follows the rows on desktop; on phones it's a normal block above them. */
+@media (min-width: 900px) {
+  .svc-aside {
+    position: sticky;
+    top: 104px;
+  }
+}
+
+/* Home: How We Work pins for 340vh on every width.
+   JS (HowWeWork) unpins it at runtime only when the content can't fit the screen height. */
+.how {
+  height: 340vh;
+}
+
+.how__frame {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  padding: 88px clamp(20px, 4vw, 56px) 24px;
+}
+
+@media (max-width: 899.98px) {
+  .how__frame {
+    padding: 84px clamp(20px, 4vw, 56px) 16px;
+  }
+}
+
+/* Website Development: what's included / process / planner */
+.wd-incl {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+}
+
+.wd-incl__visual {
+  height: clamp(220px, 26vw, 280px);
+}
+
+/* Process on desktop: header over the steps on the left, sticky browser spanning the right.
+   Track and pin wrappers only exist for the phone layout, so here they step out of the way. */
+.wd-proc {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    'head browser'
+    'steps browser';
+}
+
+.wd-proc__head {
+  grid-area: head;
+}
+
+.wd-proc__track,
+.wd-proc__pin {
+  display: contents;
+}
+
+.wd-proc__browser {
+  grid-area: browser;
+  align-self: start;
+  position: sticky;
+  top: 110px;
+}
+
+.wd-proc__steps {
+  grid-area: steps;
+}
+
+.wd-proc__screen {
+  height: clamp(340px, 54vh, 520px);
+}
+
+.wd-proc__stage {
+  min-height: 72vh;
+}
+
+.wd-plan {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.wd-plan__row {
+  grid-template-columns: 150px minmax(0, 1fr);
+}
+
+.wd-plan__canvas {
+  height: clamp(300px, 40vh, 400px);
+}
+
+@media (max-width: 899.98px) {
+  .wd-incl,
+  .wd-plan,
+  .wd-plan__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wd-proc {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'head' 'browser' 'steps';
+    row-gap: 28px;
+  }
+
+  /* Not sticky on phones: steps would slide underneath it */
+  .wd-proc__browser {
+    position: relative;
+    top: auto;
+  }
+
+  .wd-proc__stage {
+    min-height: 0;
+  }
+
+  /* Planner: compact pickers (scrolling chips), shorter preview, summary reduced to the timeline */
+  .wd-plan__label {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+    padding: 14px 16px 0 !important;
+  }
+
+  .wd-plan__field {
+    padding: 10px 16px 14px !important;
+  }
+
+  .wd-opts {
+    display: flex !important;
+    gap: 6px !important;
+    overflow-x: auto;
+    margin: 0 -16px;
+    padding: 2px 16px;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    scrollbar-width: none;
+  }
+
+  .wd-opts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wd-opt {
+    flex: none;
+    padding: 9px 14px !important;
+    border: 1px solid rgba(10, 12, 36, 0.18) !important;
+    border-radius: 999px;
+    outline: 0 !important;
+    white-space: nowrap;
+  }
+
+  .wd-opt[aria-pressed='true'] {
+    border-color: #080b38 !important;
+  }
+
+  .wd-opt__sub,
+  .wd-feat__kind,
+  .wd-plan__url,
+  .wd-plan__spec {
+    display: none !important;
+  }
+
+  .wd-feats {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 6px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+  }
+
+  .wd-feat {
+    grid-template-columns: 16px auto !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    border: 1px solid rgba(10, 12, 36, 0.18) !important;
+    border-radius: 999px;
+  }
+
+  .wd-plan__preview {
+    padding: 12px !important;
+  }
+
+  .wd-plan__canvas {
+    height: 230px;
+  }
+}
+
+/* Phones tall enough to pin (mirrors PIN_STEPS_QUERY in lib/use-viewport.ts):
+   What's in the build and Watch it get built each pin to one screen and step with scroll. */
+@media (max-width: 899.98px) and (min-height: 600px) {
+  .wd-incl-track {
+    height: calc(100svh + 5 * 60svh);
+  }
+
+  .wd-incl {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    padding-top: 84px;
+    align-content: start;
+    row-gap: 14px !important;
+  }
+
+  .wd-incl [role='tab'][aria-selected='false'],
+  .wd-incl__num,
+  .wd-incl__title {
+    display: none !important;
+  }
+
+  .wd-incl [role='tabpanel'] {
+    gap: 14px !important;
+    padding: 16px !important;
+  }
+
+  .wd-incl__visual {
+    height: min(30svh, 260px);
+    min-height: 180px;
+  }
+
+  .wd-incl__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 15px !important;
+  }
+
+  .wd-incl__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px 12px !important;
+    padding-top: 12px !important;
+  }
+
+  .wd-incl__list li {
+    font-size: 13.5px !important;
+    gap: 8px !important;
+  }
+
+  .wd-proc__track {
+    display: block;
+    height: calc(100svh + 6 * 55svh);
+  }
+
+  .wd-proc__pin {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    padding-top: 84px;
+  }
+
+  .wd-proc__browser {
+    padding-bottom: 0 !important;
+  }
+
+  .wd-proc__screen {
+    height: min(34svh, 300px);
+  }
+
+  .wd-proc__steps {
+    margin: 0 !important;
+  }
+
+  .wd-proc__stage:not([data-active]) {
+    display: none !important;
+  }
+
+  .wd-proc__stage {
+    padding: 0 !important;
+    border-top: 0 !important;
+  }
+}
+
+/* Intro overlay failsafe: normally removed by JS in ~6s; if scripts never run or crash,
+   it fades itself out instead of covering the page for good. */
+.pb-intro {
+  animation: pb-intro-failsafe 0.5s ease 12s forwards;
+}
+
+@keyframes pb-intro-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Footer mark: animated logo GIF on phones, 3D wordmark above */
+.footer-mark--gif {
+  display: none;
+}
+
+@media (max-width: 899.98px) {
+  .footer-mark--gif {
+    display: block;
+  }
+
+  .footer-mark--depth {
+    display: none;
+  }
+}
+
+/* Footer: newsletter takes a full row until there is room for it plus three link columns */
+.site-footer__lead {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 1120px) {
+  .site-footer__lead {
+    grid-column: span 2;
+  }
+}
+
+/* Website Development FAQ: stacked, then heading beside a two-thirds list */
+.wd-faq {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1200px) {
+  .wd-faq {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
 /* Website Development: review rows stack below the layout breakpoint */
 .wd-rev {
   grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
@@ -189,6 +555,10 @@ button {
 }
 
 /* SlideCommit — contact form */
+.slide-commit.pb-slide {
+  max-width: 100%;
+}
+
 .slide-commit.pb-slide .slide-commit__text--plain {
   color: color-mix(in srgb, #ffffff 55%, transparent);
 }

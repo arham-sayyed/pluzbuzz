@@ -22,7 +22,18 @@ export interface ContactSectionProps {
 export default function ContactSection({ heading, intro, services, messagePlaceholder, flames = false, frosted = false }: ContactSectionProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const flameRef = useRef<HTMLCanvasElement>(null);
+  const slideBoxRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
+  // SlideCommit takes a pixel width (its drag distance depends on it): fit it to its slot, up to 320px.
+  const [slideW, setSlideW] = useState(320);
+
+  useEffect(() => {
+    const box = slideBoxRef.current;
+    if (!box) return;
+    const ro = new ResizeObserver(([e]) => setSlideW(Math.min(320, Math.round(e.contentRect.width)) || 320));
+    ro.observe(box);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!flames || !flameRef.current) return;
@@ -60,13 +71,13 @@ export default function ContactSection({ heading, intro, services, messagePlaceh
           </div>
           <textarea className="fc1" name="message" required rows={4} placeholder={messagePlaceholder} style={{ ...fieldStyle, resize: "vertical" }}></textarea>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "14px", flexWrap: "wrap" }}>
-            <div style={{ maxWidth: "100%" }}>
+            <div ref={slideBoxRef} style={{ width: "100%", maxWidth: "320px" }}>
               <SlideCommit
                 className="pb-slide"
                 label="Slide to send enquiry"
                 doneLabel="Enquiry sent"
                 errorLabel="Add name, email and message"
-                width={320}
+                width={slideW}
                 height={58}
                 radius={8}
                 trackColor="#171b52"

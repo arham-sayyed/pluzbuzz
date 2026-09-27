@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { useNarrowerThan } from '@/lib/use-viewport';
 import { CAROUSEL, coverFontsReady, coverImage, DEVICES, SITES } from './data';
 
 // WebGL (ogl) carousel: client-only.
@@ -19,6 +20,8 @@ export default function LiveBuilds() {
   const liveRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const [covers, setCovers] = useState<string[]>([]);
+  // Smaller cards on phones so the centre card, bend included, stays inside the viewport.
+  const compact = useNarrowerThan(760);
   const [site, setSite] = useState(DEFAULT_SITE);
   const settleTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [device, setDevice] = useState(0);
@@ -87,7 +90,7 @@ export default function LiveBuilds() {
 
   return (
     <section id="live" data-screen-label="Live builds" style={{ position: "relative", background: "#080b38", color: "#fff", padding: "clamp(64px,8vw,120px) 0 clamp(64px,8vw,110px)", overflow: "hidden" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 clamp(20px,4vw,56px)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "24px" }}>
+      <div style={{ maxWidth: "calc(1440px + 2 * clamp(20px,4vw,56px))", margin: "0 auto", padding: "0 clamp(20px,4vw,56px)", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "24px" }}>
         <h2 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(50px,7vw,120px)", lineHeight: ".86", textTransform: "uppercase" }}><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>Live.</span></span><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" data-d="70" style={{ display: "block", color: "#ffc83d" }}>Not a mockup.</span></span></h2>
         <p data-r="up" style={{ maxWidth: "420px", color: "rgba(255,255,255,.72)", fontSize: "17px", lineHeight: "1.55" }}>Drag through sites we’ve shipped. Pick a live one and it opens below, running for real. Scroll inside it.</p>
       </div>
@@ -98,7 +101,7 @@ export default function LiveBuilds() {
             preset="liquid"
             intro="deal"
             fit="landscape"
-            cardHeight={0.62}
+            cardHeight={compact ? 0.46 : 0.62}
             gap={14}
             radius={10}
             squeeze={0.2}
@@ -115,7 +118,7 @@ export default function LiveBuilds() {
         )}
       </div>
 
-      <div ref={liveRef} style={{ maxWidth: "1440px", margin: "clamp(24px,3vw,40px) auto 0", padding: "0 clamp(20px,4vw,56px)", display: "flex", flexDirection: "column", gap: "18px" }}>
+      <div ref={liveRef} style={{ maxWidth: "calc(1440px + 2 * clamp(20px,4vw,56px))", margin: "clamp(24px,3vw,40px) auto 0", padding: "0 clamp(20px,4vw,56px)", display: "flex", flexDirection: "column", gap: "18px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "14px" }}>
           <div role="tablist" aria-label="Live sites" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
             {SITES.map(([n], i) => {

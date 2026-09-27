@@ -25,9 +25,11 @@ export default function HowWeWork() {
     let raf = 0;
     const layout = () => {
       const m = innerWidth < MOBILE_BP;
-      Object.assign(frame.style, { position: 'sticky', height: '100svh', padding: '88px clamp(20px,4vw,56px) 24px' });
+      // Pinned on phones too (content stacks into one column); only unpin when it can't fit the screen height.
+      const [top, bottom] = m ? [84, 16] : [88, 24];
+      Object.assign(frame.style, { position: 'sticky', height: '100svh', padding: `${top}px clamp(20px,4vw,56px) ${bottom}px` });
       grid.style.gridTemplateColumns = m ? '' : 'minmax(0,1fr) minmax(0,1fr)';
-      unpinned = m || grid.offsetHeight > innerHeight - 112;
+      unpinned = grid.offsetHeight > innerHeight - top - bottom;
       how.style.height = unpinned ? 'auto' : '340vh';
       if (unpinned) {
         grid.style.gridTemplateColumns = '';
@@ -62,8 +64,8 @@ export default function HowWeWork() {
   }, []);
 
   return (
-    <section ref={howRef} data-screen-label="How we work" style={{ position: "relative", height: "340vh", background: "#f4f4f7" }}>
-      <div style={{ position: "sticky", top: "0", height: "100svh", overflow: "hidden", display: "flex", alignItems: "center", padding: "96px clamp(20px,4vw,56px) 32px" }}>
+    <section ref={howRef} className="how" data-screen-label="How we work" style={{ position: "relative", background: "#f4f4f7" }}>
+      <div className="how__frame" style={{ overflow: "hidden", display: "flex", alignItems: "center" }}>
         <div style={{ maxWidth: "1440px", width: "100%", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,440px),1fr))", gap: "clamp(28px,5vw,80px)", alignItems: "center" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "18px", minWidth: "0" }}>
             <p style={{ display: "flex", gap: "12px", alignItems: "center", fontFamily: "'IBM Plex Mono'", fontSize: "12px", letterSpacing: ".12em", textTransform: "uppercase", color: "#55566a" }}><span>How We Work</span><span style={{ padding: "4px 10px", background: "#fff", borderRadius: "4px", letterSpacing: ".04em" }}>One connected team</span></p>

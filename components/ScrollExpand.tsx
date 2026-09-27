@@ -43,6 +43,8 @@ export interface ScrollExpandProps {
   overlayScrim?: number;
   useWindowScroll?: boolean;
   enabled?: boolean;
+  /** Render the title inside the frame, so the frame clips it and reveals more as it grows. */
+  titleInFrame?: boolean;
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
@@ -68,6 +70,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
   overlayScrim = 0.45,
   useWindowScroll = false,
   enabled = true,
+  titleInFrame = false,
   children,
   className = '',
   style,
@@ -264,6 +267,12 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
       />
     );
 
+  const titleEl = title ? (
+    <div ref={titleRef} className="scroll-expand__title">
+      {title}
+    </div>
+  ) : null;
+
   return (
     <div
       ref={rootRef}
@@ -281,12 +290,9 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
                 {children}
               </div>
             ) : null}
+            {titleInFrame ? titleEl : null}
           </div>
-          {title ? (
-            <div ref={titleRef} className="scroll-expand__title">
-              {title}
-            </div>
-          ) : null}
+          {titleInFrame ? null : titleEl}
           {scrollHint ? (
             <div ref={hintRef} className="scroll-expand__hint">
               {scrollHint}

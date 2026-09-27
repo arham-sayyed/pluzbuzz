@@ -50,20 +50,19 @@ export default function Services() {
   return (
     <section id="services" data-screen-label="Services" style={{ padding: "clamp(56px,7vw,100px) clamp(20px,4vw,56px)", borderTop: "1px solid rgba(10,12,36,.12)" }}>
       <div style={{ maxWidth: "1440px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,460px),1fr))", gap: "clamp(32px,5vw,72px)", alignItems: "start" }}>
-        <div style={{ position: "sticky", top: "104px", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div className="svc-aside" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <h2 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(40px,4.6vw,72px)", lineHeight: ".92", textTransform: "uppercase" }}>
             <span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>The six lanes we</span></span>
             <span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" data-d="70" style={{ display: "block" }}>usually activate first</span></span>
           </h2>
           <p data-r="up" data-d="120" style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55", maxWidth: "520px" }}>When brands need sharper digital growth. A compact view of the services we combine most often across websites, campaigns, product systems, search, and creative production.</p>
-          {!mobile && (
-            <div data-r="fade" style={{ position: "relative", height: "clamp(260px,40vh,420px)", borderRadius: "10px", background: "#080b38", overflow: "hidden", color: "#fff" }}>
+          {/* Preview panel is desktop-only; hidden by CSS (.svc-preview) so phones never get it in the server HTML */}
+            <div className="svc-preview" data-r="fade" style={{ position: "relative", height: "clamp(260px,40vh,420px)", borderRadius: "10px", background: "#080b38", overflow: "hidden", color: "#fff" }}>
               <div style={{ position: "absolute", inset: "0", background: "repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 9px,transparent 9px 18px)" }}></div>
               <span style={{ position: "absolute", left: "24px", top: "18px", fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(90px,10vw,160px)", lineHeight: "1", color: "#ffc83d", transition: "opacity .3s" }}>{'0' + (svc + 1)}</span>
               <span style={{ position: "absolute", right: "20px", bottom: "18px", fontFamily: "'IBM Plex Mono'", fontSize: "11px", letterSpacing: ".08em", color: "rgba(255,255,255,.5)" }}>{PREVIEW_LABELS[svc]}</span>
               <div style={{ position: "absolute", left: "24px", right: "24px", bottom: "50px", height: "3px", background: "rgba(255,255,255,.12)" }}><div style={{ height: "100%", background: "#3a5bff", transition: "width .4s", width: ((svc + 1) / 6) * 100 + '%' }}></div></div>
             </div>
-          )}
         </div>
         <div ref={listRef} style={{ display: "flex", flexDirection: "column" }}>
           <article id="svc-1" data-svcrow="" style={{ padding: "clamp(28px,3.4vw,44px) 0", borderTop: "1px solid rgba(10,12,36,.14)", transition: "opacity .35s", display: "flex", flexDirection: "column", gap: "14px", scrollMarginTop: "100px" }}>

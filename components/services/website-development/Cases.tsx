@@ -22,7 +22,7 @@ export default function Cases() {
           <h2 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(50px,7vw,120px)", lineHeight: ".86", textTransform: "uppercase" }}><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>Our</span></span><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" data-d="70" style={{ display: "block" }}>work</span></span></h2>
           <div data-r="up" style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "420px" }}><p style={{ color: "#55566a", fontSize: "17px", lineHeight: "1.55" }}>Recent website projects, and what each one had to achieve for the business behind it.</p><Link href="/#work" style={{ fontWeight: "600" }}>See all work →</Link></div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,320px),1fr))", gap: "16px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,220px),1fr))", gap: "16px" }}>
           {CASES.map(([k, tag, desc], j) => {
             const it = CAROUSEL[k];
             return (

@@ -8,9 +8,9 @@ export default function Faq() {
 
   return (
     <section id="faq" data-screen-label="FAQ" style={{ position: "relative", padding: "clamp(64px,8vw,120px) clamp(20px,4vw,56px)" }}>
-      <div style={{ maxWidth: "1440px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,380px),1fr))", gap: "clamp(32px,5vw,80px)", alignItems: "start" }}>
+      <div className="wd-faq" style={{ maxWidth: "1440px", margin: "0 auto", display: "grid", gap: "clamp(32px,5vw,80px)", alignItems: "start" }}>
         <h2 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(56px,7vw,120px)", lineHeight: ".86", textTransform: "uppercase" }}><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>FAQ’s</span></span></h2>
-        <div style={{ gridColumn: "span 2", display: "flex", flexDirection: "column", borderTop: "2px solid #0a0c24", minWidth: "0" }}>
+        <div style={{ display: "flex", flexDirection: "column", borderTop: "2px solid #0a0c24", minWidth: "0" }}>
           {FAQS.map(([q, a], i) => {
             const isOpen = i === open;
             return (

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, type CSSProperties, type ReactNode } from 'react';
-import { MOBILE_BP, useNarrowerThan } from '@/lib/use-viewport';
 import { PLAN_FEATURES, PLAN_PLATFORMS, PLAN_SIZES, PLAN_TYPES } from './data';
 
 const mono = (size: string, extra?: CSSProperties): CSSProperties => ({ fontFamily: "'IBM Plex Mono'", fontSize: size, ...extra });
@@ -9,27 +8,28 @@ const wire = '1px solid rgba(10,12,36,.55)';
 /** Selected state: navy with the same yellow underline as the nav's current page. */
 const selected: CSSProperties = { background: '#080b38', color: '#fff', boxShadow: 'inset 0 -3px 0 #ffc83d' };
 
-function SpecRow({ num, label, cols, children }: { num: string; label: string; cols: string; children: ReactNode }) {
+function SpecRow({ num, label, children }: { num: string; label: string; children: ReactNode }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: cols, borderBottom: '1px solid rgba(10,12,36,.12)' }}>
-      <div style={{ padding: '20px 18px 8px', display: 'flex', flexDirection: 'column', gap: '4px', ...mono('11px', { letterSpacing: '.1em', textTransform: 'uppercase', color: '#55566a' }) }}>
+    <div className="wd-plan__row" style={{ display: 'grid', borderBottom: '1px solid rgba(10,12,36,.12)' }}>
+      <div className="wd-plan__label" style={{ padding: '20px 18px 8px', display: 'flex', flexDirection: 'column', gap: '4px', ...mono('11px', { letterSpacing: '.1em', textTransform: 'uppercase', color: '#55566a' }) }}>
         <span style={{ color: '#3a5bff' }}>{num}</span>
         <span style={{ color: '#0a0c24' }}>{label}</span>
       </div>
-      <div style={{ padding: '14px 18px 18px', minWidth: '0' }}>{children}</div>
+      <div className="wd-plan__field" style={{ padding: '14px 18px 18px', minWidth: '0' }}>{children}</div>
     </div>
   );
 }
 
+/** Dividers are per-option outlines meeting in the 1px gaps, so an incomplete last row leaves white, not a grey block. */
 function Options({ items, value, onPick, min }: { items: { name: string; sub?: string }[]; value: number; onPick: (i: number) => void; min: number }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: `repeat(auto-fit,minmax(min(100%,${min}px),1fr))`, gap: '1px', background: 'rgba(10,12,36,.18)', border: '1px solid rgba(10,12,36,.18)', borderRadius: '6px', overflow: 'hidden' }}>
+    <div className="wd-opts" style={{ display: 'grid', gridTemplateColumns: `repeat(auto-fit,minmax(min(100%,${min}px),1fr))`, gap: '1px', background: '#fff', border: '1px solid rgba(10,12,36,.18)', borderRadius: '6px', overflow: 'hidden' }}>
       {items.map(({ name, sub }, i) => {
         const on = i === value;
         return (
-          <button key={name} type="button" aria-pressed={on} onClick={() => onPick(i)} style={{ display: 'flex', flexDirection: 'column', gap: '3px', padding: '12px 14px', border: '0', background: '#fff', color: '#0a0c24', textAlign: 'left', cursor: 'pointer', transition: 'background .2s,color .2s,box-shadow .2s', ...(on ? selected : {}) }}>
+          <button key={name} className="wd-opt" type="button" aria-pressed={on} onClick={() => onPick(i)} style={{ display: 'flex', flexDirection: 'column', gap: '3px', padding: '12px 14px', border: '0', outline: '1px solid rgba(10,12,36,.18)', background: '#fff', color: '#0a0c24', textAlign: 'left', cursor: 'pointer', transition: 'background .2s,color .2s,box-shadow .2s', ...(on ? selected : {}) }}>
             <span style={{ fontSize: '15px', fontWeight: '600' }}>{name}</span>
-            {sub && <span style={{ fontSize: '12.5px', opacity: '.72' }}>{sub}</span>}
+            {sub && <span className="wd-opt__sub" style={{ fontSize: '12.5px', opacity: '.72' }}>{sub}</span>}
           </button>
         );
       })}
@@ -39,7 +39,6 @@ function Options({ items, value, onPick, min }: { items: { name: string; sub?: s
 
 /** Scope picker: the wireframe, spec and timeline estimate update live and can be sent as a brief. */
 export default function Planner() {
-  const mobile = useNarrowerThan(MOBILE_BP);
   const [ptype, setType] = useState(0);
   const [psize, setSize] = useState(1);
   const [pplat, setPlat] = useState(0);
@@ -68,7 +67,6 @@ export default function Planner() {
     if (c) window.scrollTo({ top: c.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth' });
   };
 
-  const cols = mobile ? 'minmax(0,1fr)' : '150px minmax(0,1fr)';
   const planUrl = 'your-brand.co.uk' + PLAN_TYPES[ptype][2];
   const hasBlog = pfeat.includes(3) && ptype !== 2;
   const navDots = ptype === 2 ? 1 : PLAN_SIZES[psize][2];
@@ -90,23 +88,23 @@ export default function Planner() {
         <div data-r="up" style={{ border: "1.5px solid #0a0c24", borderRadius: "12px", background: "#fff", overflow: "hidden" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "10px 20px", padding: "12px 18px", borderBottom: "1.5px solid #0a0c24", ...mono('11.5px', { letterSpacing: '.08em', textTransform: 'uppercase' }) }}>
             <span style={{ display: "flex", alignItems: "center", gap: "10px" }}><span style={{ width: "7px", height: "7px", background: "#3a5bff" }}></span>Project spec</span>
-            <span style={{ color: "#55566a", textTransform: "none", letterSpacing: "0" }}>{planUrl}</span>
+            <span className="wd-plan__url" style={{ color: "#55566a", textTransform: "none", letterSpacing: "0" }}>{planUrl}</span>
             <span style={{ display: "flex", alignItems: "center", gap: "8px", color: "#55566a" }}><span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2fbf71" }}></span>Draft · updates live</span>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: mobile ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)' }}>
+          <div className="wd-plan" style={{ display: "grid" }}>
             <div style={{ borderRight: "1px solid rgba(10,12,36,.14)", minWidth: "0" }}>
-              <SpecRow num="01" label="Website type" cols={cols}><Options min={170} value={ptype} onPick={setType} items={PLAN_TYPES.map(([name, sub]) => ({ name, sub }))} /></SpecRow>
-              <SpecRow num="02" label="Size" cols={cols}><Options min={120} value={psize} onPick={setSize} items={PLAN_SIZES.map(([name]) => ({ name }))} /></SpecRow>
-              <SpecRow num="03" label="Platform" cols={cols}><Options min={120} value={pplat} onPick={setPlat} items={PLAN_PLATFORMS.map(name => ({ name }))} /></SpecRow>
-              <SpecRow num="04" label="Features" cols={cols}>
-                <div style={{ display: "flex", flexDirection: "column", border: "1px solid rgba(10,12,36,.18)", borderRadius: "6px", overflow: "hidden" }}>
+              <SpecRow num="01" label="Website type"><Options min={170} value={ptype} onPick={setType} items={PLAN_TYPES.map(([name, sub]) => ({ name, sub }))} /></SpecRow>
+              <SpecRow num="02" label="Size"><Options min={120} value={psize} onPick={setSize} items={PLAN_SIZES.map(([name]) => ({ name }))} /></SpecRow>
+              <SpecRow num="03" label="Platform"><Options min={120} value={pplat} onPick={setPlat} items={PLAN_PLATFORMS.map(name => ({ name }))} /></SpecRow>
+              <SpecRow num="04" label="Features">
+                <div className="wd-feats" style={{ display: "flex", flexDirection: "column", border: "1px solid rgba(10,12,36,.18)", borderRadius: "6px", overflow: "hidden" }}>
                   {PLAN_FEATURES.map(([name, , kind], i) => {
                     const on = pfeat.includes(i);
                     return (
-                      <button key={name} type="button" aria-pressed={on} onClick={() => toggleFeature(i)} style={{ display: "grid", gridTemplateColumns: "20px 1fr auto", alignItems: "center", gap: "12px", padding: "13px 14px", border: "0", borderBottom: "1px solid rgba(10,12,36,.1)", background: on ? '#f4f5fb' : '#fff', color: "#0a0c24", textAlign: "left", cursor: "pointer" }}>
+                      <button key={name} className="wd-feat" type="button" aria-pressed={on} onClick={() => toggleFeature(i)} style={{ display: "grid", gridTemplateColumns: "20px 1fr auto", alignItems: "center", gap: "12px", padding: "13px 14px", border: "0", borderBottom: "1px solid rgba(10,12,36,.1)", background: on ? '#f4f5fb' : '#fff', color: "#0a0c24", textAlign: "left", cursor: "pointer" }}>
                         <span style={{ width: "16px", height: "16px", border: "1.5px solid #0a0c24", background: on ? '#080b38' : '#fff', display: "flex", alignItems: "center", justifyContent: "center", color: "#ffc83d", fontSize: "10px", fontWeight: "700" }}>{on ? '✓' : ''}</span>
                         <span style={{ fontSize: "15px", fontWeight: "500" }}>{name}</span>
-                        <span style={mono('10.5px', { letterSpacing: '.08em', textTransform: 'uppercase', color: '#55566a' })}>{kind}</span>
+                        <span className="wd-feat__kind" style={mono('10.5px', { letterSpacing: '.08em', textTransform: 'uppercase', color: '#55566a' })}>{kind}</span>
                       </button>
                     );
                   })}
@@ -115,13 +113,13 @@ export default function Planner() {
             </div>
             <div style={{ minWidth: "0", display: "flex", flexDirection: "column" }}>
               {/* Live wireframe */}
-              <div style={{ padding: "18px", backgroundColor: "#f7f8fb", backgroundImage: "linear-gradient(#e8eaf2 1px,transparent 1px),linear-gradient(90deg,#e8eaf2 1px,transparent 1px)", backgroundSize: "24px 24px", borderBottom: "1px solid rgba(10,12,36,.14)" }}>
+              <div className="wd-plan__preview" style={{ padding: "18px", backgroundColor: "#f7f8fb", backgroundImage: "linear-gradient(#e8eaf2 1px,transparent 1px),linear-gradient(90deg,#e8eaf2 1px,transparent 1px)", backgroundSize: "24px 24px", borderBottom: "1px solid rgba(10,12,36,.14)" }}>
                 <div style={{ position: "relative", border: wire, borderRadius: "8px", background: "#fff", overflow: "hidden" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", borderBottom: wire }}>
                     <span style={{ width: "8px", height: "8px", borderRadius: "50%", border: "1px solid #9a9bab" }}></span><span style={{ width: "8px", height: "8px", borderRadius: "50%", border: "1px solid #9a9bab" }}></span><span style={{ width: "8px", height: "8px", borderRadius: "50%", border: "1px solid #9a9bab" }}></span>
                     <span style={{ flex: "1", marginLeft: "6px", ...mono('10.5px', { color: '#55566a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }) }}>{planUrl}</span>
                   </div>
-                  <div style={{ position: "relative", height: "clamp(300px,40vh,400px)", padding: "14px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <div className="wd-plan__canvas" style={{ position: "relative", padding: "14px", display: "flex", flexDirection: "column", gap: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px", padding: "8px 10px", border: wire, borderRadius: "4px" }}>
                       <span style={{ display: "flex", alignItems: "center", gap: "8px", ...mono('10px', { letterSpacing: '.08em' }) }}><span style={{ width: "12px", height: "12px", border: "1px solid #0a0c24" }}></span>LOGO</span>
                       <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -161,7 +159,7 @@ export default function Planner() {
               {/* Spec summary */}
               <dl style={{ margin: "0", display: "flex", flexDirection: "column" }}>
                 {specRows.map(([k, val]) => (
-                  <div key={k} style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: "12px", padding: "12px 18px", borderBottom: "1px solid rgba(10,12,36,.1)" }}>
+                  <div key={k} className="wd-plan__spec" style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: "12px", padding: "12px 18px", borderBottom: "1px solid rgba(10,12,36,.1)" }}>
                     <dt style={{ paddingTop: "2px", ...mono('11px', { letterSpacing: '.1em', textTransform: 'uppercase', color: '#55566a' }) }}>{k}</dt>
                     <dd style={{ margin: "0", fontSize: "15px", fontWeight: "500" }}>{val}</dd>
                   </div>

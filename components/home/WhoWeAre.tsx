@@ -26,6 +26,7 @@ export default function WhoWeAre() {
         mediaType="canvas"
         onCanvas={onCanvas}
         title="We Create the Buzz"
+        titleInFrame
         scrollHint="Scroll"
         useWindowScroll
         {...(compact ? { startWidth: 84, startHeight: 46 } : {})}

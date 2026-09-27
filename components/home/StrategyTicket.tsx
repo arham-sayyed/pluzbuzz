@@ -2,11 +2,14 @@
 
 import { useState } from 'react';
 import TearTicket from '@/components/TearTicket';
+import { useHydrated } from '@/lib/use-viewport';
 
 const mono = { fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', textTransform: 'uppercase' } as const;
 
 export default function StrategyTicket() {
   const [claimed, setClaimed] = useState(false);
+  // The ticket renders at full width until JS scales it to the column; clip it until then so phones never scroll sideways.
+  const hydrated = useHydrated();
 
   return (
     <section data-screen-label="Ticket" style={{ padding: "clamp(64px,8vw,110px) clamp(20px,4vw,56px)", borderTop: "1px solid rgba(10,12,36,.12)" }}>
@@ -26,7 +29,7 @@ export default function StrategyTicket() {
             </div>
           </>)}
         </div>
-        <div style={{ display: "flex", justifyContent: "center", padding: "24px 0" }}><div style={{ width: "100%", maxWidth: "460px" }}>
+        <div style={{ display: "flex", justifyContent: "center", padding: "24px 0" }}><div style={{ width: "100%", maxWidth: "460px", overflowX: hydrated ? "visible" : "clip" }}>
           <TearTicket
             className="pb-ticket"
             torn={claimed}

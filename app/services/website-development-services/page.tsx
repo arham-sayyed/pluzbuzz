@@ -30,7 +30,7 @@ const NAV: NavLink[] = [
   { href: '/#journal', label: 'Journal' }
 ];
 const DISCOVER: NavLink[] = [
-  { href: '/#work', label: 'Our Work' },
+  { href: '/#work', label: 'Our Work', hideOnMobile: true },
   { href: '/#journal', label: 'Insights' },
   { href: '/#global', label: 'Global Presence' },
   { href: '#contact', label: 'Contact' }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { MOBILE_BP, useNarrowerThan } from '@/lib/use-viewport';
+import { PIN_STEPS_QUERY, useMediaQuery, usePinnedStep } from '@/lib/use-viewport';
 import { INCLUDED } from './data';
 
 const DEV_CHIPS: [string, string, string][] = [['WordPress', '16%', '20%'], ['Shopify', '84%', '20%'], ['CRM', '12%', '56%'], ['Payments', '88%', '56%'], ['WooCommerce', '26%', '86%'], ['APIs', '74%', '86%']];
@@ -10,7 +10,6 @@ const REDO_REST = 10;
 const SEO_ROWS: [string, string][] = [['Competitor agency', 'competitor-one.co.uk'], ['Another agency', 'another-agency.com'], ['Your brand — Website Development London', 'your-brand.co.uk']];
 
 export default function Included() {
-  const mobile = useNarrowerThan(MOBILE_BP);
   const visualRef = useRef<HTMLDivElement>(null);
   const animTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const [file, setFile] = useState(0);
@@ -48,6 +47,11 @@ export default function Included() {
     animTimer.current = setTimeout(() => setAnimOn(true), 80);
   };
 
+  // Phones: the tab grid pins to one screen and scrolling steps through the five parts, one at a time.
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pinned = useMediaQuery(PIN_STEPS_QUERY);
+  usePinnedStep(trackRef, INCLUDED.length, pinned, pick);
+
   const a = animOn;
   const line = a ? 'solid' : 'dashed';
   const [, , title, desc, , plus] = INCLUDED[file];
@@ -62,7 +66,8 @@ export default function Included() {
           <h2 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(46px,6vw,96px)", lineHeight: ".88", textTransform: "uppercase" }}><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" style={{ display: "block" }}>What’s in</span></span><span style={{ display: "block", overflow: "hidden" }}><span data-r="mask" data-d="70" style={{ display: "block" }}>the build</span></span></h2>
           <p data-r="up" style={{ maxWidth: "420px", color: "#55566a", fontSize: "17px", lineHeight: "1.55" }}>Five parts of every website project. Select one to see what’s included.</p>
         </div>
-        <div data-r="up" style={{ display: "grid", gridTemplateColumns: mobile ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.5fr)', gap: "clamp(20px,3vw,48px)", alignItems: "start" }}>
+        <div ref={trackRef} className="wd-incl-track">
+          <div className="wd-incl" data-r="up" style={{ display: "grid", gap: "clamp(20px,3vw,48px)", alignItems: "start" }}>
           <div role="tablist" aria-label="Services included" style={{ display: "flex", flexDirection: "column", borderTop: "2px solid #0a0c24" }}>
             {INCLUDED.map(([, , t], i) => {
               const on = i === file;
@@ -74,7 +79,7 @@ export default function Included() {
             })}
           </div>
           <div role="tabpanel" style={{ minWidth: "0", display: "flex", flexDirection: "column", gap: "22px", padding: "clamp(18px,2.4vw,32px)", borderRadius: "12px", background: "#fff" }}>
-            <div ref={visualRef} style={{ position: "relative", height: "clamp(220px,26vw,280px)", borderRadius: "10px", background: "#f4f4f7", overflow: "hidden" }}>
+            <div ref={visualRef} className="wd-incl__visual" style={{ position: "relative", borderRadius: "10px", background: "#f4f4f7", overflow: "hidden" }}>
               {file === 0 && (<>
                 {/* Wireframe fills in to a finished design */}
                 <div style={{ position: "absolute", inset: "18px", display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -151,15 +156,16 @@ export default function Included() {
                 <input type="range" min="0" max="100" value={split} onChange={e => setRedo(Number(e.target.value))} aria-label="Drag to compare before and after" style={{ position: "absolute", inset: "0", width: "100%", height: "100%", margin: "0", opacity: "0", cursor: "ew-resize" }} />
               </>)}
             </div>
-            <span style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>{'0' + (file + 1)} / 05</span>
-            <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(34px,3.6vw,56px)", lineHeight: ".92", textTransform: "uppercase" }}>{title}</h3>
-            <p style={{ fontSize: "17px", lineHeight: "1.6", color: "#33344a", maxWidth: "680px", textWrap: "pretty" }}>{desc}</p>
-            <ul style={{ listStyle: "none", margin: "0", padding: "22px 0 0", borderTop: "1px solid rgba(10,12,36,.12)", display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,230px),1fr))", gap: "14px 24px" }}>
+            <span className="wd-incl__num" style={{ fontFamily: "'IBM Plex Mono'", fontSize: "12px", color: "#3a5bff" }}>{'0' + (file + 1)} / 05</span>
+            <h3 className="wd-incl__title" style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(34px,3.6vw,56px)", lineHeight: ".92", textTransform: "uppercase" }}>{title}</h3>
+            <p className="wd-incl__desc" style={{ fontSize: "17px", lineHeight: "1.6", color: "#33344a", maxWidth: "680px", textWrap: "pretty" }}>{desc}</p>
+            <ul className="wd-incl__list" style={{ listStyle: "none", margin: "0", padding: "22px 0 0", borderTop: "1px solid rgba(10,12,36,.12)", display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,230px),1fr))", gap: "14px 24px" }}>
               {plus.map(p => (
                 <li key={p} style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "16px", fontWeight: "500" }}><span style={{ flex: "none", width: "24px", height: "24px", borderRadius: "50%", background: "#ffc83d", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", color: "#080b38" }}>✓</span>{p}</li>
               ))}
             </ul>
           </div>
+        </div>
         </div>
       </div>
     </section>
