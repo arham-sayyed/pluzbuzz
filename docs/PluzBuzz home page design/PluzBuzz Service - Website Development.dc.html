@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Website Development Services London | Web Design Agency UK | PluzBuzz</title>
+<meta name="description" content="PluzBuzz is a website development agency in London, UK, building conversion-focused websites, landing pages, and SEO-ready digital experiences for ambitious brands and global growth teams.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pluzbuzz.com/services/website-development-services">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="PluzBuzz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Website Development","provider":{"@type":"LocalBusiness","name":"PluzBuzz","url":"https://pluzbuzz.com/","address":{"@type":"PostalAddress","streetAddress":"Old Street, Shoreditch","addressLocality":"London","addressCountry":"GB"}},"areaServed":"GB"}</script>
+<script src="pb-bits.js"></script>
+<script src="pb-flex.js"></script>
+<script src="pb-services.js"></script>
+<script type="module">import * as OGL from 'https://cdn.jsdelivr.net/npm/ogl@1/+esm'; window.OGL = OGL;</script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#0a0c24;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#0a0c24;text-decoration:none}
+a:hover{color:#3a5bff}
+h1,h2,h3,h4,p{margin:0}
+input,textarea,button{font:inherit}
+::selection{background:#ffc83d;color:#080b38}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position:relative;background:#fff">
+
+<header ref="{{ headRef }}" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid transparent;transition:border-color .3s">
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="PluzBuzz%20Home%20v4.dc.html" aria-label="PluzBuzz home" style="display:block;flex:none"><img src="assets/logo.gif" alt="PluzBuzz — We Create the Buzz, You Own the Spotlight" width="1200" height="224" style="display:block;height:clamp(40px,4vw,58px);width:auto"></a>
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);font-size:15px;font-weight:500;white-space:nowrap">
+        <a href="PluzBuzz%20Home%20v4.dc.html#services" aria-current="page" style="box-shadow:inset 0 -3px 0 #ffc83d;padding-bottom:2px">Services</a>
+        <a href="#live">Work</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#about">About</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#journal">Journal</a>
+        <a href="#contact" style="display:flex;align-items:center;gap:8px;padding:13px 20px;background:#080b38;color:#fff;border-radius:6px" style-hover="background:#3a5bff;color:#fff">Book a strategy call</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+      <button type="button" aria-label="Toggle menu" onClick="{{ toggleMenu }}" style="width:48px;height:48px;border:0;border-radius:6px;background:#080b38;color:#fff;font-size:18px;cursor:pointer">{{ burgerIcon }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;background:#fff;border-bottom:1px solid rgba(10,12,36,.12);font-family:'Barlow Condensed';font-weight:700;font-size:34px;text-transform:uppercase">
+      <a href="PluzBuzz%20Home%20v4.dc.html#services" style="padding:8px 0">Services</a>
+      <a href="#live" onClick="{{ closeMenu }}" style="padding:8px 0">Work</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#about" style="padding:8px 0">About</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#journal" style="padding:8px 0">Journal</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:10px;padding:14px 18px;background:#080b38;color:#fff;border-radius:6px;font-size:22px">Book a strategy call</a>
+    </nav>
+  </sc-if>
+</header>
+
+
+<main>
+<section id="top" data-tag="section.hero" data-screen-label="Hero" style="position:relative;padding:clamp(116px,12vw,150px) clamp(20px,4vw,56px) clamp(56px,7vw,96px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,44px)">
+    <nav aria-label="Breadcrumb" data-r="up" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#55566a">
+      <span style="width:8px;height:8px;background:#ffc83d;border-radius:50%"></span>
+      <a href="PluzBuzz%20Home%20v4.dc.html#services" style="color:#55566a">Services</a><span aria-hidden="true">/</span><span style="color:#0a0c24">Website Development</span>
+    </nav>
+    <h1 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,10vw,168px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase">
+      <span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Website</span></span>
+      <span style="display:block;overflow:hidden"><span data-r="mask" data-d="90" style="display:flex;align-items:flex-end;gap:.12em;flex-wrap:wrap">Development<span aria-hidden="true" style="display:inline-block;width:.09em;height:.72em;margin-bottom:.1em;background:#3a5bff"></span></span></span>
+      <span style="display:block;overflow:hidden"><span data-r="mask" data-d="180" style="display:block;color:#3a5bff">Services</span></span>
+    </h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,4vw,64px);align-items:start;border-top:2px solid #0a0c24;padding-top:28px">
+      <div style="display:flex;flex-direction:column;gap:28px;max-width:560px">
+        <p data-r="up" data-d="240" style="font-size:clamp(18px,1.6vw,23px);line-height:1.45;font-weight:500;text-wrap:pretty">PluzBuzz is a website development agency in London, UK, building conversion-focused websites, landing pages, and SEO-ready digital experiences for ambitious brands and global growth teams.</p>
+        <div data-r="up" data-d="300" style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#contact" style="display:flex;align-items:center;gap:10px;padding:17px 26px;background:#080b38;color:#fff;border-radius:6px;font-weight:600" style-hover="background:#3a5bff;color:#fff">Talk to our team <span aria-hidden="true">→</span></a>
+          <a href="#live" style="padding:17px 26px;border:1.5px solid #0a0c24;border-radius:6px;font-weight:600" style-hover="background:#0a0c24;color:#fff">See live builds</a>
+        </div>
+        <ul data-r="up" data-d="360" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Mono';font-size:13px;color:#55566a">
+          <li style="display:flex;gap:10px"><span style="color:#3a5bff">✓</span>Conversion-focused layouts</li>
+          <li style="display:flex;gap:10px"><span style="color:#3a5bff">✓</span>SEO-ready structure from day one</li>
+          <li style="display:flex;gap:10px"><span style="color:#3a5bff">✓</span>Responsive on desktop, tablet and mobile</li>
+        </ul>
+      </div>
+
+      <div data-r="up" data-d="200" aria-label="A website building itself: code on the left, the page rendering on the right" role="img" style="border-radius:12px;background:#080b38;color:#fff;overflow:hidden;box-shadow:0 30px 60px -30px rgba(8,11,56,.55)">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1)">
+          <div style="display:flex;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#E453EE"></span><span style="width:10px;height:10px;border-radius:50%;background:#F2D458"></span><span style="width:10px;height:10px;border-radius:50%;background:#555AFE"></span></div>
+          <div style="flex:1;display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.07);font-family:'IBM Plex Mono';font-size:12px;color:rgba(255,255,255,.75);min-width:0"><span style="width:7px;height:7px;border-radius:50%;background:{{ urlDot }};flex:none;transition:background .4s"></span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ buildUrl }}</span></div>
+          <span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;padding:4px 8px;border-radius:4px;background:{{ liveBg }};color:#080b38;transition:background .4s">{{ liveTxt }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))">
+          <div style="padding:18px 0;font-family:'IBM Plex Mono';font-size:12.5px;line-height:2;border-right:1px solid rgba(255,255,255,.08);min-width:0;overflow:hidden">
+            <div style="display:grid;grid-template-columns:34px 1fr">
+              <div style="text-align:right;padding-right:12px;color:rgba(255,255,255,.28)"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div></div>
+              <div style="min-width:0">
+                <div data-cl="1" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;nav</span> <span style="color:#E453EE">class</span>=<span style="color:#F2D458">"site-nav"</span><span style="color:#8f9bff">&gt;</span></div>
+                <div data-cl="2" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;h1&gt;</span>Own the spotlight.<span style="color:#8f9bff">&lt;/h1&gt;</span></div>
+                <div data-cl="3" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;p</span> <span style="color:#E453EE">class</span>=<span style="color:#F2D458">"lede"</span><span style="color:#8f9bff">&gt;</span>Built to convert.</div>
+                <div data-cl="4" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;a</span> <span style="color:#E453EE">class</span>=<span style="color:#F2D458">"cta"</span><span style="color:#8f9bff">&gt;</span>Book a call<span style="color:#8f9bff">&lt;/a&gt;</span></div>
+                <div data-cl="5" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;img</span> <span style="color:#E453EE">loading</span>=<span style="color:#F2D458">"lazy"</span> <span style="color:#E453EE">alt</span>=<span style="color:#F2D458">"…"</span><span style="color:#8f9bff">&gt;</span></div>
+                <div data-cl="6" style="white-space:pre;overflow:hidden"><span style="color:#8f9bff">&lt;script</span> <span style="color:#E453EE">type</span>=<span style="color:#F2D458">"ld+json"</span><span style="color:#8f9bff">&gt;</span></div>
+                <div data-cl="7" style="white-space:pre;overflow:hidden;color:#F2D458">$ deploy --prod</div>
+              </div>
+            </div>
+          </div>
+          <div style="position:relative;background:#fff;color:#0a0c24;min-height:300px;padding:16px;display:flex;flex-direction:column;gap:12px">
+            <div data-bs="1" style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid #ececf2"><span style="display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-weight:800;font-size:15px;text-transform:uppercase"><span style="width:12px;height:12px;border-radius:3px;background:#3a5bff"></span>Your brand</span><span style="display:flex;gap:6px"><span style="width:22px;height:5px;border-radius:3px;background:#dcdde6"></span><span style="width:22px;height:5px;border-radius:3px;background:#dcdde6"></span><span style="width:22px;height:5px;border-radius:3px;background:#dcdde6"></span></span></div>
+            <p data-bs="2" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,42px);line-height:.9;text-transform:uppercase">Own the<br>spotlight.</p>
+            <p data-bs="3" style="font-size:13px;color:#55566a">Built to convert.</p>
+            <span data-bs="4" style="align-self:flex-start;padding:9px 14px;border-radius:5px;background:#ffc83d;font-size:12px;font-weight:600">Book a call →</span>
+            <div data-bs="5" style="flex:1;min-height:80px;border-radius:8px;background:#080b38;position:relative;overflow:hidden"><span style="position:absolute;right:-18px;bottom:-26px;width:110px;height:110px;border-radius:50%;background:#555AFE"></span><span style="position:absolute;right:54px;bottom:-14px;width:60px;height:60px;border-radius:50%;background:#E453EE"></span><span style="position:absolute;left:16px;top:14px;width:36px;height:6px;background:#F2D458"></span></div>
+            <span data-bs="6" style="position:absolute;right:14px;top:58px;padding:5px 9px;border-radius:4px;background:#e9ecff;color:#3a5bff;font-family:'IBM Plex Mono';font-size:10.5px">schema ✓ LocalBusiness</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.1);font-family:'IBM Plex Mono';font-size:11.5px;color:rgba(255,255,255,.6)">
+          <span>build {{ built }}/7 · {{ buildMsg }}</span><span>mobile-first ✓ · Core Web Vitals ✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="included" data-tag="section.included" data-screen-label="What's included" style="position:relative;background:#f4f4f7;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(46px,6vw,96px);line-height:.88;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">What’s in</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">the build</span></span></h2>
+      <p data-r="up" style="max-width:420px;color:#55566a;font-size:17px;line-height:1.55">Five parts of every website project. Select one to see what’s included.</p>
+    </div>
+    <div data-r="up" style="display:grid;grid-template-columns:{{ inclCols }};gap:clamp(20px,3vw,48px);align-items:start">
+      <div role="tablist" aria-label="Services included" style="display:flex;flex-direction:column;border-top:2px solid #0a0c24">
+        <sc-for list="{{ files }}" as="f" hint-placeholder-count="5">
+          <button type="button" role="tab" aria-selected="{{ f.on }}" data-i="{{ f.i }}" onClick="{{ pickFile }}" onMouseEnter="{{ pickFile }}" onFocus="{{ pickFile }}" style="display:grid;grid-template-columns:44px 1fr 24px;align-items:center;gap:8px;padding:20px 10px;border:0;border-bottom:1px solid rgba(10,12,36,.14);background:{{ f.bg }};color:{{ f.fg }};cursor:pointer;text-align:left;font-family:'Barlow Condensed';font-weight:700;font-size:clamp(22px,2vw,28px);line-height:1;text-transform:uppercase;transition:background .25s,color .25s">
+            <span style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;color:{{ f.numC }}">{{ f.num }}</span><span>{{ f.title }}</span><span style="font-family:'Schibsted Grotesk';font-size:18px">{{ f.arrow }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div role="tabpanel" style="min-width:0;display:flex;flex-direction:column;gap:22px;padding:clamp(18px,2.4vw,32px);border-radius:12px;background:#fff">
+        <div ref="{{ inclRef }}" style="position:relative;height:clamp(220px,26vw,280px);border-radius:10px;background:#f4f4f7;overflow:hidden">
+          <sc-if value="{{ vis.design }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:18px;display:flex;flex-direction:column;gap:10px">
+              <div style="height:30px;border-radius:6px;border:1.5px {{ va.line }} #9a9bab;background:{{ va.nav }};transition:all .6s"></div>
+              <div style="position:relative;flex:1;border-radius:8px;border:1.5px {{ va.line }} #9a9bab;background:{{ va.hero }};transition:all .7s .1s;overflow:hidden;display:flex;align-items:flex-end;padding:16px"><span style="position:absolute;right:-24px;top:-24px;width:120px;height:120px;border-radius:50%;background:#E453EE;opacity:{{ va.op }};transition:opacity .6s .35s"></span><span style="position:relative;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(24px,2.4vw,34px);line-height:.9;text-transform:uppercase;color:{{ va.ink }};transition:color .6s .3s">Designed<br>to convert</span></div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;height:52px"><span style="border-radius:6px;border:1.5px {{ va.line }} #9a9bab;background:{{ va.c1 }};transition:all .6s .2s"></span><span style="border-radius:6px;border:1.5px {{ va.line }} #9a9bab;background:{{ va.c2 }};transition:all .6s .3s"></span><span style="border-radius:6px;border:1.5px {{ va.line }} #9a9bab;background:{{ va.c3 }};transition:all .6s .4s"></span></div>
+            </div>
+            <span style="position:absolute;right:14px;bottom:12px;font-family:'IBM Plex Mono';font-size:11px;padding:4px 8px;border-radius:4px;background:#fff;color:#0a0c24">{{ va.label }}</span>
+          </sc-if>
+          <sc-if value="{{ vis.dev }}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true"><g stroke="#3a5bff" stroke-width=".4" stroke-dasharray="1.4 1.2" opacity="{{ va.op }}" style="transition:opacity .6s .4s"><line x1="50" y1="50" x2="16" y2="20"></line><line x1="50" y1="50" x2="84" y2="20"></line><line x1="50" y1="50" x2="12" y2="56"></line><line x1="50" y1="50" x2="88" y2="56"></line><line x1="50" y1="50" x2="26" y2="86"></line><line x1="50" y1="50" x2="74" y2="86"></line></g></svg>
+            <sc-for list="{{ devChips }}" as="dc" hint-placeholder-count="6"><span style="position:absolute;left:{{ dc.x }};top:{{ dc.y }};transform:translate(-50%,-50%) scale({{ dc.s }});opacity:{{ dc.o }};transition:all .6s cubic-bezier(.2,.7,.2,1) {{ dc.d }};padding:8px 12px;border-radius:6px;background:#fff;border:1.5px solid #0a0c24;font-size:13px;font-weight:600;white-space:nowrap">{{ dc.name }}</span></sc-for>
+            <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:14px 18px;border-radius:8px;background:#080b38;color:#fff;font-family:'Barlow Condensed';font-weight:800;font-size:20px;text-transform:uppercase;white-space:nowrap">Your website</span>
+          </sc-if>
+          <sc-if value="{{ vis.shop }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px">
+              <div style="display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:8px;background:#fff"><span style="flex:1;border-radius:6px;background:#555AFE;position:relative;overflow:hidden"><span style="position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:#F2D458"></span></span><span style="font-weight:600;font-size:14px">Signature tote</span><span style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700">£48</span><span style="padding:6px 10px;border-radius:4px;background:{{ va.btn }};color:{{ va.btnInk }};font-size:11px;font-weight:600;transition:all .4s .3s">{{ va.btnTxt }}</span></span></div>
+              <div style="display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:8px;background:#080b38;color:#fff;transform:translateX({{ va.slide }});opacity:{{ va.op }};transition:all .7s cubic-bezier(.2,.7,.2,1) .5s"><span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:#F2D458">BASKET · 1</span><span style="display:flex;justify-content:space-between;font-size:13px"><span>Signature tote</span><span>£48</span></span><span style="height:1px;background:rgba(255,255,255,.2)"></span><span style="font-size:12px;opacity:.7">Card · Apple Pay · PayPal</span><span style="margin-top:auto;padding:10px;border-radius:5px;background:#ffc83d;color:#080b38;font-size:12px;font-weight:700;text-align:center">Secure checkout</span></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ vis.seo }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:18px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:999px;background:#fff;border:1px solid #dcdde6;font-size:14px"><span style="width:12px;height:12px;border-radius:50%;border:2px solid #55566a"></span>website development london</div>
+              <div style="position:relative;flex:1">
+                <sc-for list="{{ seoRows }}" as="r" hint-placeholder-count="3"><div style="position:absolute;left:0;right:0;top:{{ r.top }};height:30%;display:flex;align-items:center;gap:12px;padding:0 14px;border-radius:8px;background:{{ r.bg }};color:{{ r.fg }};transition:top .9s cubic-bezier(.7,0,.25,1) .3s,background .5s .9s,color .5s .9s"><span style="font-family:'IBM Plex Mono';font-size:12px;width:26px">{{ r.pos }}</span><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.title }}</span><span style="font-size:11.5px;opacity:.65">{{ r.url }}</span></span></div></sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ vis.redo }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;background:#e9e7e1;padding:22px;display:flex;flex-direction:column;gap:10px;filter:grayscale(1)"><span style="font-family:Georgia,serif;font-size:22px;color:#6b665c">Welcome to our website</span><span style="height:8px;width:70%;background:#cfccc4"></span><span style="height:8px;width:55%;background:#cfccc4"></span><span style="flex:1;border:1px solid #cfccc4;background:#f3f1ec"></span></div>
+            <div style="position:absolute;inset:0;background:#080b38;color:#fff;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;clip-path:inset(0 0 0 {{ redoClip }});overflow:hidden"><span style="position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:#555AFE"></span><span style="position:absolute;right:90px;top:40px;width:70px;height:70px;border-radius:50%;background:#E453EE"></span><span style="position:relative;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(28px,3vw,42px);line-height:.9;text-transform:uppercase">Built for<br>today</span><span style="position:relative;align-self:flex-start;padding:8px 13px;border-radius:5px;background:#ffc83d;color:#080b38;font-size:12px;font-weight:600">Book a call →</span></div>
+            <span style="position:absolute;top:0;bottom:0;left:{{ redoClip }};width:3px;margin-left:-1.5px;background:#ffc83d;pointer-events:none"></span>
+            <span style="position:absolute;top:50%;left:{{ redoClip }};width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#ffc83d;color:#080b38;display:flex;align-items:center;justify-content:center;font-weight:700;pointer-events:none">⇆</span>
+            <span style="position:absolute;left:12px;top:12px;padding:4px 8px;border-radius:4px;background:#6b665c;color:#fff;font-family:'IBM Plex Mono';font-size:10.5px">BEFORE</span><span style="position:absolute;right:12px;top:12px;padding:4px 8px;border-radius:4px;background:#ffc83d;color:#080b38;font-family:'IBM Plex Mono';font-size:10.5px">AFTER</span>
+            <input type="range" min="0" max="100" value="{{ redo }}" onInput="{{ setRedo }}" aria-label="Drag to compare before and after" style="position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize">
+          </sc-if>
+        </div>
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">{{ file.num }} / 05</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,3.6vw,56px);line-height:.92;text-transform:uppercase">{{ file.title }}</h3>
+        <p style="font-size:17px;line-height:1.6;color:#33344a;max-width:680px;text-wrap:pretty">{{ file.desc }}</p>
+        <ul style="list-style:none;margin:0;padding:22px 0 0;border-top:1px solid rgba(10,12,36,.12);display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px 24px">
+          <sc-for list="{{ file.plus }}" as="p" hint-placeholder-count="4">
+            <li style="display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500"><span style="flex:none;width:24px;height:24px;border-radius:50%;background:#ffc83d;display:flex;align-items:center;justify-content:center;font-size:13px;color:#080b38">✓</span>{{ p }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" data-tag="section.process" data-screen-label="Process" style="position:relative;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:{{ procCols }};gap:clamp(32px,5vw,80px);align-items:start">
+    <div style="position:sticky;top:{{ stickyTop }};z-index:2;background:#fff;padding-bottom:12px;order:{{ browserOrder }}">
+      <div style="display:flex;justify-content:center">
+        <div style="width:{{ pv.frameW }};max-width:100%;transition:width .7s cubic-bezier(.7,0,.25,1);border-radius:12px;border:1.5px solid #0a0c24;overflow:hidden;background:#fff;box-shadow:0 30px 60px -34px rgba(8,11,56,.5)">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1.5px solid #0a0c24;background:#f4f4f7">
+            <div style="display:flex;gap:6px"><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #0a0c24"></span><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #0a0c24"></span><span style="width:9px;height:9px;border-radius:50%;border:1.5px solid #0a0c24"></span></div>
+            <div style="flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:5px 10px;border-radius:5px;background:#fff;font-family:'IBM Plex Mono';font-size:11.5px"><span style="width:7px;height:7px;border-radius:50%;background:{{ pv.lock }};flex:none"></span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ pv.url }}</span></div>
+            <span style="font-family:'IBM Plex Mono';font-size:11px;color:#3a5bff">{{ pv.num }}/06</span>
+          </div>
+          <div style="position:relative;height:clamp(340px,54vh,520px);overflow:hidden">
+            <div style="position:absolute;inset:0;padding:22px;display:flex;flex-direction:column;align-items:center;gap:22px;opacity:{{ pv.research }};transition:opacity .5s;pointer-events:none">
+              <span style="padding:10px 18px;border:1.5px solid #0a0c24;border-radius:6px;font-family:'IBM Plex Mono';font-size:12px">/ home</span>
+              <span style="width:70%;height:1.5px;background:#0a0c24"></span>
+              <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font-family:'IBM Plex Mono';font-size:11.5px"><span style="padding:8px 12px;border:1.5px solid #0a0c24;border-radius:6px">/services</span><span style="padding:8px 12px;border:1.5px solid #0a0c24;border-radius:6px">/work</span><span style="padding:8px 12px;border:1.5px solid #0a0c24;border-radius:6px">/about</span><span style="padding:8px 12px;border:1.5px solid #0a0c24;border-radius:6px">/contact</span></div>
+              <div style="margin-top:auto;width:100%;display:flex;flex-direction:column;gap:8px">
+                <p style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:#55566a">COMPETITORS AUDITED</p>
+                <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px"><span style="height:54px;border-radius:6px;background:#f4f4f7;border:1px solid #e1e2ea"></span><span style="height:54px;border-radius:6px;background:#f4f4f7;border:1px solid #e1e2ea"></span><span style="height:54px;border-radius:6px;background:#f4f4f7;border:1px solid #e1e2ea"></span></div>
+              </div>
+            </div>
+            <div style="position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px;opacity:{{ pv.site }};transition:opacity .5s">
+              <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:6px;border:{{ pv.box }};transition:border-color .5s">
+                <span style="font-family:'Barlow Condensed';font-weight:800;font-size:16px;text-transform:uppercase;color:{{ pv.ink }};transition:color .5s">Your brand</span>
+                <span style="display:flex;gap:8px"><span style="width:26px;height:6px;border-radius:3px;background:#dcdde6"></span><span style="width:26px;height:6px;border-radius:3px;background:#dcdde6"></span><span style="width:26px;height:6px;border-radius:3px;background:#dcdde6"></span></span>
+                <span style="position:absolute;left:10px;top:-8px;padding:0 5px;background:#fff;font-family:'IBM Plex Mono';font-size:9.5px;color:#8a8ca0;opacity:{{ pv.wf }};transition:opacity .4s">NAV</span>
+              </div>
+              <div style="position:relative;flex:1.3;border-radius:8px;border:{{ pv.box }};background:{{ pv.hero }};padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;transition:background .6s,border-color .5s;overflow:hidden">
+                <span style="position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;background:#555AFE;opacity:{{ pv.dz }};transition:opacity .6s"></span>
+                <span style="position:absolute;right:70px;top:40px;width:64px;height:64px;border-radius:50%;background:#E453EE;opacity:{{ pv.dz }};transition:opacity .6s .1s"></span>
+                <p style="position:relative;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(28px,3vw,44px);line-height:.9;text-transform:uppercase;color:{{ pv.heroInk }};transition:color .6s">Own the<br>spotlight.</p>
+                <span style="position:relative;align-self:flex-start;padding:9px 14px;border-radius:5px;border:{{ pv.box }};background:{{ pv.cta }};color:{{ pv.ctaInk }};font-size:12px;font-weight:600;transition:background .6s,color .6s">Book a call →</span>
+                <span style="position:absolute;left:10px;top:8px;font-family:'IBM Plex Mono';font-size:9.5px;color:#8a8ca0;opacity:{{ pv.wf }};transition:opacity .4s">HERO · H1 · CTA</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex:.7">
+                <div style="position:relative;border-radius:6px;border:{{ pv.box }};background:{{ pv.card }};transition:background .6s"><span style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono';font-size:9.5px;color:#8a8ca0;opacity:{{ pv.wf }}">CARD</span><span style="position:absolute;left:10px;right:10px;bottom:12px;height:6px;border-radius:3px;background:#3a5bff;opacity:{{ pv.dz }};transition:opacity .6s"></span></div>
+                <div style="position:relative;border-radius:6px;border:{{ pv.box }};background:{{ pv.card }};transition:background .6s"><span style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono';font-size:9.5px;color:#8a8ca0;opacity:{{ pv.wf }}">CARD</span><span style="position:absolute;left:10px;right:10px;bottom:12px;height:6px;border-radius:3px;background:#ffc83d;opacity:{{ pv.dz }};transition:opacity .6s"></span></div>
+                <div style="position:relative;border-radius:6px;border:{{ pv.box }};background:{{ pv.card }};transition:background .6s"><span style="position:absolute;left:8px;top:6px;font-family:'IBM Plex Mono';font-size:9.5px;color:#8a8ca0;opacity:{{ pv.wf }}">CARD</span><span style="position:absolute;left:10px;right:10px;bottom:12px;height:6px;border-radius:3px;background:#E453EE;opacity:{{ pv.dz }};transition:opacity .6s"></span></div>
+              </div>
+            </div>
+            <div style="position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-wrap:wrap;gap:6px;opacity:{{ pv.dev }};transform:translateY({{ pv.devY }});transition:opacity .4s,transform .5s;font-family:'IBM Plex Mono';font-size:11px">
+              <span style="padding:6px 10px;border-radius:4px;background:#080b38;color:#9be3a4">✓ responsive</span><span style="padding:6px 10px;border-radius:4px;background:#080b38;color:#9be3a4">✓ forms</span><span style="padding:6px 10px;border-radius:4px;background:#080b38;color:#9be3a4">✓ cross-browser</span><span style="padding:6px 10px;border-radius:4px;background:#080b38;color:#9be3a4">✓ secure</span>
+            </div>
+            <div style="position:absolute;inset:0;pointer-events:none;opacity:{{ pv.seo }};transition:opacity .45s;font-family:'IBM Plex Mono';font-size:11px">
+              <span style="position:absolute;left:24px;top:8px;padding:5px 9px;border-radius:4px;background:#3a5bff;color:#fff">&lt;title&gt; + meta</span>
+              <span style="position:absolute;left:36px;top:40%;padding:5px 9px;border-radius:4px;background:#3a5bff;color:#fff">h1 · one per page</span>
+              <span style="position:absolute;right:24px;top:22%;padding:5px 9px;border-radius:4px;background:#ffc83d;color:#080b38">schema.org ✓</span>
+              <span style="position:absolute;right:30px;bottom:22%;padding:5px 9px;border-radius:4px;background:#3a5bff;color:#fff">alt="…"</span>
+              <span style="position:absolute;left:24px;bottom:12px;padding:5px 9px;border-radius:4px;background:#080b38;color:#fff">/services/website-development</span>
+            </div>
+            <div style="position:absolute;right:14px;bottom:14px;width:min(46%,220px);padding:12px;border-radius:8px;background:#080b38;color:#fff;opacity:{{ pv.live }};transform:translateY({{ pv.liveY }});transition:opacity .45s,transform .6s">
+              <p style="font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.1em;color:#F2D458">● LIVE · ENQUIRIES</p>
+              <svg viewBox="0 0 200 60" style="display:block;width:100%;height:auto;margin-top:6px" aria-hidden="true"><polyline points="0,52 30,46 60,48 90,34 120,30 150,18 200,6" fill="none" stroke="#F2D458" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="{{ pv.dash }}" style="transition:stroke-dashoffset 1.4s ease .2s"></polyline></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,88px);line-height:.88;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Watch it</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">get built</span></span></h2>
+      <p data-r="up" style="margin-top:20px;max-width:520px;color:#55566a;font-size:17px;line-height:1.6">At PluzBuzz, our website development process includes business research, competitor analysis, UX strategy, design prototyping, development and testing, SEO optimisation, website launch, and ongoing performance improvement</p>
+      <ol style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column">
+        <sc-for list="{{ stages }}" as="s" hint-placeholder-count="6">
+          <li data-stage="{{ s.i }}" style="min-height:{{ stageH }};display:flex;flex-direction:column;justify-content:center;gap:12px;border-top:1px solid rgba(10,12,36,.14);padding:28px 0;opacity:{{ s.op }};transition:opacity .35s">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:{{ s.numC }}">{{ s.num }} — {{ s.tag }}</span>
+            <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(32px,3.4vw,52px);line-height:.95;text-transform:uppercase">{{ s.title }}</h3>
+            <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:460px">{{ s.desc }}</p>
+            <span style="display:block;height:3px;background:#ececf2;border-radius:2px;overflow:hidden;max-width:220px"><span style="display:block;height:100%;width:{{ s.bar }};background:#3a5bff;transition:width .5s"></span></span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="live" data-tag="section.live" data-screen-label="Live builds" style="position:relative;background:#080b38;color:#fff;padding:clamp(64px,8vw,120px) 0 clamp(64px,8vw,110px);overflow:hidden">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+    <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(50px,7vw,120px);line-height:.86;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Live.</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block;color:#ffc83d">Not a mockup.</span></span></h2>
+    <p data-r="up" style="max-width:420px;color:rgba(255,255,255,.72);font-size:17px;line-height:1.55">Drag through sites we’ve shipped. Pick a live one and it opens below, running for real. Scroll inside it.</p>
+  </div>
+  <div data-flex="" style="height:clamp(360px,50vh,520px);margin-top:clamp(20px,3vw,40px);color:#fff"></div>
+
+  <div ref="{{ liveRef }}" style="max-width:1440px;margin:clamp(24px,3vw,40px) auto 0;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px">
+      <div role="tablist" aria-label="Live sites" style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ sites }}" as="x" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{ x.on }}" data-i="{{ x.i }}" onClick="{{ pickSite }}" style="padding:11px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.22);background:{{ x.bg }};color:{{ x.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ x.name }}</button>
+        </sc-for>
+      </div>
+      <div role="group" aria-label="Device" style="display:flex;gap:4px;padding:4px;border-radius:8px;background:rgba(255,255,255,.08)">
+        <sc-for list="{{ devices }}" as="d" hint-placeholder-count="3">
+          <button type="button" aria-pressed="{{ d.on }}" data-i="{{ d.i }}" onClick="{{ pickDevice }}" style="padding:9px 14px;border:0;border-radius:5px;background:{{ d.bg }};color:{{ d.fg }};font-family:'IBM Plex Mono';font-size:12px;cursor:pointer">{{ d.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div ref="{{ stageRef }}" style="position:relative;display:flex;justify-content:center;padding:18px 0 0">
+      <div style="width:{{ frame.w }};transition:width .6s cubic-bezier(.7,0,.25,1);border-radius:{{ frame.r }};overflow:hidden;background:#fff;border:{{ frame.border }};box-shadow:0 40px 80px -40px rgba(0,0,0,.7)">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f4f4f7;color:#0a0c24">
+          <div style="display:flex;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:#E453EE"></span><span style="width:10px;height:10px;border-radius:50%;background:#F2D458"></span><span style="width:10px;height:10px;border-radius:50%;background:#555AFE"></span></div>
+          <div style="flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:5px;background:#fff;font-family:'IBM Plex Mono';font-size:12px"><span style="width:7px;height:7px;border-radius:50%;background:#2fbf71;flex:none"></span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ site.host }}</span></div>
+          <a href="{{ site.url }}" target="_blank" rel="noreferrer" style="flex:none;font-family:'IBM Plex Mono';font-size:12px;font-weight:500;color:#3a5bff">Open ↗</a>
+        </div>
+        <div style="position:relative;height:{{ frame.h }};overflow:hidden;background:#f4f4f7;transition:height .6s">
+          <p style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-size:12px;color:#55566a">Loading {{ site.host }}…</p>
+          <sc-if value="{{ liveOn }}" hint-placeholder-val="{{ false }}">
+            <iframe src="{{ site.url }}" title="{{ site.title }}" loading="lazy" style="position:absolute;left:0;top:0;border:0;background:#fff;width:{{ frame.iw }};height:{{ frame.ih }};transform:scale({{ frame.s }});transform-origin:0 0"></iframe>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:'IBM Plex Mono';font-size:12px;color:rgba(255,255,255,.55);text-align:center">Some sites block embedded previews. If one stays blank, use Open ↗.</p>
+  </div>
+</section>
+
+<section id="cases" data-screen-label="Our work" style="position:relative;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,4vw,60px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(50px,7vw,120px);line-height:.86;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Our</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">work</span></span></h2>
+      <div data-r="up" style="display:flex;flex-direction:column;gap:16px;max-width:420px"><p style="color:#55566a;font-size:17px;line-height:1.55">Recent website projects, and what each one had to achieve for the business behind it.</p><a href="PluzBuzz%20Home%20v4.dc.html#work" style="font-weight:600">See all work →</a></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="3">
+        <article data-r="up" style="display:grid;grid-template-columns:{{ workCols }};gap:clamp(24px,4vw,64px);align-items:center;border-top:2px solid #0a0c24;padding-top:clamp(24px,3vw,36px)">
+          <a href="PluzBuzz%20Home%20v4.dc.html#work" aria-label="{{ c.alt }}" style="order:{{ c.order }};display:block;border-radius:12px;overflow:hidden;border:1.5px solid #0a0c24;background:#fff;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s" style-hover="transform:translateY(-6px) rotate(-.4deg);box-shadow:0 40px 60px -36px rgba(8,11,56,.55)">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1.5px solid #0a0c24;background:#f4f4f7"><span style="display:flex;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#E453EE"></span><span style="width:9px;height:9px;border-radius:50%;background:#F2D458"></span><span style="width:9px;height:9px;border-radius:50%;background:#555AFE"></span></span><span style="flex:1;padding:4px 10px;border-radius:5px;background:#fff;font-family:'IBM Plex Mono';font-size:11.5px;color:#0a0c24">{{ c.host }}</span></div>
+            <div style="aspect-ratio:16/10;background:{{ c.bgImg }};background-size:cover;background-position:center"></div>
+          </a>
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">{{ c.num }} / 03</span>
+            <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5vw,80px);line-height:.88;text-transform:uppercase">{{ c.name }}</h3>
+            <dl style="margin:0;display:grid;gap:18px">
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;padding-top:14px;border-top:1px solid rgba(10,12,36,.14)"><dt style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#55566a;padding-top:3px">What we did</dt><dd style="margin:0;font-weight:600">{{ c.tag }}</dd></div>
+              <div style="display:grid;grid-template-columns:110px 1fr;gap:12px;padding-top:14px;border-top:1px solid rgba(10,12,36,.14)"><dt style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#55566a;padding-top:3px">The goal</dt><dd style="margin:0;font-size:16px;line-height:1.55;color:#33344a">{{ c.desc }}</dd></div>
+            </dl>
+            <a href="PluzBuzz%20Home%20v4.dc.html#work" style="align-self:flex-start;display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:6px;background:#080b38;color:#fff;font-weight:600" style-hover="background:#3a5bff;color:#fff">View project <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="plan" data-screen-label="Plan your website" style="position:relative;background:#f4f4f7;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(46px,6vw,96px);line-height:.88;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Plan your</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block;color:#3a5bff">website</span></span></h2>
+      <p data-r="up" style="max-width:460px;color:#55566a;font-size:17px;line-height:1.55">Tell us about your project in five short steps. Your website takes shape as you answer, and your brief goes straight to our team.</p>
+    </div>
+    <form data-r="up" onSubmit="{{ submitBrief }}" noValidate="{{ true }}" style="display:grid;grid-template-columns:{{ procCols }};gap:clamp(24px,4vw,64px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:26px;padding:clamp(22px,2.6vw,36px);border-radius:14px;background:#fff;border:1px solid rgba(10,12,36,.1)">
+        <sc-if value="{{ briefOpen }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">Step {{ stepNum }} of 5</span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">{{ stepName }}</span></div>
+            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px"><sc-for list="{{ stepBars }}" as="sb" hint-placeholder-count="5"><span style="height:4px;border-radius:2px;background:{{ sb.c }};transition:background .4s"></span></sc-for></div>
+          </div>
+          <sc-if value="{{ st0 }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase">Let’s start with your brand</h3>
+              <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Company name</span><input type="text" data-k="company" defaultValue="{{ fv.company }}" onInput="{{ setField }}" placeholder="e.g. Northfield Partners" autoComplete="organization" style="padding:15px 16px;border-radius:8px;border:1.5px solid rgba(10,12,36,.18);background:#fff;color:#0a0c24;outline:none;font-size:16px" style-focus="border-color:#3a5bff"></label>
+              <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Brand colour</span>
+                <div style="display:flex;flex-wrap:wrap;gap:10px"><sc-for list="{{ brandColors }}" as="bc" hint-placeholder-count="5"><button type="button" aria-label="{{ bc.name }}" aria-pressed="{{ bc.on }}" data-i="{{ bc.i }}" onClick="{{ pickColor }}" style="width:48px;height:48px;border-radius:50%;background:{{ bc.bg }};border:3px solid #fff;box-shadow:0 0 0 2px {{ bc.ring }};cursor:pointer;transition:box-shadow .2s"></button></sc-for></div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ st1 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase">What are we building?</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+                <sc-for list="{{ planTypes }}" as="t" hint-placeholder-count="4">
+                  <button type="button" aria-pressed="{{ t.on }}" data-i="{{ t.i }}" onClick="{{ pickType }}" style="display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:10px;border:1.5px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};text-align:left;cursor:pointer;transition:background .25s,color .25s,border-color .25s"><span style="font-family:'Barlow Condensed';font-weight:800;font-size:24px;line-height:1;text-transform:uppercase">{{ t.name }}</span><span style="font-size:14px;opacity:.75">{{ t.sub }}</span></button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ st2 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase">Size and platform</h3>
+              <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">How many pages?</span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ planSizes }}" as="z" hint-placeholder-count="3"><button type="button" aria-pressed="{{ z.on }}" data-i="{{ z.i }}" onClick="{{ pickSize }}" style="padding:12px 18px;border-radius:999px;border:1.5px solid #0a0c24;background:{{ z.bg }};color:{{ z.fg }};font-weight:600;font-size:15px;cursor:pointer">{{ z.name }}</button></sc-for></div></div>
+              <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Preferred platform</span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ planPlatforms }}" as="pl" hint-placeholder-count="5"><button type="button" aria-pressed="{{ pl.on }}" data-i="{{ pl.i }}" onClick="{{ pickPlatform }}" style="padding:12px 18px;border-radius:999px;border:1.5px solid #0a0c24;background:{{ pl.bg }};color:{{ pl.fg }};font-weight:600;font-size:15px;cursor:pointer">{{ pl.name }}</button></sc-for></div></div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ st3 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase">What should it do?</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px">
+                <sc-for list="{{ planFeatures }}" as="ft" hint-placeholder-count="4"><button type="button" aria-pressed="{{ ft.on }}" data-i="{{ ft.i }}" onClick="{{ toggleFeature }}" style="display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:10px;border:1.5px solid {{ ft.bd }};background:#fff;color:#0a0c24;font-weight:600;font-size:15px;text-align:left;cursor:pointer"><span style="flex:none;width:22px;height:22px;border-radius:6px;border:1.5px solid #0a0c24;background:{{ ft.box }};color:#080b38;display:flex;align-items:center;justify-content:center;font-size:12px">{{ ft.tick }}</span>{{ ft.name }}</button></sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ st4 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,3vw,44px);line-height:.95;text-transform:uppercase">Where do we send the plan?</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+                <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Your name</span><input type="text" data-k="name" required="{{ true }}" defaultValue="{{ fv.name }}" onInput="{{ setField }}" placeholder="Full name" autoComplete="name" style="padding:15px 16px;border-radius:8px;border:1.5px solid rgba(10,12,36,.18);background:#fff;color:#0a0c24;outline:none;font-size:16px" style-focus="border-color:#3a5bff"></label>
+                <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Work email</span><input type="email" data-k="email" required="{{ true }}" defaultValue="{{ fv.email }}" onInput="{{ setField }}" placeholder="name@company.com" autoComplete="email" style="padding:15px 16px;border-radius:8px;border:1.5px solid rgba(10,12,36,.18);background:#fff;color:#0a0c24;outline:none;font-size:16px" style-focus="border-color:#3a5bff"></label>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Ideal launch</span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ launchOpts }}" as="lo" hint-placeholder-count="3"><button type="button" aria-pressed="{{ lo.on }}" data-i="{{ lo.i }}" onClick="{{ pickLaunch }}" style="padding:12px 18px;border-radius:999px;border:1.5px solid #0a0c24;background:{{ lo.bg }};color:{{ lo.fg }};font-weight:600;font-size:15px;cursor:pointer">{{ lo.name }}</button></sc-for></div></div>
+              <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Anything else? (optional)</span><textarea data-k="notes" rows="3" defaultValue="{{ fv.notes }}" onInput="{{ setField }}" placeholder="Current website, competitors you admire, deadlines…" style="padding:15px 16px;border-radius:8px;border:1.5px solid rgba(10,12,36,.18);background:#fff;color:#0a0c24;outline:none;font-size:16px;resize:vertical" style-focus="border-color:#3a5bff"></textarea></label>
+              <p aria-live="polite" style="font-size:14px;color:#e5484d;min-height:20px">{{ briefErr }}</p>
+            </div>
+          </sc-if>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:18px;border-top:1px solid rgba(10,12,36,.12)">
+            <button type="button" onClick="{{ prevStep }}" disabled="{{ backOff }}" style="padding:14px 20px;border-radius:6px;border:1.5px solid rgba(10,12,36,.2);background:#fff;color:#0a0c24;font-weight:600;cursor:pointer;opacity:{{ backOp }}">← Back</button>
+            <sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ nextStep }}" style="padding:14px 24px;border-radius:6px;border:0;background:#080b38;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#3a5bff">Next →</button></sc-if>
+            <sc-if value="{{ isLast }}" hint-placeholder-val="{{ false }}"><button type="submit" style="padding:14px 24px;border-radius:6px;border:0;background:#ffc83d;color:#080b38;font-weight:700;cursor:pointer" style-hover="background:#080b38;color:#fff">Send my project brief →</button></sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{ briefSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:18px;padding:12px 0">
+            <span style="width:56px;height:56px;border-radius:50%;background:#ffc83d;display:flex;align-items:center;justify-content:center;font-size:24px;color:#080b38">✓</span>
+            <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,3.4vw,52px);line-height:.92;text-transform:uppercase">Brief received{{ thanksName }}</h3>
+            <p style="color:#55566a;font-size:17px;line-height:1.6">Thanks. The London team will review your plan for {{ brandName }} and be in touch shortly.</p>
+            <ul style="list-style:none;margin:0;padding:18px 0 0;border-top:1px solid rgba(10,12,36,.12);display:flex;flex-direction:column;gap:10px"><sc-for list="{{ briefLines }}" as="bl" hint-placeholder-count="4"><li style="display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:15px"><span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#55566a;padding-top:2px">{{ bl.k }}</span><span style="font-weight:600">{{ bl.v }}</span></li></sc-for></ul>
+            <button type="button" onClick="{{ resetBrief }}" style="align-self:flex-start;padding:13px 20px;border-radius:6px;border:1.5px solid #0a0c24;background:#fff;color:#0a0c24;font-weight:600;cursor:pointer">Plan another project</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="position:sticky;top:110px;display:flex;flex-direction:column;gap:14px">
+        <div style="border-radius:12px;overflow:hidden;background:#fff;border:1.5px solid #0a0c24;box-shadow:0 30px 60px -34px rgba(8,11,56,.5)">
+          <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1.5px solid #0a0c24;background:#f4f4f7">
+            <div style="display:flex;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#E453EE"></span><span style="width:9px;height:9px;border-radius:50%;background:#F2D458"></span><span style="width:9px;height:9px;border-radius:50%;background:#555AFE"></span></div>
+            <div style="flex:1;min-width:0;padding:5px 10px;border-radius:5px;background:#fff;font-family:'IBM Plex Mono';font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ planUrl }}</div>
+          </div>
+          <div style="position:relative;height:clamp(340px,50vh,480px);padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid #ececf2">
+              <span style="display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-weight:800;font-size:16px;text-transform:uppercase"><span style="width:12px;height:12px;border-radius:3px;background:#3a5bff"></span>{{ brandName }}</span>
+              <span style="display:flex;align-items:center;gap:8px">
+                <sc-for list="{{ navDots }}" as="nd" hint-placeholder-count="3"><span style="width:24px;height:5px;border-radius:3px;background:#dcdde6"></span></sc-for>
+                <sc-if value="{{ isShop }}" hint-placeholder-val="{{ false }}"><span style="padding:3px 8px;border-radius:4px;background:#080b38;color:#fff;font-family:'IBM Plex Mono';font-size:10px">Cart · 2</span></sc-if>
+              </span>
+            </div>
+            <sc-if value="{{ isRedesign }}" hint-placeholder-val="{{ false }}">
+              <div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;min-height:0">
+                <div style="position:relative;border-radius:8px;background:#e9e7e1;padding:14px;display:flex;flex-direction:column;gap:8px;filter:grayscale(1)">
+                  <span style="font-family:Georgia,serif;font-size:18px;color:#6b665c">Welcome to our website</span>
+                  <span style="height:6px;width:90%;background:#cfccc4"></span><span style="height:6px;width:70%;background:#cfccc4"></span>
+                  <span style="flex:1;border:1px solid #cfccc4;background:#f3f1ec"></span>
+                  <span style="position:absolute;left:10px;bottom:10px;padding:3px 8px;border-radius:4px;background:#6b665c;color:#fff;font-family:'IBM Plex Mono';font-size:10px">BEFORE</span>
+                </div>
+                <div style="position:relative;border-radius:8px;background:{{ brandC.bg }};color:{{ brandC.fg }};padding:14px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;overflow:hidden">
+                  <span style="position:absolute;right:-24px;top:-24px;width:110px;height:110px;border-radius:50%;background:#555AFE"></span>
+                  <span style="position:relative;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(22px,2.2vw,32px);line-height:.9;text-transform:uppercase">{{ brandHead }}</span>
+                  <span style="position:relative;align-self:flex-start;padding:7px 12px;border-radius:5px;background:#ffc83d;color:#080b38;font-size:11px;font-weight:600">Book a call →</span>
+                  <span style="position:absolute;left:10px;top:10px;padding:3px 8px;border-radius:4px;background:#ffc83d;color:#080b38;font-family:'IBM Plex Mono';font-size:10px">AFTER</span>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isBusiness }}" hint-placeholder-val="{{ true }}">
+              <div style="position:relative;flex:1.3;border-radius:8px;background:{{ brandC.bg }};color:{{ brandC.fg }};transition:background .5s;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;overflow:hidden">
+                <span style="position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;background:#555AFE"></span><span style="position:absolute;right:70px;top:40px;width:60px;height:60px;border-radius:50%;background:#E453EE"></span>
+                <span style="position:relative;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(26px,2.8vw,40px);line-height:.9;text-transform:uppercase">{{ brandHead }}</span>
+                <span style="position:relative;align-self:flex-start;padding:8px 13px;border-radius:5px;background:#ffc83d;color:#080b38;font-size:12px;font-weight:600">Book a call →</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;flex:.7"><span style="border-radius:6px;background:#f4f4f7;border-bottom:4px solid #3a5bff"></span><span style="border-radius:6px;background:#f4f4f7;border-bottom:4px solid #ffc83d"></span><span style="border-radius:6px;background:#f4f4f7;border-bottom:4px solid #E453EE"></span></div>
+            </sc-if>
+            <sc-if value="{{ isShop }}" hint-placeholder-val="{{ false }}">
+              <div style="border-radius:8px;background:#ffc83d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center"><span style="font-family:'Barlow Condensed';font-weight:800;font-size:22px;text-transform:uppercase;color:#080b38">New season</span><span style="padding:6px 10px;border-radius:4px;background:#080b38;color:#fff;font-size:11px;font-weight:600">Shop now</span></div>
+              <div style="flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:10px;min-height:0">
+                <sc-for list="{{ products }}" as="pr" hint-placeholder-count="6"><div style="border-radius:6px;background:#f4f4f7;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;padding:8px;min-height:0"><span style="flex:1;border-radius:4px;background:{{ pr.c }}"></span><span style="height:5px;width:70%;border-radius:3px;background:#c9cad6"></span><span style="height:5px;width:35%;border-radius:3px;background:#0a0c24"></span></div></sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ isLanding }}" hint-placeholder-val="{{ false }}">
+              <div style="flex:1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px;border-radius:8px;background:{{ brandC.bg }};color:{{ brandC.fg }};transition:background .5s;padding:18px;overflow:hidden;position:relative">
+                <span style="position:absolute;left:-40px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:#E453EE"></span>
+                <div style="position:relative;display:flex;flex-direction:column;justify-content:center;gap:10px"><span style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(26px,2.8vw,40px);line-height:.9;text-transform:uppercase">One page.<br>One goal.</span><span style="height:5px;width:80%;border-radius:3px;background:rgba(255,255,255,.35)"></span><span style="height:5px;width:60%;border-radius:3px;background:rgba(255,255,255,.35)"></span></div>
+                <div style="position:relative;align-self:center;display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:8px;background:#fff"><span style="height:24px;border-radius:4px;border:1px solid #dcdde6"></span><span style="height:24px;border-radius:4px;border:1px solid #dcdde6"></span><span style="height:28px;border-radius:4px;background:#ffc83d;color:#080b38;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center">Get a quote</span></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ hasBlog }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px"><span style="display:flex;flex-direction:column;gap:5px;padding:8px;border-radius:6px;border:1px solid #ececf2"><span style="font-family:'IBM Plex Mono';font-size:9px;color:#3a5bff">INSIGHTS</span><span style="height:5px;width:90%;border-radius:3px;background:#c9cad6"></span></span><span style="display:flex;flex-direction:column;gap:5px;padding:8px;border-radius:6px;border:1px solid #ececf2"><span style="font-family:'IBM Plex Mono';font-size:9px;color:#3a5bff">INSIGHTS</span><span style="height:5px;width:80%;border-radius:3px;background:#c9cad6"></span></span><span style="display:flex;flex-direction:column;gap:5px;padding:8px;border-radius:6px;border:1px solid #ececf2"><span style="font-family:'IBM Plex Mono';font-size:9px;color:#3a5bff">INSIGHTS</span><span style="height:5px;width:70%;border-radius:3px;background:#c9cad6"></span></span></div>
+            </sc-if>
+            <div style="position:absolute;right:14px;top:62px;display:flex;flex-direction:column;align-items:flex-end;gap:6px;pointer-events:none">
+              <sc-for list="{{ featureBadges }}" as="fb" hint-placeholder-count="0"><span style="padding:5px 9px;border-radius:4px;background:#3a5bff;color:#fff;font-size:11px;font-weight:600;box-shadow:0 6px 14px rgba(8,11,56,.2)">{{ fb }}</span></sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;border-radius:12px;background:#080b38;color:#fff">
+          <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.6)">TYPICAL TIMELINE</span><span style="font-family:'Barlow Condensed';font-weight:800;font-size:40px;line-height:1;color:#ffc83d">{{ planEst }}</span></div>
+          <div style="display:flex;flex-direction:column;gap:4px;text-align:right"><span style="font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.6)">YOUR PLAN</span><span style="font-weight:600;font-size:15px">{{ planSummary }}</span></div>
+        </div>
+        <p style="font-size:13px;color:#55566a">Estimate only. We confirm scope and timeline after a discovery call.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="packages" data-tag="section.packages" data-screen-label="Packages" style="position:relative;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(46px,6vw,96px);line-height:.88;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Pick your</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">build</span></span></h2>
+      <p data-r="up" style="max-width:420px;color:#55566a;font-size:17px;line-height:1.55">Most website projects take between 4 to 10 weeks depending on the number of pages, custom functionality, revision cycles, and content readiness.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+      <article data-r="up" style="display:flex;flex-direction:column;gap:20px;padding:clamp(24px,2.6vw,34px);border-radius:12px;border:1.5px solid #0a0c24">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#3a5bff">For campaigns</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:44px;line-height:.9;text-transform:uppercase">Launch</h3>
+        <p style="color:#55566a;line-height:1.55">Landing pages and campaign sites that need to convert fast.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px"><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Conversion-focused layouts</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>SEO-ready structure</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Speed optimisation</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Launch support</li></ul>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid rgba(10,12,36,.14)"><p style="font-family:'IBM Plex Mono';font-size:13px;color:#55566a">Quoted on scope</p><a href="#contact" style="padding:15px 20px;border-radius:6px;border:1.5px solid #0a0c24;font-weight:600;text-align:center" style-hover="background:#0a0c24;color:#fff">Start a Launch build</a></div>
+      </article>
+      <article data-r="up" data-d="80" style="display:flex;flex-direction:column;gap:20px;padding:clamp(24px,2.6vw,34px);border-radius:12px;background:#080b38;color:#fff;border:1.5px solid #080b38">
+        <span style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono';font-size:12px;color:#ffc83d"><span style="letter-spacing:.08em;text-transform:uppercase">For growing businesses</span><span>Most chosen</span></span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:44px;line-height:.9;text-transform:uppercase">Grow</h3>
+        <p style="color:rgba(255,255,255,.72);line-height:1.55">Custom business websites designed to engage UK audiences and increase enquiries.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px"><li style="display:flex;gap:10px"><span style="color:#ffc83d">+</span>Strategic UX/UI design</li><li style="display:flex;gap:10px"><span style="color:#ffc83d">+</span>WordPress or custom CMS</li><li style="display:flex;gap:10px"><span style="color:#ffc83d">+</span>CRM + API integrations</li><li style="display:flex;gap:10px"><span style="color:#ffc83d">+</span>Schema + Core Web Vitals</li></ul>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16)"><p style="font-family:'IBM Plex Mono';font-size:13px;color:rgba(255,255,255,.65)">Quoted on scope</p><a href="#contact" style="padding:15px 20px;border-radius:6px;background:#ffc83d;color:#080b38;font-weight:600;text-align:center" style-hover="background:#fff;color:#080b38">Start a Grow build</a></div>
+      </article>
+      <article data-r="up" data-d="160" style="display:flex;flex-direction:column;gap:20px;padding:clamp(24px,2.6vw,34px);border-radius:12px;border:1.5px solid #0a0c24">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#3a5bff">For online stores</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:44px;line-height:.9;text-transform:uppercase">Scale</h3>
+        <p style="color:#55566a;line-height:1.55">E-commerce stores and custom platforms with integrations, QA and staging.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px"><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>WooCommerce or Shopify</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Secure checkout optimisation</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Payment gateways</li><li style="display:flex;gap:10px"><span style="color:#3a5bff">+</span>Product schema integration</li></ul>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:14px;padding-top:18px;border-top:1px solid rgba(10,12,36,.14)"><p style="font-family:'IBM Plex Mono';font-size:13px;color:#55566a">Quoted on scope</p><a href="#contact" style="padding:15px 20px;border-radius:6px;border:1.5px solid #0a0c24;font-weight:600;text-align:center" style-hover="background:#0a0c24;color:#fff">Start a Scale build</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" data-tag="section.reviews" data-screen-label="Testimonials" style="position:relative;background:#f4f4f7;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(46px,6vw,96px);line-height:.88;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">What clients</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block;color:#3a5bff">say</span></span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
+      <figure data-r="up" data-d="0" style="margin:0;display:flex;flex-direction:column;gap:22px;padding:clamp(24px,2.6vw,34px);border-radius:12px;background:#fff;border:1px solid rgba(10,12,36,.12)">
+        <span aria-hidden="true" style="font-family:'Barlow Condensed';font-weight:800;font-size:72px;line-height:.6;color:#ffc83d">“</span>
+        <blockquote style="margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.45;font-weight:500;text-wrap:pretty">Our old site was costing us leads. PluzBuzz rebuilt it around what our buyers actually look for, and the quality of enquiries improved almost straight away.</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid rgba(10,12,36,.12)"><span style="flex:none;width:44px;height:44px;border-radius:50%;background:#080b38;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">DH</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700">Daniel Hughes</span><span style="font-size:14px;color:#55566a">Operations Director, B2B engineering firm</span></span></figcaption>
+      </figure>
+      <figure data-r="up" data-d="80" style="margin:0;display:flex;flex-direction:column;gap:22px;padding:clamp(24px,2.6vw,34px);border-radius:12px;background:#fff;border:1px solid rgba(10,12,36,.12)">
+        <span aria-hidden="true" style="font-family:'Barlow Condensed';font-weight:800;font-size:72px;line-height:.6;color:#ffc83d">“</span>
+        <blockquote style="margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.45;font-weight:500;text-wrap:pretty">Clear timelines, weekly check-ins and no jargon. We always knew what was being built, why it mattered, and when it would be ready.</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid rgba(10,12,36,.12)"><span style="flex:none;width:44px;height:44px;border-radius:50%;background:#080b38;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">PS</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700">Priya Shah</span><span style="font-size:14px;color:#55566a">Head of Marketing, healthcare services group</span></span></figcaption>
+      </figure>
+      <figure data-r="up" data-d="160" style="margin:0;display:flex;flex-direction:column;gap:22px;padding:clamp(24px,2.6vw,34px);border-radius:12px;background:#fff;border:1px solid rgba(10,12,36,.12)">
+        <span aria-hidden="true" style="font-family:'Barlow Condensed';font-weight:800;font-size:72px;line-height:.6;color:#ffc83d">“</span>
+        <blockquote style="margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.45;font-weight:500;text-wrap:pretty">The new store is faster, easier to manage, and checkout finally works properly on mobile. Our team updates products without calling a developer.</blockquote>
+        <figcaption style="margin-top:auto;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid rgba(10,12,36,.12)"><span style="flex:none;width:44px;height:44px;border-radius:50%;background:#080b38;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">OC</span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:700">Olivia Carter</span><span style="font-size:14px;color:#55566a">Founder, UK lifestyle brand</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq" data-tag="section.faq" data-screen-label="FAQ" style="position:relative;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,80px);align-items:start">
+    <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,7vw,120px);line-height:.86;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">FAQ’s</span></span></h2>
+    <div style="grid-column:span 2;display:flex;flex-direction:column;border-top:2px solid #0a0c24;min-width:0">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="7">
+        <div style="border-bottom:1px solid rgba(10,12,36,.14)">
+          <button type="button" aria-expanded="{{ q.open }}" data-i="{{ q.i }}" onClick="{{ toggleFaq }}" style="width:100%;display:grid;grid-template-columns:44px 1fr 28px;gap:12px;align-items:center;padding:22px 4px;border:0;background:transparent;text-align:left;cursor:pointer;color:#0a0c24">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">{{ q.num }}</span>
+            <span style="font-size:clamp(17px,1.5vw,21px);font-weight:600;line-height:1.35">{{ q.q }}</span>
+            <span style="font-size:22px;line-height:1;transform:rotate({{ q.rot }});transition:transform .3s">+</span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 40px 24px 60px;display:flex;flex-direction:column;gap:10px;color:#55566a;font-size:16px;line-height:1.6;max-width:820px">
+              <sc-for list="{{ q.a }}" as="line" hint-placeholder-count="1"><p>{{ line }}</p></sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-tag="section.related" data-screen-label="Related services" style="position:relative;padding:0 clamp(20px,4vw,56px) clamp(64px,8vw,110px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+    <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Related Services</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px">
+      <dc-import name="ServiceCard" service="app" kicker="Related service" hint-size="100%,300px"></dc-import>
+      <dc-import name="ServiceCard" service="seo" kicker="Related service" hint-size="100%,300px"></dc-import>
+      <dc-import name="ServiceCard" service="all" kicker="Explore" hint-size="100%,300px"></dc-import>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-tag="section.contact" data-screen-label="Contact" style="position:relative;background:#080b38;color:#fff;padding:clamp(72px,9vw,130px) clamp(20px,4vw,56px) clamp(120px,14vw,200px);overflow:hidden">
+  <canvas data-flame="" aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:clamp(90px,12vw,170px);pointer-events:none"></canvas>
+  <div style="position:relative;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(36px,5vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(64px,9vw,150px);line-height:.86;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Get in</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block;color:#ffc83d">touch.</span></span></h2>
+      <p data-r="up" data-d="120" style="color:rgba(255,255,255,.75);font-size:17px;line-height:1.6;max-width:480px">Tell us what the website needs to do. We’ll come back with scope, timeline and the right build.</p>
+      <p data-r="up" data-d="180" style="font-family:'IBM Plex Mono';font-size:13px;color:rgba(255,255,255,.6);line-height:1.7">Old Street, Shoreditch, London<br>Mon–Sat · 10:00–19:00</p>
+    </div>
+    <form data-r="up" data-d="100" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:clamp(22px,2.6vw,34px)">
+      <h3 style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;text-transform:uppercase">Let’s talk, get in touch!</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Name<input type="text" name="name" required="{{ true }}" placeholder="Your name" autoComplete="name" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Email<input type="email" name="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Company<input type="text" name="company" placeholder="Company or brand" autoComplete="organization" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Services interested in<input type="text" name="services" defaultValue="Website" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+      </div>
+      <textarea name="message" required="{{ true }}" rows="4" placeholder="Pages, platform, integrations, launch date, or what needs fixing on the current site." style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none;resize:vertical" style-focus="border-color:#ffc83d"></textarea>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <div data-slide="" style="max-width:100%"></div>
+        <p aria-live="polite" style="font-size:14px;color:rgba(255,255,255,.75)">{{ sentMsg }}</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer data-tag="footer" style="position:relative;background:#fff;padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px) 28px">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:32px">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <p style="font-size:17px;font-weight:500;line-height:1.5;max-width:420px">Get practical growth insights, launch notes, and creative ideas from the PluzBuzz team.</p>
+        <form onSubmit="{{ subscribe }}" style="display:flex;flex-direction:column;gap:6px;max-width:440px">
+          <label for="newsletterEmail" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Newsletter</label>
+          <div style="display:flex;align-items:center;gap:14px;border-bottom:2px solid #0a0c24;padding:8px 0"><input id="newsletterEmail" type="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="flex:1;min-width:0;border:0;background:transparent;padding:12px 0;outline:none;font-size:16px"><span data-sling=""></span></div>
+          <p aria-live="polite" style="font-size:13px;color:#55566a;min-height:18px">{{ subMsg }}</p>
+        </form>
+      </div>
+      <nav aria-label="Discover" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">DISCOVER</h4><a href="PluzBuzz%20Home%20v4.dc.html#work">Our Work</a><a href="PluzBuzz%20Home%20v4.dc.html#journal">Insights</a><a href="PluzBuzz%20Home%20v4.dc.html#global">Global Presence</a><a href="#contact">Contact</a></nav>
+      <nav aria-label="Services" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">SERVICES</h4><a href="#top" style="color:#3a5bff">Web Development</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-2">SEO Services</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-3">Digital Marketing</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-4">App &amp; SaaS</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-5">AI Marketing</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-6">Photography</a><a href="PluzBuzz%20Home%20v4.dc.html#svc-6">Video Production</a></nav>
+      <nav aria-label="Social" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">FOLLOW</h4><a href="https://www.instagram.com/pluzbuzz/" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/PluzBuzz" target="_blank" rel="noreferrer">X</a><a href="https://www.facebook.com/people/PluzBuzz/61579035273110/" target="_blank" rel="noreferrer">Facebook</a><a href="https://in.linkedin.com/company/pluzbuzz" target="_blank" rel="noreferrer">LinkedIn</a></nav>
+    </section>
+    <div role="img" aria-label="PluzBuzz" style="display:flex;justify-content:center;overflow:hidden;padding:clamp(10px,2vw,30px) 0"><div data-depth=""></div></div>
+    <section style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid rgba(10,12,36,.12);font-size:13px;color:#55566a">
+      <p>© 2026 — PluzBuzz All rights reserved. Old Street, Shoreditch, London.</p>
+      <div style="display:flex;gap:20px"><a href="#top" style="color:#55566a">Privacy Policy</a><a href="#top" style="color:#55566a">Terms &amp; Conditions</a></div>
+    </section>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;carouselPreset&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;liquid&quot;,&quot;ribbon&quot;,&quot;vortex&quot;,&quot;arch&quot;],&quot;default&quot;:&quot;liquid&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { pstep: 0, pcolor: 0, plaunch: 1, fv: { company: '', name: '', email: '', notes: '' }, briefDone: false, briefErr: '', animOn: false, redo: 50, mobile: false, menu: false, vh: 900, covers: [], ptype: 0, psize: 1, pplat: 0, pfeat: [0],  file: 0, stage: 0, site: 0, device: 0, faq: 1, built: 0, stageW: 1200, liveOn: false, sent: false, subbed: false };
+  rootRef = React.createRef(); inclRef = React.createRef(); headRef = React.createRef(); liveRef = React.createRef(); stageRef = React.createRef();
+  fileData = [
+    ['custom-design.fig', '#E453EE', 'Custom Website Design', 'Our custom website design services create modern, brand-focused websites with strategic UX/UI design, wireframing, conversion-focused layouts, and user journey optimisation designed to engage UK audiences and increase enquiries.', [], ['strategic UX/UI design', 'wireframing', 'conversion-focused layouts', 'user journey optimisation']],
+    ['build.php', '#555AFE', 'Website Development', 'Our website development services build secure, scalable websites with advanced functionality using platforms like WordPress, WooCommerce, and Shopify with API integrations, payment gateways, CRM connections, and custom CMS solutions.', [], ['WordPress, WooCommerce, Shopify', 'API integrations', 'payment gateways', 'CRM connections', 'custom CMS solutions']],
+    ['store.liquid', '#F2D458', 'E-Commerce Website Development UK', 'Our e-commerce website development services create high-converting online stores with custom product pages, category architecture, secure checkout optimisation, conversion rate optimisation, and product schema integration designed to increase online sales and customer trust.', [], ['custom product pages', 'category architecture', 'secure checkout optimisation', 'conversion rate optimisation', 'product schema integration']],
+    ['seo-architecture.json', '#3a5bff', 'SEO-Ready Website Architecture', 'Our SEO-ready website development approach ensures websites are built with clean URL structures, fast page speed, Core Web Vitals optimisation, structured data implementation, schema markup, and mobile-first indexing readiness to improve Google rankings.', [], ['clean URL structures', 'fast page speed', 'Core Web Vitals optimisation', 'structured data + schema markup', 'mobile-first indexing readiness']],
+    ['redesign.diff', '#e5484d', 'Website Redesign Services', 'Our website redesign services transform outdated websites into high-performance digital platforms through UX improvements, speed optimisation, modern design updates, conversion optimisation, and SEO restructuring.', ['outdated website'], ['UX improvements', 'speed optimisation', 'modern design updates', 'conversion optimisation', 'SEO restructuring']]
+  ];
+  stageData = [
+    ['Discover', 'Research & competitor analysis', 'We map your business, your audience and the competitors ranking where you want to be.', 'localhost:3000/sitemap'],
+    ['Plan', 'UX strategy', 'Sitemaps, user journeys and wireframes that decide what every page has to do.', 'localhost:3000/wireframe'],
+    ['Design', 'Design prototyping', 'Brand-led layouts and clickable prototypes you review before anything gets built.', 'localhost:3000/prototype'],
+    ['Build', 'Development & testing', 'Clean, secure builds tested across desktop, tablet and mobile.', 'staging.your-brand.dev'],
+    ['Rank', 'SEO optimisation', 'Clean URLs, schema markup, metadata and Core Web Vitals handled before launch.', 'staging.your-brand.dev'],
+    ['Grow', 'Launch & ongoing improvement', 'We go live, monitor performance and keep improving what converts.', 'your-brand.co.uk']
+  ];
+  siteData = [
+    ['Bhagirath Print', 'https://bhagirathprint.com/', 'Website build'],
+    ['TeamBounters · The Perimeter', 'https://teambounters.buildincredibles.com/3D/TeamBounters%20-%20The%20Perimeter%20v5.dc.html', '3D experience'],
+    ['TeamBounters · Home', 'https://teambounters.buildincredibles.com/parallax/TeamBounters%20Home%20v3.dc.html', 'Parallax site']
+  ];
+  deviceData = [['Desktop', 1440], ['Tablet', 820], ['Phone', 390]];
+  buildMsgs = ['compiling…', 'nav rendered', 'h1 set', 'copy in', 'cta wired', 'images lazy-loaded', 'schema valid', 'live'];
+  faqData = [
+    ['How long does a website development project usually take?', ['Most website projects take between 4 to 10 weeks depending on the number of pages, custom functionality, revision cycles, and content readiness.', 'Larger e-commerce or custom platform builds may require a longer delivery timeline because of integrations, QA, and staging requirements.']],
+    ['What is included in your website development service?', ['Our website development service includes business research, UX/UI planning, responsive design, front-end and back-end development, SEO-ready structure, speed optimisation, testing, and launch support.', 'Where needed, we also support CMS setup, e-commerce features, API integrations, payment gateways, and post-launch performance improvements.']],
+    ['Do you build SEO-ready websites from the start?', ['Yes. We structure websites with clean URLs, mobile-first layouts, fast-loading pages, schema opportunities, and search-friendly architecture from the beginning.']],
+    ['Can you redesign an existing business website?', ['Yes. We redesign outdated websites to improve performance, user experience, messaging clarity, conversion flow, and overall visual quality without losing business continuity.']],
+    ['Do you develop e-commerce websites as well?', ['Yes. We create e-commerce stores with custom product pages, category structures, secure checkout flows, payment integrations, and conversion-focused shopping experiences.']],
+    ['Will my website work properly on mobile devices?', ['Yes. Every website we build is responsive and tested across common screen sizes so the experience remains consistent on desktop, tablet, and mobile.']],
+    ['Do you provide support after launch?', ['Yes. We can support you with maintenance, fixes, iterative improvements, performance monitoring, and future enhancements after the initial website goes live.']]
+  ];
+  brandColorData = [['Navy', '#080b38', '#fff'], ['Electric blue', '#3a5bff', '#fff'], ['Magenta', '#E453EE', '#080b38'], ['Sunflower', '#ffc83d', '#080b38'], ['Forest', '#12433a', '#fff']];
+  stepNames = ['Brand', 'Website type', 'Size + platform', 'Features', 'Your details'];
+  launchData = ['As soon as possible', 'In 1–3 months', 'In 3+ months'];
+  planTypeData = [['Business website', 'Services, credibility, enquiries', '/', [4, 6]], ['E-commerce store', 'Products, checkout, payments', '/shop', [8, 10]], ['Landing page', 'One campaign, one goal', '/offer', [3, 4]], ['Website redesign', 'Refresh what you already have', '/', [6, 8]]];
+  planSizeData = [['Up to 5 pages', 0, 3], ['6–15 pages', 1, 5], ['16+ pages', 2, 7]];
+  planPlatData = ['Not sure yet', 'WordPress', 'Shopify', 'WooCommerce', 'Custom CMS'];
+  planFeatData = [['Enquiry forms + CRM', 'CRM synced'], ['Payment gateway', 'Secure checkout'], ['API integrations', 'Systems connected'], ['Blog & insights', 'Blog']];
+  carouselItems = [
+    { title: 'Bhagirath Print', subtitle: 'Live · open preview', site: 0, bg: '#F2D458', fg: '#080b38', ac: '#E453EE' },
+    { title: 'TeamBounters — The Perimeter', subtitle: 'Live · 3D experience', site: 1, bg: '#0d1030', fg: '#ffffff', ac: '#555AFE' },
+    { title: 'TeamBounters — Home', subtitle: 'Live · parallax site', site: 2, bg: '#3a5bff', fg: '#ffffff', ac: '#F2D458' },
+    { title: 'Fixomech', subtitle: 'Website Dev', bg: '#f4f4f7', fg: '#0a0c24', ac: '#3a5bff' },
+    { title: 'Medi-Ex', subtitle: 'Website Revamp', bg: '#1f2570', fg: '#ffffff', ac: '#9be3a4' },
+    { title: 'Cargoking', subtitle: 'Web Development', bg: '#E453EE', fg: '#080b38', ac: '#080b38' },
+    { title: 'Viviana London', subtitle: 'Rebrand + digital refresh', bg: '#e7e8f2', fg: '#0a0c24', ac: '#E453EE' }
+  ];
+
+  componentDidMount() {
+    const root = this.rootRef.current; if (!root) return;
+    this.motion = (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.sx = [...root.querySelectorAll('[data-sx]')];
+    this.prepReveals(root); this.startReveals();
+    this.onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(this.tick); };
+    this.onResize = () => { this.checkMobile(); this.measure(); this.tick(); };
+    addEventListener('scroll', this.onScroll, { passive: true }); addEventListener('resize', this.onResize);
+    this.checkMobile(); this.tick();
+    this.ro = new ResizeObserver(() => this.measure()); this.stageRef.current && this.ro.observe(this.stageRef.current); this.measure();
+    this.lio = new IntersectionObserver(([e]) => { if (e.isIntersecting) { this.setState({ liveOn: true }); this.lio.disconnect(); } }, { rootMargin: '400px 0px' });
+    this.liveRef.current && this.lio.observe(this.liveRef.current);
+    this.iio = new IntersectionObserver(([e]) => { if (e.isIntersecting) { this.setState({ animOn: true }); this.iio.disconnect(); } }, { threshold: 0.4 });
+    this.inclRef.current && this.iio.observe(this.inclRef.current);
+    this.initBuild(root);
+    this.mountBits(root);
+  }
+  componentWillUnmount() {
+    removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize);
+    cancelAnimationFrame(this.raf); clearTimeout(this.bitsT); (this.bT || []).forEach(clearTimeout);
+    this.io && this.io.disconnect(); this.ro && this.ro.disconnect(); this.lio && this.lio.disconnect(); this.bio && this.bio.disconnect(); this.iio && this.iio.disconnect(); clearTimeout(this.animT);
+    (this.bitDestroy || []).forEach(f => { try { f(); } catch (e) {} });
+  }
+  checkMobile() { const m = innerWidth < 900; if (m !== this.state.mobile) this.setState({ mobile: m, menu: false }); }
+  measure() { const el = this.stageRef.current; if (!el) return; const w = Math.round(el.clientWidth); if (Math.abs(w - this.state.stageW) > 2 || innerHeight !== this.state.vh) this.setState({ stageW: w, vh: innerHeight }); }
+
+  prepReveals(root) {
+    this.revealEls = [...root.querySelectorAll('[data-r]')];
+    if (!this.motion) return;
+    this.revealEls.forEach(el => { const k = el.dataset.r; el.__d = +el.dataset.d || 0; el.style.transform = k === 'mask' ? 'translateY(102%)' : 'translateY(24px)'; if (k !== 'mask') el.style.opacity = '0'; });
+  }
+  startReveals() {
+    if (!this.motion) return;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return; const el = e.target.__rev || e.target;
+      el.style.transition = `opacity .6s ${ease} ${el.__d}ms, transform .8s ${ease} ${el.__d}ms`; el.style.opacity = '1'; el.style.transform = 'none'; this.io.unobserve(e.target);
+    }), { rootMargin: '0px 0px -6% 0px' });
+    this.revealEls.forEach(el => { if (el.dataset.r === 'mask' && el.parentElement) { el.parentElement.__rev = el; this.io.observe(el.parentElement); } else this.io.observe(el); });
+  }
+
+  initBuild(root) {
+    const lines = [...root.querySelectorAll('[data-cl]')], parts = [...root.querySelectorAll('[data-bs]')];
+    if (!this.motion || !lines.length) { this.setState({ built: 7 }); return; }
+    const T = (f, t) => this.bT.push(setTimeout(f, t)); this.bT = [];
+    const reset = () => {
+      lines.forEach(l => { l.style.transition = 'none'; l.style.width = '0ch'; });
+      parts.forEach(p => { p.style.transition = 'opacity .35s, transform .35s'; p.style.opacity = '0'; p.style.transform = 'translateY(10px)'; });
+    };
+    const run = () => {
+      this.bT.forEach(clearTimeout); this.bT = [];
+      reset(); this.setState({ built: 0 });
+      let t = 500;
+      lines.forEach((l, i) => {
+        const n = l.textContent.length, d = n * 30;
+        T(() => { l.style.transition = `width ${d}ms steps(${n})`; l.style.width = n + 'ch'; }, t);
+        t += d + 80;
+        T(() => {
+          parts.filter(p => p.dataset.bs === l.dataset.cl).forEach(p => { p.style.transition = 'opacity .5s, transform .7s cubic-bezier(.2,.7,.2,1)'; p.style.opacity = '1'; p.style.transform = 'none'; });
+          this.setState({ built: i + 1 });
+        }, t);
+        t += 360;
+      });
+      T(run, t + 3400);
+    };
+    reset();
+    this.bio = new IntersectionObserver(([e]) => { if (e.isIntersecting && !this.building) { this.building = true; run(); } });
+    this.bio.observe(lines[0].closest('[role="img"]'));
+  }
+
+  tick = () => {
+    this.raf = 0;
+    const vh = innerHeight, hd = this.headRef.current;
+    if (hd) hd.style.borderBottomColor = scrollY > 30 ? 'rgba(10,12,36,.12)' : 'transparent';
+    const rows = this.rootRef.current ? this.rootRef.current.querySelectorAll('[data-stage]') : [];
+    if (rows.length) {
+      let best = 0, bd = Infinity; const target = this.state.mobile ? vh * 0.72 : vh * 0.5;
+      rows.forEach((r, i) => { const b = r.getBoundingClientRect(); const d = Math.abs(b.top + b.height / 2 - target); if (d < bd) { bd = d; best = i; } });
+      if (best !== this.state.stage) this.setState({ stage: best });
+    }
+    if (this.motion) this.sx.forEach(el => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < -100 || r.top > vh + 100) return; el.style.transform = `translate3d(${(r.top - vh) * parseFloat(el.dataset.sx)}px,0,0)`; });
+  };
+
+  cover(it) {
+    const c = document.createElement('canvas'); c.width = 1200; c.height = 780; const x = c.getContext('2d');
+    x.fillStyle = it.bg; x.fillRect(0, 0, 1200, 780);
+    x.fillStyle = it.ac; x.beginPath(); x.arc(1040, 150, 230, 0, Math.PI * 2); x.fill();
+    x.fillStyle = it.fg; x.globalAlpha = 0.9; x.font = "800 34px 'Barlow Condensed', sans-serif"; x.fillText(it.title.split(' ')[0].toUpperCase(), 70, 92);
+    x.globalAlpha = 0.35; [0, 1, 2].forEach(i => x.fillRect(640 + i * 110, 80, 80, 8)); x.globalAlpha = 1;
+    x.font = "800 128px 'Barlow Condensed', sans-serif";
+    const words = it.title.toUpperCase().split(' '); let line = '', y = 470; const out = [];
+    words.forEach(w => { const t = line ? line + ' ' + w : w; if (x.measureText(t).width > 1000 && line) { out.push(line); line = w; } else line = t; }); out.push(line);
+    y = 600 - (out.length - 1) * 118; out.forEach(l => { x.fillText(l, 70, y); y += 118; });
+    x.globalAlpha = 0.7; x.font = "500 26px 'IBM Plex Mono', monospace"; x.fillText(it.subtitle.toUpperCase(), 72, 700); x.globalAlpha = 1;
+    if (it.site !== undefined) { x.fillStyle = it.fg; x.fillRect(930, 660, 200, 56); x.fillStyle = it.bg; x.font = "500 24px 'IBM Plex Mono', monospace"; x.fillText('LIVE ↗', 975, 697); }
+    return c.toDataURL('image/png');
+  }
+  sendBrief = () => {
+    const st = this.state, t = this.planTypeData[st.ptype][0], z = this.planSizeData[st.psize][0], pl = this.planPlatData[st.pplat];
+    const ft = st.pfeat.map(i => this.planFeatData[i][0]);
+    const msg = `Website brief: ${t}, ${z}. Platform: ${pl}.` + (ft.length ? ` Needs: ${ft.join(', ')}.` : '') + ` Typical timeline shown: ${this.estimate()}.`;
+    const f = this.rootRef.current && this.rootRef.current.querySelector('#contact form');
+    if (f) { f.elements.message.value = msg; f.elements.services.value = 'Website — ' + t; }
+    const c = document.getElementById('contact'); c && window.scrollTo({ top: c.getBoundingClientRect().top + scrollY - 70, behavior: 'smooth' });
+  };
+  estimate() {
+    const st = this.state, [a, b] = this.planTypeData[st.ptype][3], add = this.planSizeData[st.psize][1] + Math.floor(st.pfeat.length / 2);
+    const lo = a + add, hi = b + add; return hi > 10 ? (lo >= 10 ? '10+ weeks' : lo + '–10+ weeks') : lo + '–' + hi + ' weeks';
+  }
+  submitBrief = e => {
+    e.preventDefault();
+    const v = this.state.fv;
+    if (!v.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email.trim())) { this.setState({ briefErr: 'Add your name and a valid work email to send the brief.' }); return; }
+    this.setState({ briefDone: true, briefErr: '' });
+  };
+  goLive(site) {
+    this.setState({ site, liveOn: true });
+    const el = this.liveRef.current; if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 90, behavior: 'smooth' });
+  }
+  mountBits(root) {
+    const B = window.PBBits;
+    if (!B) { this.bitsT = setTimeout(() => this.mountBits(root), 60); return; }
+    const D = this.bitDestroy = this.bitDestroy || [], q = s => root.querySelector(s);
+    const fl = q('[data-flame]'); if (fl) D.push(B.flameCanvas(fl, { amp: 0.62, speed: 0.55 }));
+    const sl = q('[data-slide]');
+    if (sl) D.push(B.slideCommit(sl, { label: 'Slide to send enquiry', doneLabel: 'Enquiry sent', errorLabel: 'Add name, email and message', width: 320, height: 58, radius: 8, trackColor: '#171b52', handleColor: '#ffffff', successColor: '#F2D458', dangerColor: '#e5484d', holdMs: 2200,
+      onConfirm: () => { const f = sl.closest('form'); if (f && !f.checkValidity()) { f.reportValidity(); return Promise.reject(new Error('invalid')); } return new Promise(r => setTimeout(r, 900)).then(() => { f && f.reset(); this.setState({ sent: true }); }); } }));
+    const sg = q('[data-sling]');
+    if (sg) D.push(B.slingButton(sg, { size: 46, strokeWidth: 3, armAt: 44, maxPull: 140, padColor: '#080b38', iconColor: '#ffffff', accentColor: '#555AFE', wellColor: '#e9e9f1', bandColor: '#c3c5da', particles: 14, spread: 60, flight: 110, ariaLabel: 'Subscribe to the newsletter',
+      onSend: () => { const f = sg.closest('form'); if (f && !f.checkValidity()) { f.reportValidity(); return; } f && f.reset(); this.setState({ subbed: true }); } }));
+    const dp = q('[data-depth]');
+    if (dp) D.push(B.depthText(dp, { text: 'PLUZBUZZ', parts: [['PLUZBU', '#0a0c24'], ['ZZ', '#2a1260']], fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(84px,19vw,300px)', letterSpacing: '0em', faceColor: '#0a0c24', depthColor: '#555AFE', depthColors: ['#F2D458', '#E453EE', '#555AFE'], shadow: false, layers: 30, depth: 2.2, tilt: 7, orbitSpeed: 0.25 }));
+    const fx = q('[data-flex]');
+    if (fx) {
+      const tryFlex = () => {
+        if (!window.OGL || !window.PBFlex) { this.bitsT = setTimeout(tryFlex, 120); return; }
+        const fonts = document.fonts ? Promise.all([document.fonts.load("800 128px 'Barlow Condensed'"), document.fonts.load("500 26px 'IBM Plex Mono'")]).catch(() => 0) : Promise.resolve();
+        fonts.then(() => {
+          if (this.flex) return;
+          const srcs = this.carouselItems.map(it => this.cover(it)); this.setState({ covers: srcs });
+          const items = this.carouselItems.map((it, k) => ({ src: srcs[k], alt: it.title + ' website', title: it.title, subtitle: it.subtitle }));
+          try {
+            this.flex = window.PBFlex.flexCarousel(fx, { items, preset: this.props.carouselPreset ?? 'liquid', intro: 'deal', fit: 'landscape', cardHeight: 0.62, gap: 14, radius: 10, squeeze: 0.2, focusOnClick: false, captureWheel: false, wheel: false, ariaLabel: 'Websites we have shipped',
+              onSelect: i => { const it = this.carouselItems[i]; if (it.site !== undefined) this.goLive(it.site); else { const c = document.getElementById('cases'); c && window.scrollTo({ top: c.getBoundingClientRect().top + scrollY - 80, behavior: 'smooth' }); } } });
+            D.push(() => this.flex.destroy());
+          } catch (e) { console.warn(e); }
+        });
+      };
+      tryFlex();
+    }
+  }
+
+  renderVals() {
+    const st = this.state, sg = st.stage, m = st.mobile;
+    const f = this.fileData[st.file];
+    const box = sg === 1 ? '1.5px dashed #b4b7c9' : '1.5px solid transparent', dz = sg >= 2;
+    const dev = this.deviceData[st.device], vw = dev[1], W = Math.max(280, st.stageW);
+    const avail = Math.max(320, st.vh - 210);
+    const fw0 = st.device === 0 ? Math.min(W, avail * 1.6) : Math.min(W, vw);
+    const scale = Math.min(1, fw0 / vw), fw = vw * scale;
+    const fh = st.device === 0 ? Math.min(avail, fw / 1.6) : avail;
+    const site = this.siteData[st.site];
+    return {
+      rootRef: this.rootRef, headRef: this.headRef, liveRef: this.liveRef, stageRef: this.stageRef,
+      showLinks: !m, showBurger: m, menuVisible: m && st.menu, burgerIcon: st.menu ? '✕' : '☰',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })), closeMenu: () => this.setState({ menu: false }),
+      built: st.built, buildMsg: this.buildMsgs[st.built], buildUrl: st.built >= 7 ? 'https://your-brand.co.uk' : 'localhost:3000',
+      urlDot: st.built >= 7 ? '#2fbf71' : '#F2D458', liveBg: st.built >= 7 ? '#2fbf71' : 'rgba(255,255,255,.2)', liveTxt: st.built >= 7 ? 'LIVE' : 'BUILD',
+      files: this.fileData.map((d, i) => ({ i, title: d[2], num: '0' + (i + 1), on: i === st.file, bg: i === st.file ? '#fff' : 'transparent', fg: i === st.file ? '#0a0c24' : '#55566a', numC: i === st.file ? '#3a5bff' : '#9a9bab', arrow: i === st.file ? '→' : '' })),
+      inclCols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1.5fr)',
+      file: { name: f[0], num: '0' + (st.file + 1), title: f[2], desc: f[3], minus: f[4], plus: f[5] },
+      pickFile: e => { const i = +e.currentTarget.dataset.i; if (i === st.file) return; clearTimeout(this.animT); this.setState({ file: i, animOn: false, redo: 50 }); this.animT = setTimeout(() => this.setState({ animOn: true }), 80); },
+      procCols: m ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)', stickyTop: m ? '72px' : '110px', browserOrder: m ? 0 : 1, stageH: m ? '52vh' : '72vh',
+      pv: {
+        num: '0' + (sg + 1), url: this.stageData[sg][3], lock: sg === 5 ? '#2fbf71' : sg >= 3 ? '#F2D458' : '#b4b7c9',
+        frameW: sg === 3 ? '360px' : '100%', research: sg === 0 ? 1 : 0, site: sg >= 1 ? 1 : 0, wf: sg === 1 ? 1 : 0, dz: dz ? 1 : 0, box,
+        ink: dz ? '#0a0c24' : '#8a8ca0', hero: dz ? '#080b38' : 'transparent', heroInk: dz ? '#fff' : '#b4b7c9',
+        cta: dz ? '#ffc83d' : 'transparent', ctaInk: dz ? '#080b38' : '#8a8ca0', card: dz ? '#f4f4f7' : 'transparent',
+        dev: sg === 3 ? 1 : 0, devY: sg === 3 ? '0px' : '12px', seo: sg === 4 ? 1 : 0, live: sg === 5 ? 1 : 0, liveY: sg === 5 ? '0px' : '14px', dash: sg === 5 ? 0 : 1
+      },
+      stages: this.stageData.map((d, i) => ({ i, num: '0' + (i + 1), tag: d[0], title: d[1], desc: d[2], op: i === sg ? 1 : 0.32, numC: i === sg ? '#3a5bff' : '#55566a', bar: i < sg ? '100%' : i === sg ? '50%' : '0%' })),
+      sites: this.siteData.map((d, i) => ({ i, name: d[0], on: i === st.site, bg: i === st.site ? '#ffc83d' : 'transparent', fg: i === st.site ? '#080b38' : '#fff' })),
+      pickSite: e => this.setState({ site: +e.currentTarget.dataset.i }),
+      devices: this.deviceData.map((d, i) => ({ i, name: d[0], on: i === st.device, bg: i === st.device ? '#fff' : 'transparent', fg: i === st.device ? '#080b38' : '#fff' })),
+      pickDevice: e => this.setState({ device: +e.currentTarget.dataset.i }),
+      site: { url: site[1], host: site[1].replace(/^https?:\/\//, '').replace(/%20/g, ' '), title: site[0] + ' — live preview' },
+      liveOn: st.liveOn, inclRef: this.inclRef,
+      vis: { design: st.file === 0, dev: st.file === 1, shop: st.file === 2, seo: st.file === 3, redo: st.file === 4 },
+      va: (() => { const a = st.animOn; return { line: a ? 'solid' : 'dashed', nav: a ? '#fff' : 'transparent', hero: a ? '#080b38' : 'transparent', ink: a ? '#fff' : '#9a9bab', op: a ? 1 : 0, c1: a ? '#ffc83d' : 'transparent', c2: a ? '#555AFE' : 'transparent', c3: a ? '#E453EE' : 'transparent', label: a ? 'Final design' : 'Wireframe', btn: a ? '#2fbf71' : '#080b38', btnInk: '#fff', btnTxt: a ? 'Added ✓' : 'Add to basket', slide: a ? '0px' : '30px' }; })(),
+      devChips: [['WordPress', '16%', '20%'], ['Shopify', '84%', '20%'], ['CRM', '12%', '56%'], ['Payments', '88%', '56%'], ['WooCommerce', '26%', '86%'], ['APIs', '74%', '86%']].map(([name, x, y], i) => ({ name, x: st.animOn ? x : '50%', y: st.animOn ? y : '50%', s: st.animOn ? 1 : 0.4, o: st.animOn ? 1 : 0, d: (i * 70) + 'ms' })),
+      seoRows: [['Competitor agency', 'competitor-one.co.uk'], ['Another agency', 'another-agency.com'], ['Your brand — Website Development London', 'your-brand.co.uk']].map(([title, url], i) => { const you = i === 2, pos = st.animOn ? (you ? 0 : i + 1) : i; return { title, url, top: (pos * 34) + '%', pos: '#' + (pos + 1), bg: you && st.animOn ? '#080b38' : '#fff', fg: you && st.animOn ? '#fff' : '#0a0c24' }; }),
+      redo: st.redo, redoClip: (100 - st.redo) + '%', setRedo: e => this.setState({ redo: +e.target.value }),
+      workCols: m ? 'minmax(0,1fr)' : 'minmax(0,1.25fr) minmax(0,1fr)',
+      brandName: st.fv.company.trim() || 'Your brand', brandHead: (st.fv.company.trim() || 'Your brand') + '.',
+      brandC: { bg: this.brandColorData[st.pcolor][1], fg: this.brandColorData[st.pcolor][2] },
+      planUrl: ((st.fv.company.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'your-brand') + '.co.uk' + this.planTypeData[st.ptype][2]),
+      planSummary: this.planTypeData[st.ptype][0] + ' · ' + this.planSizeData[st.psize][0],
+      brandColors: this.brandColorData.map((d, i) => ({ i, name: d[0], bg: d[1], on: i === st.pcolor, ring: i === st.pcolor ? '#0a0c24' : 'rgba(10,12,36,.15)' })),
+      pickColor: e => this.setState({ pcolor: +e.currentTarget.dataset.i }),
+      fv: st.fv, setField: e => { const k = e.target.dataset.k, v = e.target.value; this.setState(s => ({ fv: Object.assign({}, s.fv, { [k]: v }), briefErr: '' })); },
+      stepNum: st.pstep + 1, stepName: this.stepNames[st.pstep],
+      stepBars: this.stepNames.map((_, i) => ({ c: i <= st.pstep ? '#3a5bff' : '#e3e4ec' })),
+      st0: st.pstep === 0, st1: st.pstep === 1, st2: st.pstep === 2, st3: st.pstep === 3, st4: st.pstep === 4,
+      backOff: st.pstep === 0, backOp: st.pstep === 0 ? 0.35 : 1, notLast: st.pstep < 4, isLast: st.pstep === 4,
+      nextStep: () => this.setState(s => ({ pstep: Math.min(4, s.pstep + 1) })), prevStep: () => this.setState(s => ({ pstep: Math.max(0, s.pstep - 1) })),
+      launchOpts: this.launchData.map((n, i) => ({ i, name: n, on: i === st.plaunch, bg: i === st.plaunch ? '#080b38' : 'transparent', fg: i === st.plaunch ? '#fff' : '#0a0c24' })),
+      pickLaunch: e => this.setState({ plaunch: +e.currentTarget.dataset.i }),
+      submitBrief: this.submitBrief, briefErr: st.briefErr, briefOpen: !st.briefDone, briefSent: st.briefDone,
+      thanksName: st.fv.name.trim() ? ', ' + st.fv.name.trim().split(' ')[0] : '',
+      briefLines: [['Website', this.planTypeData[st.ptype][0]], ['Size', this.planSizeData[st.psize][0]], ['Platform', this.planPlatData[st.pplat]], ['Features', st.pfeat.map(i => this.planFeatData[i][0]).join(', ') || 'None yet'], ['Launch', this.launchData[st.plaunch]]].map(([k, v]) => ({ k, v })),
+      resetBrief: () => this.setState({ briefDone: false, pstep: 0 }),
+      cases: [[3, 'Website Dev', 'A B2B-focused website overhaul for an industrial engineering brand, built to clarify product capability, improve trust, and capture more qualified enquiries.'], [4, 'Website Revamp', 'A healthcare infrastructure platform shaped to communicate specialist expertise, build confidence with enterprise buyers, and support higher-intent contact requests.'], [5, 'Web Development', 'Highlighting the web development projects delivered for the Cargoking brand.']].map(([k, tag, desc], j) => ({ num: '0' + (j + 1), order: m ? 0 : (j % 2 ? 2 : 0), host: this.carouselItems[k].title.toLowerCase().replace(/[^a-z]+/g, ''), name: this.carouselItems[k].title, tag, desc, bgImg: st.covers[k] ? `${this.carouselItems[k].bg} url(${st.covers[k]})` : this.carouselItems[k].bg, alt: this.carouselItems[k].title + ' website', bg: this.carouselItems[k].bg })),
+      planTypes: this.planTypeData.map((d, i) => ({ i, name: d[0], sub: d[1], on: i === st.ptype, bg: i === st.ptype ? '#080b38' : '#fff', fg: i === st.ptype ? '#fff' : '#0a0c24', bd: i === st.ptype ? '#080b38' : 'rgba(10,12,36,.16)' })),
+      pickType: e => this.setState({ ptype: +e.currentTarget.dataset.i }),
+      planSizes: this.planSizeData.map((d, i) => ({ i, name: d[0], on: i === st.psize, bg: i === st.psize ? '#080b38' : 'transparent', fg: i === st.psize ? '#fff' : '#0a0c24' })),
+      pickSize: e => this.setState({ psize: +e.currentTarget.dataset.i }),
+      planPlatforms: this.planPlatData.map((n, i) => ({ i, name: n, on: i === st.pplat, bg: i === st.pplat ? '#080b38' : 'transparent', fg: i === st.pplat ? '#fff' : '#0a0c24' })),
+      pickPlatform: e => this.setState({ pplat: +e.currentTarget.dataset.i }),
+      planFeatures: this.planFeatData.map((d, i) => { const on = st.pfeat.includes(i); return { i, name: d[0], on, box: on ? '#ffc83d' : '#fff', tick: on ? '✓' : '', bd: on ? '#080b38' : 'rgba(10,12,36,.16)' }; }),
+      toggleFeature: e => { const i = +e.currentTarget.dataset.i; this.setState(s => ({ pfeat: s.pfeat.includes(i) ? s.pfeat.filter(x => x !== i) : [...s.pfeat, i].sort() })); },
+      isBusiness: st.ptype === 0, isShop: st.ptype === 1, isLanding: st.ptype === 2, isRedesign: st.ptype === 3, hasBlog: st.pfeat.includes(3) && st.ptype !== 2,
+      navDots: Array.from({ length: st.ptype === 2 ? 1 : this.planSizeData[st.psize][2] }, (_, i) => i),
+      products: ['#555AFE', '#E453EE', '#F2D458', '#3a5bff', '#080b38', '#9be3a4'].slice(0, st.psize === 0 ? 3 : 6).map(c => ({ c })),
+      featureBadges: st.pfeat.filter(i => i !== 3).map(i => this.planFeatData[i][1] + ' ✓').concat(st.pplat ? [this.planPlatData[st.pplat]] : []),
+      planPath: this.planTypeData[st.ptype][2], planEst: this.estimate(), sendBrief: this.sendBrief,
+      frame: { w: fw + 'px', h: fh + 'px', iw: vw + 'px', ih: (fh / scale) + 'px', s: scale, r: st.device === 0 ? '12px' : '22px', border: st.device === 0 ? '0' : '8px solid #1a1f5c' },
+      faqs: this.faqData.map((d, i) => ({ i, num: '0' + (i + 1), q: d[0], a: d[1], open: i === st.faq, rot: i === st.faq ? '45deg' : '0deg' })),
+      toggleFaq: e => { const i = +e.currentTarget.dataset.i; this.setState(s => ({ faq: s.faq === i ? -1 : i })); },
+      submit: e => e.preventDefault(),
+      sentMsg: st.sent ? 'Thanks. The London team will be in touch shortly.' : '',
+      subscribe: e => { e.preventDefault(); e.target.reset(); this.setState({ subbed: true }); },
+      subMsg: st.subbed ? 'You’re on the list.' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>
