@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Digital Agency London | SEO, Marketing &amp; Web Development UK | PluzBuzz</title>
+<meta name="description" content="PluzBuzz is a London digital agency delivering SEO, web development, app development, AI marketing, creative production, and scalable digital growth services across the UK.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pluzbuzz.com">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="PluzBuzz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"PluzBuzz","url":"https://pluzbuzz.com/","slogan":"We Create the Buzz, You Own the Spotlight","address":{"@type":"PostalAddress","streetAddress":"Old Street, Shoreditch","addressLocality":"London","addressRegion":"Greater London","addressCountry":"GB"},"geo":{"@type":"GeoCoordinates","latitude":51.5255,"longitude":-0.0888},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"19:00"}}</script>
+<link rel="preload" as="image" href="assets/logo-intro.gif">
+<script src="pb-bits.js"></script>
+<script type="module">import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'; window.THREE = THREE;</script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#0a0c24;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#0a0c24;text-decoration:none}
+a:hover{color:#3a5bff}
+h1,h2,h3,h4,p{margin:0}
+input,textarea,button{font:inherit}
+::selection{background:#ffc83d;color:#080b38}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position:relative;background:#fff">
+
+<sc-if value="{{ introVisible }}" hint-placeholder-val="{{ true }}">
+  <div ref="{{ introRef }}" onClick="{{ skipIntro }}" aria-hidden="true" style="position:fixed;inset:0;z-index:200;background:#220848;overflow:hidden;cursor:pointer;will-change:transform">
+    <canvas ref="{{ introCanvas }}" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    <img ref="{{ introLogo }}" src="assets/logo-intro.gif" alt="" width="1152" height="648" style="position:absolute;left:50%;top:50%;width:min(720px,84vw);height:auto;transform:translate(-50%,-50%) scale(.92);opacity:0;will-change:transform,opacity;pointer-events:none">
+    <span style="position:absolute;right:24px;bottom:20px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.12em;color:rgba(255,255,255,.35)">CLICK TO SKIP</span>
+  </div>
+</sc-if>
+
+<header ref="{{ headRef }}" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid transparent;transition:border-color .3s,padding .3s">
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#home" aria-label="PluzBuzz home" style="display:block;flex:none"><img src="assets/logo.gif" alt="PluzBuzz — We Create the Buzz, You Own the Spotlight" width="1200" height="224" style="display:block;height:clamp(40px,4vw,58px);width:auto"></a>
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);font-size:15px;font-weight:500;white-space:nowrap">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#global">Global</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact" style="display:flex;align-items:center;gap:8px;padding:13px 20px;background:#080b38;color:#fff;border-radius:6px" style-hover="background:#3a5bff;color:#fff">Book a strategy call</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+      <button type="button" aria-label="Toggle menu" onClick="{{ toggleMenu }}" style="width:48px;height:48px;border:0;border-radius:6px;background:#080b38;color:#fff;font-size:18px;cursor:pointer">{{ burgerIcon }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;background:#fff;border-bottom:1px solid rgba(10,12,36,.12);font-family:'Barlow Condensed';font-weight:700;font-size:34px;text-transform:uppercase">
+      <a href="#services" onClick="{{ closeMenu }}" style="padding:8px 0">Services</a>
+      <a href="#work" onClick="{{ closeMenu }}" style="padding:8px 0">Work</a>
+      <a href="#about" onClick="{{ closeMenu }}" style="padding:8px 0">About</a>
+      <a href="#global" onClick="{{ closeMenu }}" style="padding:8px 0">Global</a>
+      <a href="#journal" onClick="{{ closeMenu }}" style="padding:8px 0">Journal</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:10px;padding:14px 18px;background:#080b38;color:#fff;border-radius:6px;font-size:22px">Book a strategy call</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section id="home" data-screen-label="Hero" style="padding:clamp(120px,13vw,160px) clamp(20px,4vw,56px) clamp(40px,5vw,64px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,48px)">
+    <p data-r="up" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#55566a">
+      <span style="width:8px;height:8px;background:#ffc83d;border-radius:50%"></span><span>London SEO + growth marketing</span><span aria-hidden="true">/</span><span>for ambitious UK brands</span>
+    </p>
+    <h1 aria-label="SEO and Growth Marketing Agency London" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(58px,10.4vw,168px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase">
+      <span style="display:block;overflow:hidden"><span data-r="mask" data-d="0" style="display:block">SEO &amp; Growth</span></span>
+      <span style="display:block;overflow:hidden"><span data-r="mask" data-d="90" style="display:block">Marketing Agency</span></span>
+      <span style="display:block;overflow:hidden"><span data-r="mask" data-d="180" style="display:flex;align-items:flex-end;gap:.18em;flex-wrap:wrap"><span style="position:relative;display:inline-block;padding:0 .06em"><span data-r="bar" data-d="650" style="position:absolute;left:0;right:0;bottom:.06em;height:.38em;background:#ffc83d;transform-origin:0 50%"></span><span style="position:relative">London</span></span><span style="font-family:'Schibsted Grotesk';font-weight:500;font-size:clamp(15px,1.25vw,19px);line-height:1.5;letter-spacing:0;text-transform:none;color:#55566a;max-width:380px;padding-bottom:.9em">We help UK brands grow with SEO, conversion-focused websites, and growth marketing systems.</span></span></span>
+    </h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px clamp(32px,5vw,80px);border-top:2px solid #0a0c24;padding-top:24px">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:28px">
+        <p data-r="up" data-d="260" style="font-size:clamp(18px,1.6vw,24px);line-height:1.4;font-weight:500;max-width:520px;text-wrap:pretty">Built in London to increase qualified traffic, leads, and revenue — commercial growth, not vanity metrics.</p>
+        <div data-r="up" data-d="340" style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="#contact" style="display:flex;align-items:center;gap:10px;padding:17px 26px;background:#080b38;color:#fff;border-radius:6px;font-weight:600" style-hover="background:#3a5bff;color:#fff">Book a strategy call</a>
+          <a href="#work" style="padding:17px 26px;border:1.5px solid #0a0c24;border-radius:6px;font-weight:600" style-hover="background:#0a0c24;color:#fff">See our work</a>
+        </div>
+      </div>
+      <nav aria-label="Core services" data-r="up" data-d="300">
+        <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a;margin-bottom:8px">Core Services</p>
+        <a href="#svc-1" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">01</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">Website Development</span><span aria-hidden="true">↘</span></a>
+        <a href="#svc-2" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">02</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">SEO &amp; Content</span><span aria-hidden="true">↘</span></a>
+        <a href="#svc-3" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">03</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">Growth Marketing</span><span aria-hidden="true">↘</span></a>
+        <a href="#svc-4" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">04</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">App / SaaS Systems</span><span aria-hidden="true">↘</span></a>
+        <a href="#svc-5" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">05</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">AI Enablement</span><span aria-hidden="true">↘</span></a>
+        <a href="#svc-6" style="display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:15px 12px;border-bottom:1px solid rgba(10,12,36,.12);transition:background .25s,padding .25s" style-hover="background:#080b38;color:#fff;padding-left:20px"><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">06</span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;line-height:1">Photo + Video Production</span><span aria-hidden="true">↘</span></a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services" style="padding:clamp(56px,7vw,100px) clamp(20px,4vw,56px);border-top:1px solid rgba(10,12,36,.12)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
+    <div style="position:sticky;top:104px;display:flex;flex-direction:column;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,4.6vw,72px);line-height:.92;text-transform:uppercase">
+        <span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">The six lanes we</span></span>
+        <span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">usually activate first</span></span>
+      </h2>
+      <p data-r="up" data-d="120" style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">When brands need sharper digital growth. A compact view of the services we combine most often across websites, campaigns, product systems, search, and creative production.</p>
+      <sc-if value="{{ showPreview }}" hint-placeholder-val="{{ true }}">
+        <div data-r="fade" style="position:relative;height:clamp(260px,40vh,420px);border-radius:10px;background:#080b38;overflow:hidden;color:#fff">
+          <div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 9px,transparent 9px 18px)"></div>
+          <span style="position:absolute;left:24px;top:18px;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(90px,10vw,160px);line-height:1;color:#ffc83d;transition:opacity .3s">{{ svcNum }}</span>
+          <span style="position:absolute;right:20px;bottom:18px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.5)">{{ svcLabel }}</span>
+          <div style="position:absolute;left:24px;right:24px;bottom:50px;height:3px;background:rgba(255,255,255,.12)"><div style="height:100%;background:#3a5bff;transition:width .4s;width:{{ svcPct }}"></div></div>
+        </div>
+      </sc-if>
+    </div>
+    <div ref="{{ svcListRef }}" style="display:flex;flex-direction:column">
+      <article id="svc-1" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">01 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">Website Development</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Conversion-ready websites and landing systems.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Web Development</span><a href="#svc-1" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+      <article id="svc-2" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">02 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">SEO &amp; Content</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Search visibility, content structure, and intent-led growth.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">SEO Services</span><a href="#svc-2" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+      <article id="svc-3" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">03 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">Growth Marketing</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Performance campaigns built to improve lead quality.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Digital Marketing</span><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Social Media</span><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Advertising</span><a href="#svc-3" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+      <article id="svc-4" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">04 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">App / SaaS Systems</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Sharper product journeys and scalable digital experiences.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">App &amp; SaaS</span><a href="#svc-4" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+      <article id="svc-5" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">05 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">AI Enablement</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Smarter workflows, creative systems, and automation support.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">AI Marketing</span><a href="#svc-5" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+      <article id="svc-6" data-svcrow="" style="padding:clamp(28px,3.4vw,44px) 0;border-top:1px solid rgba(10,12,36,.14);border-bottom:1px solid rgba(10,12,36,.14);transition:opacity .35s;display:flex;flex-direction:column;gap:14px;scroll-margin-top:100px">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">06 — Core lane</span>
+        <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(36px,4vw,60px);line-height:.95;text-transform:uppercase">Photo + Video Production</h3>
+        <p style="color:#55566a;font-size:17px;line-height:1.55;max-width:520px">Directed visual assets for launches, campaigns, and content.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Photography</span><span style="padding:6px 12px;border-radius:4px;background:#f4f4f7;font-size:13px;font-weight:500">Video Production</span><a href="#svc-6" style="margin-left:auto;font-weight:600;font-size:15px">Explore service →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section ref="{{ howRef }}" data-screen-label="How we work" style="position:relative;height:340vh;background:#f4f4f7">
+  <div style="position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center;padding:96px clamp(20px,4vw,56px) 32px">
+    <div style="max-width:1440px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,5vw,80px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0">
+        <p style="display:flex;gap:12px;align-items:center;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a"><span>How We Work</span><span style="padding:4px 10px;background:#fff;border-radius:4px;letter-spacing:.04em">One connected team</span></p>
+        <div style="position:relative;height:clamp(72px,min(11vw,22vh),190px);overflow:hidden">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <span style="position:absolute;left:0;top:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(72px,min(11vw,22vh),190px);line-height:1;text-transform:uppercase;letter-spacing:-.01em;transition:transform .6s cubic-bezier(.7,0,.2,1),opacity .4s;transform:{{ s.tf }};opacity:{{ s.op }}">{{ s.word }}</span>
+          </sc-for>
+        </div>
+        <p style="font-size:clamp(18px,1.6vw,24px);font-weight:500">{{ stepSub }}</p>
+        <p style="color:#55566a;font-size:16px;line-height:1.55;max-width:460px">Every lane is planned as one commercial system, not as separate tasks.</p>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <li style="background:#fff;border-radius:8px;padding:clamp(10px,1.8vh,18px) 22px;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:14px;transition:background .35s,color .35s;background:{{ s.bg }};color:{{ s.fg }}">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:{{ s.numC }}">{{ s.num }}</span>
+            <span style="display:flex;flex-direction:column;gap:10px"><span style="font-family:'Barlow Condensed';font-weight:700;font-size:28px;text-transform:uppercase;line-height:1">{{ s.word }}</span><span style="height:2px;background:rgba(127,127,160,.25);position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;background:#ffc83d;width:{{ s.pct }}"></span></span></span>
+            <span style="font-size:14px;opacity:.75">{{ s.sub }}</span>
+          </li>
+        </sc-for>
+        <li style="display:flex;flex-wrap:wrap;gap:6px;padding-top:8px;font-family:'IBM Plex Mono';font-size:12px;color:#55566a"><span>Web</span><span>/</span><span>SEO</span><span>/</span><span>Advertise</span><span>/</span><span>Creative</span><span>/</span><span>Content</span><span>/</span><span>Analytics</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-se-root="" data-screen-label="Who we are" style="position:relative;background:#fff">
+  <div data-se-track="" style="position:relative;width:100%;height:255vh">
+    <div data-se-stage="" style="position:sticky;top:0;width:100%;height:100vh;overflow:hidden">
+      <div data-se-frame="" style="position:absolute;inset:0;clip-path:inset(21% 29% 21% 29% round 24px);background:#220848;will-change:clip-path">
+        <canvas data-se-media="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;transform:scale(1.35);transform-origin:50% 50%"></canvas>
+        <div data-se-scrim="" style="position:absolute;inset:0;opacity:0;pointer-events:none;background:linear-gradient(to top,rgba(8,11,56,.92),rgba(8,11,56,.55) 55%,rgba(8,11,56,.7))"></div>
+        <div data-se-overlay="" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(18px,2.4vw,28px);padding:96px clamp(20px,6vw,96px) 48px;opacity:0;color:#fff">
+          <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Who We Are</p>
+          <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,6vw,96px);line-height:.9;text-transform:uppercase;max-width:1000px">UK's Trusted Digital Marketing Agency for Measurable Growth</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:18px 56px;max-width:1100px">
+            <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(255,255,255,.85)">We work with UK businesses that are serious about growth - not just ticking boxes, but building something that actually moves the needle.</p>
+            <p style="font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:rgba(255,255,255,.7)">Over the years, we've helped everyone from early-stage startups finding their feet to established brands looking to sharpen their edge online. Whether you're based in London or anywhere across the UK, we bring the same level of care and strategic thinking to every project we take on.</p>
+          </div>
+        </div>
+      </div>
+      <div data-se-title="" aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 6%;text-align:center;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,8vw,132px);line-height:.9;text-transform:uppercase;color:#fff;mix-blend-mode:difference;pointer-events:none">We Create the Buzz</div>
+      <div data-se-hint="" style="position:absolute;left:0;right:0;bottom:22px;text-align:center;font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a;pointer-events:none">Scroll</div>
+    </div>
+  </div>
+</section>
+
+<section id="who" data-screen-label="Who we are (reveal)" style="background:#080b38;color:#fff;padding:clamp(72px,9vw,140px) clamp(20px,4vw,56px);overflow:hidden">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,6vw,96px);line-height:.9;text-transform:uppercase;max-width:980px">
+        <span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">UK's Trusted Digital Marketing</span></span>
+        <span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block">Agency for <span style="color:#ffc83d">Measurable Growth</span></span></span>
+      </h2>
+      <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">Who We Are</p>
+    </div>
+    <p data-words="" style="font-size:clamp(24px,2.9vw,44px);line-height:1.22;font-weight:500;letter-spacing:-.01em;max-width:1200px">We work with UK businesses that are serious about growth - not just ticking boxes, but building something that actually moves the needle. Over the years, we've helped everyone from early-stage startups finding their feet to established brands looking to sharpen their edge online.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px 64px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px">
+      <p data-r="up" style="color:rgba(255,255,255,.7);font-size:17px;line-height:1.6">Whether you're based in London or anywhere across the UK, we bring the same level of care and strategic thinking to every project we take on.</p>
+      <p data-r="up" data-d="100" style="font-family:'Barlow Condensed';font-weight:700;font-size:clamp(30px,3vw,44px);line-height:1;text-transform:uppercase">We <span style="position:relative;color:rgba(255,255,255,.4)">make<span aria-hidden="true" style="position:absolute;left:-4%;right:-4%;top:50%;height:4px;background:#ffc83d"></span></span> build brands together.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Why us" style="padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px;align-items:end">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Why UK Businesses</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block">Choose Us</span></span></h2>
+      <div data-r="up" data-d="100" style="display:flex;flex-direction:column;gap:12px">
+        <p style="font-weight:600;font-size:18px">Why UK Businesses Trust Our AI-Powered Digital Marketing Agency</p>
+        <p style="color:#55566a;font-size:17px;line-height:1.6;text-wrap:pretty">UK businesses need more than visibility - they need strategy and measurable results. We combine AI-driven insight, creative execution, and data-backed marketing systems to deliver stronger conversion performance and sustainable digital growth.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:0">
+      <div data-r="up" data-d="0" style="position:relative;padding:26px 22px 30px 0;display:flex;flex-direction:column;gap:40px"><span data-r="bar" data-d="100" style="position:absolute;left:0;right:12px;top:0;height:3px;background:#0a0c24;transform-origin:0 50%"></span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">01</span><p style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">AI-Integrated Marketing Approach</p></div>
+      <div data-r="up" data-d="80" style="position:relative;padding:26px 22px 30px 0;display:flex;flex-direction:column;gap:40px"><span data-r="bar" data-d="180" style="position:absolute;left:0;right:12px;top:0;height:3px;background:#0a0c24;transform-origin:0 50%"></span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">02</span><p style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">ROI-Focused Campaigns</p></div>
+      <div data-r="up" data-d="160" style="position:relative;padding:26px 22px 30px 0;display:flex;flex-direction:column;gap:40px"><span data-r="bar" data-d="260" style="position:absolute;left:0;right:12px;top:0;height:3px;background:#0a0c24;transform-origin:0 50%"></span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">03</span><p style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Transparent Reporting</p></div>
+      <div data-r="up" data-d="240" style="position:relative;padding:26px 22px 30px 0;display:flex;flex-direction:column;gap:40px"><span data-r="bar" data-d="340" style="position:absolute;left:0;right:12px;top:0;height:3px;background:#0a0c24;transform-origin:0 50%"></span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">04</span><p style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Full-Service In-House Team</p></div>
+      <div data-r="up" data-d="320" style="position:relative;padding:26px 22px 30px 0;display:flex;flex-direction:column;gap:40px"><span data-r="bar" data-d="420" style="position:absolute;left:0;right:12px;top:0;height:3px;background:#ffc83d;transform-origin:0 50%"></span><span style="font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff">05</span><p style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Custom Growth Strategies</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-refine-sec="" data-screen-label="Clear picture" style="padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px);background:#f4f4f7">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+    <div style="display:flex;justify-content:center"><div data-refine="" style="width:100%;max-width:640px"></div></div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p data-r="up" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Brand + Positioning</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Your brand exists.</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block">It just needs a</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="160" style="display:block"><span style="position:relative;display:inline-block;padding:0 .06em"><span data-r="bar" data-d="700" style="position:absolute;left:0;right:0;bottom:.06em;height:.38em;background:#ffc83d;transform-origin:0 50%"></span><span style="position:relative">clear picture.</span></span></span></span></h2>
+      <p data-r="up" data-d="120" style="color:#55566a;font-size:17px;line-height:1.6;max-width:520px">We build digital ecosystems through strategy, design, engineering, and performance-led marketing that create long-term, measurable business impact.</p>
+      <p data-r="up" data-d="180" style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">Keep scrolling to bring it into focus.</p>
+    </div>
+  </div>
+</section>
+
+<section id="work" data-screen-label="Work" style="background:#080b38;color:#fff;padding-top:clamp(56px,7vw,100px);overflow:hidden">
+  <header style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+    <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Selected Work</span></span></h2>
+    <div data-r="up" style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+      <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)">Trusted by growing brands</p>
+      <p style="font-size:15px;color:rgba(255,255,255,.75)">Hover a tile to pause it and read the brief.</p>
+    </div>
+  </header>
+  <div data-drift="" style="position:relative;height:clamp(480px,74vh,700px)"></div>
+</section>
+
+<section data-screen-label="Rebrand" style="padding:clamp(64px,8vw,110px) clamp(20px,4vw,56px);background:#fff">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p data-r="up" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Rebranding</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Throw away the</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block">old contract.</span></span></h2>
+      <p data-r="up" data-d="120" style="color:#55566a;font-size:17px;line-height:1.6;max-width:520px">Then give your brand a new identity, with sharper positioning, stronger systems, and more commercially useful execution.</p>
+      <div data-r="up" data-d="180" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+        <p style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">{{ paperHint }}</p>
+        <sc-if value="{{ paperCrumpled }}" hint-placeholder-val="{{ false }}">
+          <button type="button" onClick="{{ resetPaper }}" style="padding:10px 16px;border:1.5px solid #0a0c24;border-radius:6px;background:#fff;font-weight:600;font-size:14px;cursor:pointer" style-hover="background:#0a0c24;color:#fff">Bring it back</button>
+          <a href="#contact" style="padding:11px 18px;border-radius:6px;background:#080b38;color:#fff;font-weight:600;font-size:14px" style-hover="background:#3a5bff;color:#fff">Start a rebrand</a>
+        </sc-if>
+      </div>
+    </div>
+    <div data-crumple="" style="position:relative;height:clamp(440px,62vh,580px);border-radius:10px;background:#f4f4f7"></div>
+  </div>
+</section>
+
+<section id="global" data-screen-label="Global presence" style="background:#f4f4f7;padding:clamp(56px,7vw,100px) 0;overflow:hidden">
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:24px 64px;align-items:end">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Global Network</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Our Global Presence</span></span></h2>
+      <p data-r="up" style="color:#55566a;font-size:17px;line-height:1.6;max-width:560px">From our London headquarters to regional delivery hubs, we support partners across markets with consistent execution, strategic oversight, and local context.</p>
+    </div>
+    <div data-r="up" data-d="100" style="display:flex;gap:40px;justify-content:flex-start">
+      <div><strong data-count="7" style="display:block;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(72px,7vw,110px);line-height:.9">7</strong><span style="color:#55566a;font-size:15px">Total Offices</span></div>
+      <div><strong data-count="7" style="display:block;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(72px,7vw,110px);line-height:.9">7</strong><span style="color:#55566a;font-size:15px">Countries</span></div>
+    </div>
+  </div>
+  <div aria-hidden="true" style="margin:clamp(32px,4vw,56px) 0">
+    <p data-sx="-0.7" style="white-space:nowrap;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(64px,9vw,150px);line-height:1;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px #0a0c24;padding-left:10vw">London · Mumbai · Dubai · New York · Nairobi · Kampala · Warsaw · London</p>
+  </div>
+  <div style="max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px">
+    <sc-for list="{{ offices }}" as="o" hint-placeholder-count="7">
+      <div style="border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:26px;background:{{ o.bg }};color:{{ o.fg }}">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.1em;opacity:.7">{{ o.flag }}</span><span style="font-family:'IBM Plex Mono';font-size:13px;color:{{ o.timeC }}">{{ o.time }}</span></div>
+        <div><p style="font-family:'Barlow Condensed';font-weight:700;font-size:28px;line-height:1;text-transform:uppercase">{{ o.city }}</p><p style="font-size:13px;opacity:.7;margin-top:4px">{{ o.country }}</p></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="journal" data-screen-label="Journal" style="padding:clamp(56px,7vw,100px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px)">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Journal</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,4.6vw,72px);line-height:.92;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Sharp notes from SEO,</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="70" style="display:block">websites, AI systems,</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="140" style="display:block">and performance work.</span></span></h2>
+      <p data-r="up" style="color:#55566a;font-size:17px;line-height:1.6;max-width:480px">Compact reads for founders and growth teams who want clearer digital execution, not recycled advice.</p>
+      <a data-r="up" href="#journal" style="margin-top:8px;align-self:flex-start;display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:8px;background:#080b38;color:#fff;max-width:520px" style-hover="background:#10154f;color:#fff">
+        <span style="display:flex;gap:10px;font-family:'IBM Plex Mono';font-size:12px"><span style="color:#ffc83d">Featured article</span><span style="opacity:.6">Strategy</span></span>
+        <span style="font-family:'Barlow Condensed';font-weight:700;font-size:clamp(28px,2.6vw,38px);line-height:1;text-transform:uppercase">AI Marketing Stack for UK Growth Teams in 2026</span>
+        <span style="color:rgba(255,255,255,.7);font-size:15px;line-height:1.5">How teams are using AI-assisted workflows to shorten campaign cycles while improving conversion quality.</span>
+        <span style="display:flex;gap:16px;font-size:13px;color:rgba(255,255,255,.6)"><span>Mar 02, 2026</span><span>6 min read</span><span style="color:#fff;font-weight:600;margin-left:auto">Read ↗</span></span>
+      </a>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:2px solid #0a0c24;align-self:start">
+      <a data-r="up" href="#journal" style="display:flex;flex-direction:column;gap:8px;padding:24px 0;border-bottom:1px solid rgba(10,12,36,.14);transition:padding .3s" style-hover="padding-left:14px;color:#0a0c24"><span style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff"><span>SEO</span><span style="color:#55566a">Feb 24, 2026 · 4 min read</span></span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">SEO + Automation: A Practical Framework</span><span style="color:#55566a;font-size:15px;line-height:1.5">A clear process for combining intent-focused content with automated optimisation for scale.</span></a>
+      <a data-r="up" data-d="60" href="#journal" style="display:flex;flex-direction:column;gap:8px;padding:24px 0;border-bottom:1px solid rgba(10,12,36,.14);transition:padding .3s" style-hover="padding-left:14px;color:#0a0c24"><span style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff"><span>Product Marketing</span><span style="color:#55566a">Feb 11, 2026 · 7 min read</span></span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Building High-Performing SaaS Landing Pages</span><span style="color:#55566a;font-size:15px;line-height:1.5">Design and messaging patterns that reduce drop-off and increase qualified demo requests.</span></a>
+      <a data-r="up" data-d="120" href="#journal" style="display:flex;flex-direction:column;gap:8px;padding:24px 0;border-bottom:1px solid rgba(10,12,36,.14);transition:padding .3s" style-hover="padding-left:14px;color:#0a0c24"><span style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff"><span>Paid Media</span><span style="color:#55566a">Jan 30, 2026 · 5 min read</span></span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Creative Testing Loops for Paid Social</span><span style="color:#55566a;font-size:15px;line-height:1.5">A repeatable creative cycle for finding top-performing ad variants without burning budget.</span></a>
+      <a data-r="up" data-d="180" href="#journal" style="display:flex;flex-direction:column;gap:8px;padding:24px 0;border-bottom:1px solid rgba(10,12,36,.14);transition:padding .3s" style-hover="padding-left:14px;color:#0a0c24"><span style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono';font-size:12px;color:#3a5bff"><span>Analytics</span><span style="color:#55566a">Jan 14, 2026 · 5 min read</span></span><span style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;line-height:1;text-transform:uppercase">Analytics Views Every Founder Should Track Weekly</span><span style="color:#55566a;font-size:15px;line-height:1.5">The dashboard cuts that keep leadership focused on outcomes instead of vanity metrics.</span></a>
+      <a href="#journal" style="padding:20px 0;font-weight:600">View all articles →</a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Ticket" style="padding:clamp(64px,8vw,110px) clamp(20px,4vw,56px);border-top:1px solid rgba(10,12,36,.12)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p data-r="up" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Strategy Call</p>
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,5.4vw,84px);line-height:.9;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Tear away</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block">the guesswork.</span></span></h2>
+      <p data-r="up" data-d="120" style="color:#55566a;font-size:17px;line-height:1.6;max-width:520px">We combine strategic thinking, modern creative production, and performance-led execution to help businesses scale with clarity rather than guesswork.</p>
+      <sc-if value="{{ ticketOpen }}" hint-placeholder-val="{{ true }}">
+        <p data-r="up" data-d="180" style="font-family:'IBM Plex Mono';font-size:12px;color:#55566a">Pull the stub to claim a strategy call with the London team.</p>
+      </sc-if>
+      <sc-if value="{{ claimed }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+          <p style="font-weight:600">Ticket claimed. Tell us about your goals below.</p>
+          <a href="#contact" style="padding:11px 18px;border-radius:6px;background:#080b38;color:#fff;font-weight:600;font-size:14px" style-hover="background:#3a5bff;color:#fff">Go to the form</a>
+          <button type="button" onClick="{{ resetTicket }}" style="padding:10px 14px;border:0;background:transparent;font-size:14px;text-decoration:underline;cursor:pointer;color:#55566a">Reset ticket</button>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:flex;justify-content:center;padding:24px 0"><div data-ticket="" style="width:100%;max-width:460px"></div></div>
+  </div>
+</section>
+
+<section id="contact" ref="{{ contactRef }}" data-screen-label="Contact" style="position:relative;background:#080b38;color:#fff;padding:clamp(72px,9vw,130px) clamp(20px,4vw,56px) clamp(120px,14vw,200px);overflow:hidden">
+  <div style="position:relative;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(36px,5vw,80px)">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(64px,9vw,150px);line-height:.86;text-transform:uppercase"><span style="display:block;overflow:hidden"><span data-r="mask" style="display:block">Let's build</span></span><span style="display:block;overflow:hidden"><span data-r="mask" data-d="80" style="display:block;color:#ffc83d">the buzz.</span></span></h2>
+      <p data-r="up" data-d="120" style="color:rgba(255,255,255,.75);font-size:17px;line-height:1.6;max-width:480px">From conversion-focused websites to AI-assisted campaign systems, PluzBuzz builds the digital foundations brands need to attract better traffic, improve lead quality, and move with more confidence online.</p>
+      <p data-r="up" data-d="180" style="font-family:'IBM Plex Mono';font-size:13px;color:rgba(255,255,255,.6);line-height:1.7">Old Street, Shoreditch, London<br>Mon–Sat · 10:00–19:00</p>
+    </div>
+    <form data-r="up" data-d="100" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:clamp(22px,2.6vw,34px);backdrop-filter:blur(6px)">
+      <h3 style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;text-transform:uppercase">Let’s talk, get in touch!</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Name<input type="text" name="name" required="{{ true }}" placeholder="Your name" autoComplete="name" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Email<input type="email" name="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Company<input type="text" name="company" placeholder="Company or brand" autoComplete="organization" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.65)">Services interested in<input type="text" name="services" placeholder="Website, SEO, app, content, or campaign support" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+      </div>
+      <textarea name="message" required="{{ true }}" rows="4" placeholder="Tell us about your goals, timelines, deliverables, or what needs fixing." style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none;resize:vertical" style-focus="border-color:#ffc83d"></textarea>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <div data-slide="" style="max-width:100%"></div>
+        <p aria-live="polite" style="font-size:14px;color:rgba(255,255,255,.75)">{{ sentMsg }}</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer style="background:#fff;padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px) 28px">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:32px">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <p style="font-size:17px;font-weight:500;line-height:1.5;max-width:420px">Get practical growth insights, launch notes, and creative ideas from the PluzBuzz team.</p>
+        <form onSubmit="{{ subscribe }}" style="display:flex;flex-direction:column;gap:6px;max-width:440px">
+          <label for="newsletterEmail" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Newsletter</label>
+          <div style="display:flex;align-items:center;gap:14px;border-bottom:2px solid #0a0c24;padding:8px 0"><input id="newsletterEmail" type="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="flex:1;min-width:0;border:0;background:transparent;padding:12px 0;outline:none;font-size:16px"><span data-sling=""></span></div>
+          <p aria-live="polite" style="font-size:13px;color:#55566a;min-height:18px">{{ subMsg }}</p>
+        </form>
+      </div>
+      <nav aria-label="Discover" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">DISCOVER</h4><a href="#work">Our Work</a><a href="#journal">Insights</a><a href="#global">Global Presence</a><a href="#contact">Contact</a><a href="#about">About</a></nav>
+      <nav aria-label="Services" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">SERVICES</h4><a href="#svc-1">Web Development</a><a href="#svc-2">SEO Services</a><a href="#svc-3">Digital Marketing</a><a href="#svc-4">App &amp; SaaS</a><a href="#svc-5">AI Marketing</a><a href="#svc-6">Photography</a><a href="#svc-6">Video Production</a><a href="#svc-3">Social Media</a><a href="#svc-3">Advertising</a></nav>
+      <nav aria-label="Social" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">FOLLOW</h4><a href="https://www.instagram.com/pluzbuzz/" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/PluzBuzz" target="_blank" rel="noreferrer">X</a><a href="https://www.facebook.com/people/PluzBuzz/61579035273110/" target="_blank" rel="noreferrer">Facebook</a><a href="https://in.linkedin.com/company/pluzbuzz" target="_blank" rel="noreferrer">LinkedIn</a></nav>
+    </section>
+    <div role="img" aria-label="PluzBuzz" style="display:flex;justify-content:center;overflow:hidden;padding:clamp(10px,2vw,30px) 0"><div data-depth=""></div></div>
+    <section style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid rgba(10,12,36,.12);font-size:13px;color:#55566a">
+      <p>© 2026 — PluzBuzz All rights reserved. Old Street, Shoreditch, London.</p>
+      <div style="display:flex;gap:20px"><a href="#home" style="color:#55566a">Privacy Policy</a><a href="#home" style="color:#55566a">Terms &amp; Conditions</a></div>
+    </section>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;intro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { claimed: false, paper: 'flat', intro: true, step: 0, svc: 0, work: -1, now: Date.now(), menu: false, mobile: false, sent: false, subbed: false };
+  rootRef = React.createRef(); introRef = React.createRef(); introCanvas = React.createRef(); introLogo = React.createRef(); headRef = React.createRef();
+  svcListRef = React.createRef(); howRef = React.createRef(); previewRef = React.createRef(); contactRef = React.createRef(); waveCanvas = React.createRef();
+  stepData = [['Strategy', 'Positioning'], ['Build', 'Website + UX'], ['Acquire', 'SEO + Advert'], ['Optimise', 'Analytics']];
+  svcNames = ['website preview', 'seo preview', 'campaign preview', 'app / saas preview', 'ai workflow preview', 'photo + video still'];
+  works = ['viviana london — case visual', 'fixomech — case visual', 'medi-ex — case visual', 'leaa — case visual', 'cargoking — case visual'];
+  officeData = [['GB', 'United Kingdom', 'London', 'Europe/London'], ['IN', 'India', 'Mumbai', 'Asia/Kolkata'], ['AE', 'United Arab Emirates', 'Dubai', 'Asia/Dubai'], ['US', 'United States', 'New York', 'America/New_York'], ['KE', 'Kenya', 'Nairobi', 'Africa/Nairobi'], ['UG', 'Uganda', 'Kampala', 'Africa/Kampala'], ['PL', 'Poland', 'Warsaw', 'Europe/Warsaw']];
+
+  componentDidMount() {
+    const root = this.rootRef.current; if (!root) return;
+    this.motion = (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.par = [...root.querySelectorAll('[data-par]')];
+    this.sx = [...root.querySelectorAll('[data-sx]')];
+    this.rows = [...root.querySelectorAll('[data-svcrow]')];
+    this.splitWords(root);
+    this.prepReveals(root);
+    this.onScroll = () => { if (!this.raf) this.raf = requestAnimationFrame(this.tick); };
+    this.onResize = () => { this.checkMobile(); this.tick(); };
+    addEventListener('scroll', this.onScroll, { passive: true });
+    addEventListener('resize', this.onResize);
+    this.checkMobile(); this.tick();
+    this.clock = setInterval(() => this.setState({ now: Date.now() }), 20000);
+    this.startWave();
+    this.mountBits(root);
+    if ((this.props.intro ?? true) && this.motion) this.runIntro(); else this.endIntro();
+  }
+  componentWillUnmount() {
+    removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize);
+    clearInterval(this.clock); clearTimeout(this.bitsT); (this.bitDestroy || []).forEach(f => { try { f(); } catch (e) {} }); cancelAnimationFrame(this.raf); cancelAnimationFrame(this.introRaf); cancelAnimationFrame(this.waveRaf);
+    this.io && this.io.disconnect(); this.wio && this.wio.disconnect(); this.timers && this.timers.forEach(clearTimeout);
+    document.documentElement.style.overflow = '';
+  }
+  checkMobile() {
+    const m = innerWidth < 900; if (m !== this.state.mobile) this.setState({ mobile: m, menu: false });
+    const how = this.howRef.current;
+    if (how) {
+      const frame = how.firstElementChild, grid = frame.firstElementChild;
+      Object.assign(frame.style, { position: 'sticky', height: '100svh', padding: '88px clamp(20px,4vw,56px) 24px' });
+      grid.style.gridTemplateColumns = m ? '' : 'minmax(0,1fr) minmax(0,1fr)';
+      const unpin = m || grid.offsetHeight > innerHeight - 112;
+      this.unpinned = unpin;
+      how.style.height = unpin ? 'auto' : '340vh';
+      if (unpin) { grid.style.gridTemplateColumns = ''; Object.assign(frame.style, { position: 'relative', height: 'auto', padding: '64px clamp(20px,4vw,56px)' }); }
+    }
+  }
+
+  flames(ctx, w, h, t, amp) {
+    ctx.clearRect(0, 0, w, h);
+    if (amp <= 0.001) return;
+    const L = [{ c: '#555AFE', s: 1.0, sp: 0.8, o: 0 }, { c: '#E453EE', s: 0.72, sp: 1.2, o: 2.1 }, { c: '#F2D458', s: 0.44, sp: 1.7, o: 4.2 }];
+    for (const l of L) {
+      ctx.fillStyle = l.c; ctx.beginPath(); ctx.moveTo(-20, h + 20);
+      for (let x = -20; x <= w + 20; x += 4) {
+        const u = x / w;
+        const n = Math.sin(u * 8 + t * l.sp * 1.6 + l.o) * 0.5 + Math.sin(u * 21 - t * l.sp * 2.5 + l.o * 1.7) * 0.32 + Math.sin(u * 43 + t * l.sp * 4.1) * 0.18;
+        const tongue = Math.pow(Math.max(0, (n + 1) / 2), 2.1);
+        ctx.lineTo(x, h - h * l.s * amp * (0.16 + 0.84 * tongue));
+      }
+      ctx.lineTo(w + 20, h + 20); ctx.closePath(); ctx.fill();
+    }
+  }
+
+  runIntro() {
+    const cv = this.introCanvas.current; if (!cv) return this.endIntro();
+    document.documentElement.style.overflow = 'hidden';
+    const w = cv.width = innerWidth, h = cv.height = innerHeight;
+    const ctx = cv.getContext('2d'), t0 = performance.now();
+    const eo = x => 1 - Math.pow(1 - x, 3), ei = x => x * x;
+    const frame = now => {
+      const e = now - t0;
+      const amp = e < 900 ? eo(e / 900) : e < 1700 ? 1 : e < 2400 ? 1 - ei((e - 1700) / 700) : 0;
+      this.flames(ctx, w, h, e / 1000, amp, 1);
+      if (e < 2400) this.introRaf = requestAnimationFrame(frame);
+      else { ctx.clearRect(0, 0, w, h); this.timers = [setTimeout(() => this.showLogo(), 550), setTimeout(() => this.lift(), 2300)]; }
+    };
+    this.introRaf = requestAnimationFrame(frame);
+  }
+  showLogo() {
+    const lg = this.introLogo.current; if (!lg || this.logoShown) return; this.logoShown = true;
+        lg.style.transition = 'opacity .45s ease .15s, transform .9s cubic-bezier(.2,.7,.2,1) .15s';
+    lg.style.opacity = '1'; lg.style.transform = 'translate(-50%,-50%) scale(1)';
+  }
+  lift() {
+    if (this.lifted) return; this.lifted = true;
+    cancelAnimationFrame(this.introRaf);
+    const el = this.introRef.current, lg = this.introLogo.current;
+    const cv = this.introCanvas.current; if (cv) cv.style.opacity = '0';
+    if (!el) { this.startReveals(0); return this.endIntro(); }
+    if (lg) {
+      if (!this.logoShown) { lg.style.transition = 'none'; lg.style.opacity = '1'; lg.style.transform = 'translate(-50%,-50%) scale(1)'; lg.offsetWidth; }
+      lg.style.transformOrigin = '91.6% 44.4%';
+      lg.style.transition = 'transform 1.15s cubic-bezier(.7,0,.25,1), opacity .45s ease .7s';
+      lg.style.transform = 'translate(-50%,-50%) scale(60)'; lg.style.opacity = '0';
+    }
+    el.style.transition = 'opacity .5s ease .7s';
+    el.style.opacity = '0';
+    this.startReveals(800);
+    (this.timers || (this.timers = [])).push(setTimeout(() => this.endIntro(), 1250));
+  }
+  skipIntro = () => { (this.timers || []).forEach(clearTimeout); this.lift(); };
+  endIntro() {
+    document.documentElement.style.overflow = '';
+    if (!this.revealsOn) this.startReveals(0);
+    this.setState({ intro: false });
+  }
+
+  splitWords(root) {
+    this.wordEls = [];
+    if (!this.motion) return;
+    root.querySelectorAll('[data-words]').forEach(p => {
+      const words = p.textContent.trim().split(/\s+/);
+      p.textContent = '';
+      words.forEach((w, i) => { const s = document.createElement('span'); s.textContent = w + (i < words.length - 1 ? ' ' : ''); s.style.opacity = '.18'; s.style.transition = 'opacity .2s'; p.appendChild(s); });
+      this.wordEls.push({ p, spans: [...p.children], last: -1 });
+    });
+  }
+  prepReveals(root) {
+    this.revealEls = [...root.querySelectorAll('[data-r]')];
+    if (!this.motion) return;
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    this.revealEls.forEach(el => {
+      const k = el.dataset.r, d = (+el.dataset.d || 0);
+      el.__d = d;
+      el.style.transform = k === 'mask' ? 'translateY(102%)' : k === 'bar' ? 'scaleX(0)' : k === 'fade' ? 'none' : 'translateY(24px)';
+      if (k !== 'mask' && k !== 'bar') el.style.opacity = '0';
+    });
+    this.ease = ease;
+  }
+  startReveals(extra) {
+    this.revealsOn = true;
+    if (!this.motion) return;
+    const show = el => {
+      const d = el.__d + (this.firstBatch ? extra : 0);
+      el.style.transition = `opacity .6s ${this.ease} ${d}ms, transform .8s ${this.ease} ${d}ms`;
+      el.style.opacity = '1'; el.style.transform = 'none';
+      el.querySelectorAll('[data-count]').forEach(c => this.count(c));
+    };
+    this.firstBatch = true;
+    this.io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target.__rev || e.target; show(el); this.io.unobserve(e.target);
+      });
+      this.firstBatch = false;
+    }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+    this.revealEls.forEach(el => {
+      if (el.dataset.r === 'mask' && el.parentElement) { el.parentElement.__rev = el; this.io.observe(el.parentElement); }
+      else this.io.observe(el);
+    });
+  }
+  count(el) {
+    const to = +el.dataset.count, t0 = performance.now();
+    const step = t => { const p = Math.min(1, (t - t0) / 1000); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+
+  startWave() {
+    const cv = this.waveCanvas.current, sec = this.contactRef.current; if (!cv || !sec) return;
+    const ctx = cv.getContext('2d');
+    const loop = now => {
+      const w = Math.round(cv.clientWidth / 2), h = Math.round(cv.clientHeight / 2);
+      if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+      this.flames(ctx, w, h, now / 1000 * 0.55, 0.62, 0.5);
+      if (this.waveOn) this.waveRaf = requestAnimationFrame(loop);
+    };
+    this.wio = new IntersectionObserver(([e]) => {
+      const on = e.isIntersecting && this.motion;
+      if (on && !this.waveOn) { this.waveOn = true; this.waveRaf = requestAnimationFrame(loop); }
+      if (!on) this.waveOn = false;
+    });
+    this.wio.observe(sec);
+    if (!this.motion) { const w = cv.width = Math.round(cv.clientWidth / 2), h = cv.height = Math.round(cv.clientHeight / 2); this.flames(ctx, w, h, 2, 0.62, 0.5); }
+  }
+
+  tick = () => {
+    this.raf = 0;
+    const vh = innerHeight, y = scrollY;
+    if (this.refine && this.refineSec) {
+      const r = this.refineSec.getBoundingClientRect(), p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height * 0.85)));
+      this.refine.setStatus(p < 0.25 ? 'queued' : p < 0.5 ? 'generating' : p < 0.75 ? 'refining' : 'complete');
+    }
+    const hd = this.headRef.current; if (hd) hd.style.borderBottomColor = y > 30 ? 'rgba(10,12,36,.12)' : 'transparent';
+    const how = this.howRef.current;
+    if (how) {
+      const r = how.getBoundingClientRect();
+      const p = this.unpinned ? Math.min(1, Math.max(0, (vh * 0.7 - r.top) / r.height)) : Math.min(1, Math.max(0, -r.top / (r.height - vh)));
+      this.howP = p;
+      const step = Math.min(3, Math.floor(p * 4));
+      if (step !== this.state.step) this.setState({ step }); else this.forceUpdate();
+    }
+    if (this.rows.length) {
+      let best = 0, bd = Infinity;
+      this.rows.forEach((row, i) => { const r = row.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - vh * 0.45); if (d < bd) { bd = d; best = i; } });
+      this.rows.forEach((row, i) => { row.style.opacity = this.state.mobile || i === best ? '1' : '.32'; });
+      if (best !== this.state.svc) this.setState({ svc: best });
+    }
+    if (!this.motion) return;
+    this.wordEls.forEach(o => {
+      const r = o.p.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.35)));
+      const n = Math.round(p * o.spans.length);
+      if (n !== o.last) { o.spans.forEach((s, i) => { s.style.opacity = i < n ? '1' : '.18'; }); o.last = n; }
+    });
+    this.sx.forEach(el => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < -100 || r.top > vh + 100) return; el.style.transform = `translate3d(${(r.top + r.height / 2 - vh / 2) * parseFloat(el.dataset.sx)}px,0,0)`; });
+  };
+
+  mountBits(root) {
+    const B = window.PBBits;
+    if (!B) { this.bitsT = setTimeout(() => this.mountBits(root), 60); return; }
+    const D = this.bitDestroy = [], q = sel => root.querySelector(sel), mob = innerWidth < 760;
+    const se = q('[data-se-root]');
+    if (se) { D.push(B.scrollExpand(se, mob ? { startWidth: 84, startHeight: 46 } : {})); const c = se.querySelector('[data-se-media]'); if (c) D.push(B.flameCanvas(c, { amp: 0.42, speed: 0.45 })); }
+    this.refineSec = q('[data-refine-sec]');
+    const rf = q('[data-refine]');
+    if (rf) {
+      const logo = new Image(); logo.src = 'assets/logo.gif';
+      const make = () => { if (this.refine) return; this.refine = B.refineFrame(rf, { image: this.brandPoster(logo), width: 640, radius: 10, background: '#e9e9ef', color: '#0a0c24', stageDuration: 420, labels: { queued: 'Your brand', generating: 'Positioning', refining: 'Identity', complete: 'Clear picture' } }); D.push(() => this.refine.destroy()); this.tick(); };
+      Promise.all([new Promise(r => { logo.complete ? r() : (logo.onload = logo.onerror = r); }), document.fonts ? document.fonts.ready : 0]).then(make);
+    }
+    const dw = q('[data-drift]');
+    if (dw) {
+      const P = [['Viviana London', 'Rebranding', 'A luxury gifting rebrand and digital refresh designed to modernise the product story, sharpen the premium identity, and create a stronger online buying journey.'],
+        ['Fixomech', 'Website Dev', 'A B2B-focused website overhaul for an industrial engineering brand, built to clarify product capability, improve trust, and capture more qualified enquiries.'],
+        ['Medi-Ex', 'Website Revamp', 'A healthcare infrastructure platform shaped to communicate specialist expertise, build confidence with enterprise buyers, and support higher-intent contact requests.'],
+        ['LeaA', 'SaaS', 'Built a scalable SaaS platform for LeaA with a cleaner product experience.'],
+        ['Cargoking', 'Web Development', 'Highlighting the web development projects delivered for the Cargoking brand.'],
+        ['Website Development', 'Core lane 01', 'Conversion-ready websites and landing systems.'],
+        ['SEO & Content', 'Core lane 02', 'Search visibility, content structure, and intent-led growth.'],
+        ['Growth Marketing', 'Core lane 03', 'Performance campaigns built to improve lead quality.'],
+        ['App / SaaS Systems', 'Core lane 04', 'Sharper product journeys and scalable digital experiences.'],
+        ['AI Enablement', 'Core lane 05', 'Smarter workflows, creative systems, and automation support.'],
+        ['Photo + Video Production', 'Core lane 06', 'Directed visual assets for launches, campaigns, and content.']];
+      const tones = [['#151a5c', '#fff'], ['#f4f4f7', '#0a0c24'], ['#1f2570', '#fff'], ['#10154f', '#fff'], ['#e7e8f2', '#0a0c24']];
+      const items = []; for (let k = 0; k < 2; k++) P.forEach(([title, tag, desc], i) => { const t = tones[(i + k * 2) % tones.length]; items.push({ title, tag, desc, bg: t[0], fg: t[1] }); });
+      D.push(B.driftWall(dw, { items, columns: mob ? 3 : 6, tileWidth: 230, tileHeight: 150, gap: 18, radius: 10, overlayColor: '#080b38', dim: 0.62, speed: 36, lift: 60 }));
+    }
+    const tk = q('[data-ticket]');
+    if (tk) {
+      this.ticket = B.tearTicket(tk, { width: 460, height: 250, stubSize: 140, radius: 14, rotate: -3, background: '#080b38', stubBackground: '#12176a', color: '#ffffff', tearAngle: 30, resistance: 0.45,
+        body: '<div style="position:absolute;inset:0;padding:24px 26px;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;justify-content:space-between;font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.65"><span>PluzBuzz · London</span><span>No. 0001</span></div><div><div style="font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:48px;line-height:.88;text-transform:uppercase">Strategy<br>Call</div><div style="margin-top:10px;font-size:13px;opacity:.7">Admit one ambitious brand</div></div><div style="display:flex;gap:16px;flex-wrap:wrap;font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.65"><span>Old Street, Shoreditch</span><span>Mon–Sat 10:00–19:00</span></div></div>',
+        stub: '<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center"><span style="font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.65">Admit</span><span style="font-family:Barlow Condensed,sans-serif;font-weight:800;font-size:64px;line-height:.9">01</span><span style="font-family:IBM Plex Mono,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#F2D458">Pull to tear</span></div>',
+        ariaLabel: 'Tear off the stub to claim a strategy call', onTear: () => this.setState({ claimed: true }) });
+      D.push(() => this.ticket.destroy());
+    }
+    const sl = q('[data-slide]');
+    if (sl) D.push(B.slideCommit(sl, { label: 'Slide to send enquiry', doneLabel: 'Enquiry sent', errorLabel: 'Add name, email and message', width: 320, height: 58, radius: 8, trackColor: '#171b52', handleColor: '#ffffff', successColor: '#F2D458', dangerColor: '#e5484d', holdMs: 2200,
+      onConfirm: () => { const f = sl.closest('form'); if (f && !f.checkValidity()) { f.reportValidity(); return Promise.reject(new Error('invalid')); } return new Promise(r => setTimeout(r, 900)).then(() => { f && f.reset(); this.setState({ sent: true }); }); } }));
+    const sg = q('[data-sling]');
+    if (sg) D.push(B.slingButton(sg, { size: 46, strokeWidth: 3, armAt: 44, maxPull: 140, padColor: '#080b38', iconColor: '#ffffff', accentColor: '#555AFE', wellColor: '#e9e9f1', bandColor: '#c3c5da', particles: 14, spread: 60, flight: 110, ariaLabel: 'Subscribe to the newsletter',
+      onSend: () => { const f = sg.closest('form'); if (f && !f.checkValidity()) { f.reportValidity(); return; } f && f.reset(); this.setState({ subbed: true }); } }));
+    const dp = q('[data-depth]');
+    if (dp) D.push(B.depthText(dp, { text: 'PLUZBUZZ', parts: [['PLUZBU', '#0a0c24'], ['ZZ', '#2a1260']], fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 800, fontSize: 'clamp(84px,19vw,300px)', letterSpacing: '0em', faceColor: '#0a0c24', depthColor: '#555AFE', depthColors: ['#F2D458', '#E453EE', '#555AFE'], shadow: false, layers: 30, depth: 2.2, tilt: 7, orbitSpeed: 0.25 }));
+    const cr = q('[data-crumple]');
+    if (cr) {
+      const io = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting) return; io.disconnect();
+        const tryMount = () => { if (!window.THREE) { this.bitsT = setTimeout(tryMount, 120); return; }
+          try { this.paper = B.paperCrumple(cr, { src: this.contractSheet(), alt: 'An old brand contract', width: 320, height: 400, releaseBehavior: 'stay', crumpleAmount: 1, crumpleDuration: 0.55, releaseDuration: 0.4, foldCount: 6, foldSharpness: 0.85, wrinkleDepth: 1.3, creaseStrength: 0.18, paperColor: '#f4f0e8', paperTexture: 0.55, returnToOrigin: false, seed: 15, detail: 56, onStateChange: st => this.setState({ paper: st }) }); D.push(() => this.paper.destroy()); } catch (err) { console.warn(err); } };
+        tryMount();
+      }, { rootMargin: '500px 0px' });
+      io.observe(cr); D.push(() => io.disconnect());
+    }
+  }
+  brandPoster(logo) {
+    const c = document.createElement('canvas'); c.width = 1200; c.height = 900; const x = c.getContext('2d');
+    x.fillStyle = '#ffffff'; x.fillRect(0, 0, 1200, 600);
+    if (logo.naturalWidth) { const w = 920, h = w * logo.naturalHeight / logo.naturalWidth; x.drawImage(logo, (1200 - w) / 2, 300 - h / 2, w, h); }
+    x.fillStyle = '#080b38'; x.fillRect(0, 600, 1200, 300);
+    x.fillStyle = '#F2D458'; x.fillRect(80, 680, 72, 8);
+    x.fillStyle = '#ffffff'; x.font = "800 76px 'Barlow Condensed', sans-serif"; x.fillText('SEO · WEBSITES · GROWTH · APP', 80, 790);
+    x.fillStyle = 'rgba(255,255,255,.6)'; x.font = "500 24px 'IBM Plex Mono', monospace"; x.fillText('OLD STREET, SHOREDITCH — LONDON', 80, 845);
+    return c;
+  }
+  contractSheet() {
+    const c = document.createElement('canvas'); c.width = 640; c.height = 800; const x = c.getContext('2d'), R = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+    x.fillStyle = '#f4f0e8'; x.fillRect(0, 0, 640, 800);
+    x.fillStyle = '#6b665c'; x.font = "500 13px 'IBM Plex Mono', monospace"; x.fillText('AGREEMENT NO. 0417  ·  LEGACY BRAND', 56, 70);
+    x.fillStyle = '#2a2824'; x.font = "700 44px Georgia, serif"; x.fillText('Brand Identity', 56, 130); x.fillText('Contract', 56, 180);
+    x.fillStyle = '#6b665c'; x.font = "italic 17px Georgia, serif"; x.fillText('Old logo · old colours · old positioning', 56, 214);
+    x.fillStyle = '#2a2824'; x.fillRect(56, 236, 528, 2);
+    let y = 272;
+    for (let sec = 1; sec <= 4; sec++) {
+      x.fillStyle = '#2a2824'; x.font = "700 14px Georgia, serif"; x.fillText('Clause ' + sec, 56, y); y += 20;
+      const lines = 3 + Math.floor(R() * 2);
+      for (let i = 0; i < lines; i++) { x.fillStyle = 'rgba(42,40,36,.22)'; const w = i === lines - 1 ? 180 + R() * 180 : 470 + R() * 58; x.fillRect(56, y, w, 7); y += 17; }
+      y += 16;
+    }
+    x.fillStyle = '#2a2824'; x.fillRect(56, 720, 220, 1.5); x.fillRect(364, 720, 220, 1.5);
+    x.font = "500 12px 'IBM Plex Mono', monospace"; x.fillStyle = '#6b665c'; x.fillText('SIGNED', 56, 742); x.fillText('DATE', 364, 742);
+    x.save(); x.translate(430, 560); x.rotate(-0.24); x.strokeStyle = '#b8322a'; x.lineWidth = 5; x.strokeRect(-120, -42, 240, 84);
+    x.fillStyle = '#b8322a'; x.font = "700 46px 'Barlow Condensed', sans-serif"; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('EXPIRED', 0, 3); x.restore();
+    return c.toDataURL('image/png');
+  }
+  workEnter = e => { const i = +e.currentTarget.dataset.i; if (i !== this.state.work) this.setState({ work: i }); };
+  workLeave = () => this.setState({ work: -1 });
+  workMove = e => {
+    const pv = this.previewRef.current; if (!pv) return;
+    const box = e.currentTarget.getBoundingClientRect();
+    pv.style.transform = `translate(${e.clientX - box.left + 24}px,${e.clientY - box.top - 100}px)`;
+  };
+
+  renderVals() {
+    const st = this.state, p = this.howP || 0;
+    const fmt = tz => { try { return new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }).format(st.now); } catch (e) { return ''; } };
+    return {
+      rootRef: this.rootRef, introRef: this.introRef, introCanvas: this.introCanvas, introLogo: this.introLogo, headRef: this.headRef, svcListRef: this.svcListRef,
+      howRef: this.howRef, previewRef: this.previewRef, contactRef: this.contactRef, waveCanvas: this.waveCanvas,
+      introVisible: st.intro, skipIntro: this.skipIntro,
+      showLinks: !st.mobile, showBurger: st.mobile, menuVisible: st.mobile && st.menu, burgerIcon: st.menu ? '✕' : '☰',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })), closeMenu: () => this.setState({ menu: false }),
+      showPreview: !st.mobile,
+      svcNum: '0' + (st.svc + 1), svcLabel: this.svcNames[st.svc], svcPct: ((st.svc + 1) / 6 * 100) + '%',
+      steps: this.stepData.map(([word, sub], i) => {
+        const on = i === st.step;
+        return { word, sub, num: '0' + (i + 1), tf: `translateY(${(i - st.step) * 105}%)`, op: on ? 1 : 0,
+          bg: on ? '#080b38' : '#fff', fg: on ? '#fff' : '#0a0c24', numC: on ? '#ffc83d' : '#3a5bff',
+          pct: (Math.min(1, Math.max(0, p * 4 - i)) * 100) + '%' };
+      }),
+      stepSub: this.stepData[st.step][1],
+      workEnter: this.workEnter, workLeave: this.workLeave, workMove: this.workMove,
+      workOp: st.work >= 0 && !st.mobile ? 1 : 0, workScale: st.work >= 0 ? '1' : '.85', workLabel: st.work >= 0 ? this.works[st.work] : '',
+      offices: this.officeData.map(([flag, country, city, tz], i) => ({
+        flag, country: i === 0 ? country + ' · Main Hub' : country, city, time: fmt(tz),
+        bg: i === 0 ? '#080b38' : '#fff', fg: i === 0 ? '#fff' : '#0a0c24', timeC: i === 0 ? '#ffc83d' : '#55566a'
+      })),
+      submit: e => { e.preventDefault(); },
+      claimed: st.claimed, ticketOpen: !st.claimed,
+      resetTicket: () => { this.ticket && this.ticket.reset(); this.setState({ claimed: false }); },
+      paperCrumpled: st.paper === 'crumpled',
+      paperHint: st.paper === 'crumpled' ? 'Gone. Now let us build the new one.' : st.paper === 'holding' ? 'Keep holding. Drag it aside.' : 'Hold the sheet to crumple it.',
+      resetPaper: () => { this.paper && this.paper.reset(); this.setState({ paper: 'flat' }); },
+      sentMsg: st.sent ? 'Thanks. The London team will be in touch shortly.' : '',
+      subscribe: e => { e.preventDefault(); e.target.reset(); this.setState({ subbed: true }); },
+      subMsg: st.subbed ? 'You’re on the list.' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>
