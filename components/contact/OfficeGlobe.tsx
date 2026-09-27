@@ -76,10 +76,12 @@ export default function OfficeGlobe() {
   const [sel, setSel] = useState(0);
   const [hover, setHover] = useState({ name: '', coord: '' });
   const stageRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const selRef = useRef(0);
-  const [colour, setColour] = useState(false);
-  const colourRef = useRef(false);
+  // Natural colours by default; the toggle switches to the navy brand look.
+  const [colour, setColour] = useState(true);
+  const colourRef = useRef(true);
   const flyToRef = useRef<(i: number) => void>(() => {});
 
   const pick = (i: number) => {
@@ -112,7 +114,7 @@ export default function OfficeGlobe() {
     let lastInteract = -1e9;
     let visible = true;
     let raf = 0;
-    let W = 0, H = 0, dpr = 1, R = 0, CY = 0;
+    let W = 0, H = 0, dpr = 1, R = 0, CX = 0, CY = 0;
     let land: Country[] | null = null;
     const tones = new Map<string, Country[]>();
     let hoverF: Country | null = null;
@@ -127,13 +129,18 @@ export default function OfficeGlobe() {
       H = host.clientHeight;
       cv.width = W * dpr;
       cv.height = H * dpr;
-      // Narrow stages keep the lower part clear for the office card.
+      const card = cardRef.current;
       if (W < 640) {
-        const avail = H - 280;
+        // Narrow stages: globe above, office card below it.
+        const avail = H - (card ? card.offsetHeight : 260) - 24;
         R = Math.min(W, avail) * 0.45;
+        CX = W / 2;
         CY = avail / 2 + 16;
       } else {
+        // Wide stages: slide the globe right, clear of the card in the bottom-left, as far as the stage allows.
         R = Math.min(W, H) * 0.43;
+        const cardRight = card ? card.offsetLeft + card.offsetWidth : 0;
+        CX = Math.max(W / 2, Math.min(cardRight + R + 16, W - R - 16));
         CY = H / 2;
       }
     };
@@ -176,7 +183,7 @@ export default function OfficeGlobe() {
 
     const draw = (t: number) => {
       if (!W) return;
-      const r = R * zoom, cx = W / 2, cy = CY;
+      const r = R * zoom, cx = CX, cy = CY;
       const selected = OFFICES[selRef.current];
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
@@ -395,6 +402,8 @@ export default function OfficeGlobe() {
 
     const ro = new ResizeObserver(resize);
     ro.observe(host);
+    // The card's size feeds the globe layout, and it changes with the selected office's name.
+    if (cardRef.current) ro.observe(cardRef.current);
     resize();
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
@@ -435,7 +444,7 @@ export default function OfficeGlobe() {
 
   return (
     <div className="ct-globe" style={{ gap: "clamp(20px,3vw,48px)", alignItems: "stretch", borderTop: "1px solid rgba(255,255,255,.16)", paddingTop: "clamp(20px,2.4vw,32px)" }}>
-      <div className="ct-globe__list" role="tablist" aria-label="Office locations" style={{ display: "flex", flexDirection: "column" }}>
+      <div className="ct-globe__list" role="tablist" aria-label="Office locations">
         {OFFICES.map((office, i) => {
           const on = i === sel;
           return (
@@ -460,7 +469,7 @@ export default function OfficeGlobe() {
             Colour
           </button>
         </div>
-        <article aria-live="polite" style={{ position: "absolute", left: "clamp(12px,1.6vw,20px)", bottom: "clamp(12px,1.6vw,20px)", width: "min(320px,calc(100% - 24px))", display: "flex", flexDirection: "column", gap: "12px", padding: "18px 20px", borderRadius: "10px", background: "rgba(8,11,56,.86)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.14)" }}>
+        <article ref={cardRef} aria-live="polite" style={{ position: "absolute", left: "clamp(12px,1.6vw,20px)", bottom: "clamp(12px,1.6vw,20px)", width: "min(320px,calc(100% - 24px))", display: "flex", flexDirection: "column", gap: "12px", padding: "18px 20px", borderRadius: "10px", background: "rgba(8,11,56,.86)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.14)" }}>
           <div style={{ ...monoLabel, fontSize: "11px", display: "flex", justifyContent: "space-between", gap: "10px" }}><span style={{ color: "#ffc83d" }}>{o.code} · {o.hub ? 'Main hub' : 'Regional delivery'}</span><span style={{ color: "rgba(255,255,255,.55)" }}>{num} / 07</span></div>
           <h3 style={{ fontFamily: "'Barlow Condensed'", fontWeight: "800", fontSize: "clamp(30px,2.6vw,40px)", lineHeight: ".9", textTransform: "uppercase" }}>{o.country}</h3>
           <p style={{ fontSize: "15px", fontWeight: "500", marginTop: "-6px" }}>{o.city}</p>

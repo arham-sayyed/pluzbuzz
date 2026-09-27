@@ -583,6 +583,11 @@ button {
   grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
 }
 
+.ct-globe__list {
+  display: flex;
+  flex-direction: column;
+}
+
 .ct-globe__stage {
   min-height: 680px;
 }
@@ -626,6 +631,19 @@ button {
   }
 }
 
+/* Tablets: the office list sits under the globe, so use two columns instead of seven full-width rows */
+@media (min-width: 600px) and (max-width: 1099.98px) {
+  .ct-globe__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+  }
+
+  .ct-globe__list > p {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 899.98px) {
   .ct-hq {
     grid-template-columns: minmax(0, 1fr);
@@ -642,5 +660,12 @@ button {
 
   .ct-globe__stage {
     min-height: 640px;
+  }
+}
+
+/* Short landscape screens (phones on their side): a globe stage that roughly fits the screen */
+@media (max-height: 500px) and (min-width: 640px) {
+  .ct-globe__stage {
+    min-height: 440px;
   }
 }
