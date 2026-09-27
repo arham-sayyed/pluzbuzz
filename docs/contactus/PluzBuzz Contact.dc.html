@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact PluzBuzz | Digital Agency London | PluzBuzz</title>
+<meta name="description" content="Contact PluzBuzz in London to discuss SEO, web development, app development, SaaS, digital marketing, and creative production projects.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pluzbuzz.com/contact">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="PluzBuzz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#0a0c24;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#0a0c24;text-decoration:none}
+a:hover{color:#3a5bff}
+h1,h2,h3,h4,p{margin:0}
+input,textarea,button{font:inherit}
+::selection{background:#ffc83d;color:#080b38}
+@keyframes pbPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+</style>
+</helmet>
+
+<div style="position:relative;background:#fff">
+
+<header ref="{{ headRef }}" style="position:fixed;top:0;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid transparent;transition:border-color .3s">
+  <div style="max-width:1440px;margin:0 auto;padding:16px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="PluzBuzz%20Home%20v4.dc.html" aria-label="PluzBuzz home" style="display:block;flex:none"><img src="assets/logo.gif" alt="PluzBuzz logo" width="1200" height="224" style="display:block;height:clamp(40px,4vw,58px);width:auto"></a>
+    <sc-if value="{{ showLinks }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:clamp(14px,2vw,32px);font-size:15px;font-weight:500;white-space:nowrap">
+        <a href="PluzBuzz%20Home%20v4.dc.html">Home</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#about">About</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#services">Services</a>
+        <a href="PluzBuzz%20Home%20v4.dc.html#journal">Blogs</a>
+        <a href="#contact" aria-current="page" style="display:flex;align-items:center;gap:8px;padding:13px 20px;background:#080b38;color:#fff;border-radius:6px" style-hover="background:#3a5bff;color:#fff">Contact Us</a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+      <button type="button" aria-label="Toggle menu" onClick="{{ toggleMenu }}" style="width:48px;height:48px;border:0;border-radius:6px;background:#080b38;color:#fff;font-size:18px;cursor:pointer">{{ burgerIcon }}</button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuVisible }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Mobile" style="display:flex;flex-direction:column;padding:8px clamp(20px,4vw,56px) 24px;background:#fff;border-bottom:1px solid rgba(10,12,36,.12);font-family:'Barlow Condensed';font-weight:700;font-size:34px;text-transform:uppercase">
+      <a href="PluzBuzz%20Home%20v4.dc.html" style="padding:8px 0">Home</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#about" style="padding:8px 0">About</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#services" style="padding:8px 0">Services</a>
+      <a href="PluzBuzz%20Home%20v4.dc.html#journal" style="padding:8px 0">Blogs</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="margin-top:10px;padding:14px 18px;background:#080b38;color:#fff;border-radius:6px;font-size:22px">Contact Us</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section id="top" data-screen-label="Hero" style="padding:clamp(116px,12vw,150px) clamp(20px,4vw,56px) clamp(40px,5vw,72px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+    <nav aria-label="Breadcrumb" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#55566a">
+      <span style="width:8px;height:8px;background:#ffc83d;border-radius:50%"></span>
+      <a href="PluzBuzz%20Home%20v4.dc.html" style="color:#55566a">Home</a><span aria-hidden="true">/</span><span style="color:#0a0c24">Contact us</span>
+    </nav>
+    <h1 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,9.4vw,160px);line-height:.86;letter-spacing:-.01em;text-transform:uppercase;max-width:14ch">Talk to our <span style="color:#3a5bff">London</span> digital agency</h1>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;border-top:2px solid #0a0c24;padding-top:22px;font-family:'IBM Plex Mono';font-size:13px;color:#55566a">
+      <span>Old Street, Shoreditch, London</span>
+      <span>Mon–Sat · 10:00–19:00</span>
+      <span>London now · {{ londonTime }}</span>
+      <a href="#global" style="color:#0a0c24">7 offices worldwide ↓</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Get in touch" style="background:#080b38;color:#fff;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(36px,5vw,80px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(64px,9vw,150px);line-height:.86;text-transform:uppercase">Get in<br><span style="color:#ffc83d">touch.</span></h2>
+      <p style="color:rgba(255,255,255,.75);font-size:17px;line-height:1.6;max-width:480px">Tell us about your goals, timelines, deliverables, or what needs fixing. We’ll come back with the right team and next steps.</p>
+    </div>
+    <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:clamp(22px,2.6vw,34px)">
+      <h3 style="font-family:'Barlow Condensed';font-weight:700;font-size:30px;text-transform:uppercase">Let’s talk, get in touch!</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.7)">Name<input type="text" name="name" required="{{ true }}" placeholder="Your name" autoComplete="name" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.7)">Email<input type="email" name="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.7)">Company<input type="text" name="company" placeholder="Company or brand" autoComplete="organization" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(255,255,255,.7)">Services interested in<input type="text" name="services" placeholder="Website, SEO, app, content, or campaign support" style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none" style-focus="border-color:#ffc83d"></label>
+      </div>
+      <input type="text" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <textarea name="message" required="{{ true }}" rows="6" placeholder="Tell us about your goals, timelines, deliverables, or what needs fixing." style="padding:14px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.18);background:rgba(8,11,56,.6);color:#fff;outline:none;resize:vertical" style-focus="border-color:#ffc83d"></textarea>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <button type="submit" style="padding:16px 26px;border:0;border-radius:6px;background:#ffc83d;color:#080b38;font-weight:600;cursor:pointer" style-hover="background:#fff">Send enquiry →</button>
+        <p aria-live="polite" style="font-size:14px;color:rgba(255,255,255,.75)">{{ sentMsg }}</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="hq" data-screen-label="Headquarters" style="padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,3.4vw,48px)">
+    <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(46px,6vw,96px);line-height:.88;text-transform:uppercase">PluzBuzz<br>Headquarters</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));border:1.5px solid #0a0c24;border-radius:12px;overflow:hidden">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0975%2C51.5210%2C-0.0785%2C51.5315&amp;layer=mapnik&amp;marker=51.5262%2C-0.0870" title="PluzBuzz London Headquarters Map" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style="grid-column:span 2;width:100%;min-height:420px;border:0;display:block;filter:grayscale(1) contrast(1.05)"></iframe>
+      <aside style="display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.6vw,36px);border-left:1.5px solid #0a0c24;background:#fff">
+        <span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#3a5bff">GB · Main hub</span>
+        <strong style="font-family:'Barlow Condensed';font-weight:800;font-size:40px;line-height:.9;text-transform:uppercase">United Kingdom</strong>
+        <span style="font-size:17px;font-weight:500">Old Street, Shoreditch, London</span>
+        <p style="color:#55566a;line-height:1.6">Old Street, Shoreditch, London, United Kingdom.</p>
+        <dl style="margin:auto 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;padding-top:18px;border-top:1px solid rgba(10,12,36,.14);font-family:'IBM Plex Mono';font-size:13px">
+          <dt style="color:#55566a">Hours</dt><dd style="margin:0">Mon–Sat · 10:00–19:00</dd>
+          <dt style="color:#55566a">Local time</dt><dd style="margin:0">{{ londonTime }}</dd>
+          <dt style="color:#55566a">Coords</dt><dd style="margin:0">51.5262° N, 0.0870° W</dd>
+        </dl>
+        <a href="https://www.openstreetmap.org/?mlat=51.5262&amp;mlon=-0.0870#map=16/51.5262/-0.0870" target="_blank" rel="noreferrer" style="align-self:flex-start;padding:13px 18px;border:1.5px solid #0a0c24;border-radius:6px;font-weight:600;font-size:14px" style-hover="background:#0a0c24;color:#fff">Open in maps ↗</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="global" data-screen-label="Global presence" style="background:#080b38;color:#fff;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px);overflow:hidden">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:720px">
+        <p style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#ffc83d">Global Network</p>
+        <h2 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(50px,7vw,120px);line-height:.86;text-transform:uppercase">Our Global Presence</h2>
+        <p style="color:rgba(255,255,255,.72);font-size:17px;line-height:1.6;max-width:560px">From our London headquarters to regional delivery hubs, we support partners across markets with consistent execution, strategic oversight, and local context.</p>
+      </div>
+      <div style="display:flex;gap:clamp(28px,4vw,56px)">
+        <div style="display:flex;flex-direction:column;gap:4px"><strong style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,6vw,88px);line-height:.9">7</strong><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)">Total Offices</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><strong style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,6vw,88px);line-height:.9">7</strong><span style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)">Countries</span></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:{{ globeCols }};gap:clamp(20px,3vw,48px);align-items:stretch;border-top:1px solid rgba(255,255,255,.16);padding-top:clamp(20px,2.4vw,32px)">
+      <div role="tablist" aria-label="Office locations" style="display:flex;flex-direction:column;order:{{ listOrder }}">
+        <sc-for list="{{ offices }}" as="o" hint-placeholder-count="7">
+          <button type="button" role="tab" aria-selected="{{ o.on }}" data-i="{{ o.i }}" onClick="{{ pick }}" style="display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:14px;padding:16px 14px;border:0;border-bottom:1px solid rgba(255,255,255,.1);background:{{ o.bg }};color:#fff;text-align:left;cursor:pointer;border-radius:6px;transition:background .25s" style-hover="background:rgba(255,255,255,.06)">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:{{ o.codeC }}">{{ o.code }}</span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:600;font-size:16px">{{ o.country }}</span><span style="font-size:13px;color:rgba(255,255,255,.6)">{{ o.city }}{{ o.hubTag }}</span></span>
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:rgba(255,255,255,.6)">{{ o.time }}</span>
+          </button>
+        </sc-for>
+        <p style="margin-top:auto;padding:18px 14px 0;font-family:'IBM Plex Mono';font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.5)">Drag to spin the globe. Click a highlighted country to fly to that office.</p>
+      </div>
+
+      <div style="position:relative;min-height:{{ globeH }};border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden;background-color:#080b38;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px">
+        <div ref="{{ globeRef }}" style="position:absolute;inset:0"></div>
+        <div style="position:absolute;left:16px;top:14px;right:16px;display:flex;justify-content:space-between;gap:12px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5);pointer-events:none">
+          <span>{{ coordTxt }}</span><span>{{ hoverTxt }}</span>
+        </div>
+        <article style="position:absolute;left:clamp(12px,1.6vw,20px);bottom:clamp(12px,1.6vw,20px);width:min(320px,calc(100% - 24px));display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:10px;background:rgba(8,11,56,.86);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14)">
+          <div style="display:flex;justify-content:space-between;gap:10px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase"><span style="color:#ffc83d">{{ sel.code }} · {{ sel.role }}</span><span style="color:rgba(255,255,255,.55)">{{ sel.num }} / 07</span></div>
+          <h3 style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(30px,2.6vw,40px);line-height:.9;text-transform:uppercase">{{ sel.country }}</h3>
+          <p style="font-size:15px;font-weight:500;margin-top:-6px">{{ sel.city }}</p>
+          <dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);font-family:'IBM Plex Mono';font-size:12px">
+            <dt style="color:rgba(255,255,255,.55)">Local time</dt><dd style="margin:0">{{ sel.time }}</dd>
+            <dt style="color:rgba(255,255,255,.55)">vs London</dt><dd style="margin:0">{{ sel.diff }}</dd>
+            <dt style="color:rgba(255,255,255,.55)">From HQ</dt><dd style="margin:0">{{ sel.dist }}</dd>
+          </dl>
+          <p style="font-size:13px;color:rgba(255,255,255,.7)">{{ sel.note }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="position:relative;background:#fff;padding:clamp(48px,6vw,80px) clamp(20px,4vw,56px) 28px">
+  <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,4vw,56px)">
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:32px">
+      <div style="grid-column:span 2;display:flex;flex-direction:column;gap:14px;min-width:0">
+        <img src="assets/logo.gif" alt="PluzBuzz logo" width="1200" height="224" style="display:block;height:44px;width:auto;align-self:flex-start">
+        <p style="font-size:15px;line-height:1.55;max-width:420px;color:#55566a">PluzBuzz helps ambitious brands grow with conversion-focused websites, AI-assisted marketing systems, creative production, and performance-led digital execution.</p>
+        <form onSubmit="{{ subscribe }}" style="display:flex;flex-direction:column;gap:6px;max-width:440px;margin-top:10px">
+          <label for="newsletterEmail" style="font-family:'IBM Plex Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55566a">Newsletter</label>
+          <p style="font-size:15px;font-weight:500">Get practical growth insights, launch notes, and creative ideas from the PluzBuzz team.</p>
+          <div style="display:flex;align-items:center;gap:14px;border-bottom:2px solid #0a0c24;padding:6px 0"><input id="newsletterEmail" type="email" required="{{ true }}" placeholder="Work email address" autoComplete="email" style="flex:1;min-width:0;border:0;background:transparent;padding:12px 0;outline:none;font-size:16px"><button type="submit" aria-label="Submit newsletter form" style="width:44px;height:44px;border:0;border-radius:6px;background:#080b38;color:#fff;cursor:pointer" style-hover="background:#3a5bff">→</button></div>
+          <p aria-live="polite" style="font-size:13px;color:#55566a;min-height:18px">{{ subMsg }}</p>
+        </form>
+      </div>
+      <nav aria-label="Discover" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">DISCOVER</h4><a href="PluzBuzz%20Home%20v4.dc.html#work">Our Work</a><a href="PluzBuzz%20Home%20v4.dc.html#journal">Insights</a><a href="#global">Global Presence</a><a href="#contact">Contact</a></nav>
+      <nav aria-label="Menu" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">MENU</h4><a href="PluzBuzz%20Home%20v4.dc.html">Home</a><a href="PluzBuzz%20Home%20v4.dc.html#about">About</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Services</a></nav>
+      <nav aria-label="Services" style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">SERVICES</h4><a href="PluzBuzz%20Service%20-%20Website%20Development.dc.html">Web Development</a><a href="PluzBuzz%20Home%20v4.dc.html#services">SEO Services</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Digital Marketing</a><a href="PluzBuzz%20Home%20v4.dc.html#services">App &amp; SaaS</a><a href="PluzBuzz%20Home%20v4.dc.html#services">AI Marketing</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Photography</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Video Production</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Social Media</a><a href="PluzBuzz%20Home%20v4.dc.html#services">Advertising</a></nav>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:15px"><h4 style="font-family:'IBM Plex Mono';font-weight:400;font-size:12px;letter-spacing:.12em;color:#55566a;margin-bottom:6px">CONTACT</h4><a href="#contact" style="align-self:flex-start;padding:12px 16px;background:#080b38;color:#fff;border-radius:6px;font-weight:600;font-size:14px" style-hover="background:#3a5bff;color:#fff">Book a discovery call</a><span>Old Street, Shoreditch, London</span><span style="color:#55566a">Serving clients across the UK and global markets</span><div style="display:flex;gap:14px;margin-top:6px"><a href="https://www.instagram.com/pluzbuzz/" target="_blank" rel="noreferrer">Instagram</a><a href="https://x.com/PluzBuzz" target="_blank" rel="noreferrer">X</a><a href="https://www.facebook.com/people/PluzBuzz/61579035273110/" target="_blank" rel="noreferrer">Facebook</a><a href="https://in.linkedin.com/company/pluzbuzz" target="_blank" rel="noreferrer">LinkedIn</a></div></div>
+    </section>
+    <section style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:20px;border-top:1px solid rgba(10,12,36,.12);font-size:13px;color:#55566a">
+      <p>© 2026 — PluzBuzz All rights reserved. Designed &amp; developed by <strong style="color:#0a0c24">PluzBuzz</strong></p>
+      <div style="display:flex;gap:20px"><a href="#top" style="color:#55566a">Privacy Policy</a><a href="#top" style="color:#55566a">Terms &amp; Conditions</a></div>
+    </section>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoSpin&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showRoutes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;landStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;solid&quot;,&quot;outline&quot;],&quot;default&quot;:&quot;solid&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { sel: 0, mobile: false, menu: false, now: Date.now(), hover: '', coord: '', sent: false, subbed: false };
+  headRef = React.createRef(); globeRef = React.createRef();
+  offices = [
+    { code: 'GB', country: 'United Kingdom', city: 'London', id: '826', ll: [-0.087, 51.5262], tz: 'Europe/London', hub: true },
+    { code: 'IN', country: 'India', city: 'Mumbai', id: '356', ll: [72.8777, 19.076], tz: 'Asia/Kolkata' },
+    { code: 'AE', country: 'United Arab Emirates', city: 'Dubai', id: '784', ll: [55.2708, 25.2048], tz: 'Asia/Dubai' },
+    { code: 'US', country: 'United States', city: 'New York', id: '840', ll: [-74.006, 40.7128], tz: 'America/New_York' },
+    { code: 'KE', country: 'Kenya', city: 'Nairobi', id: '404', ll: [36.8219, -1.2921], tz: 'Africa/Nairobi' },
+    { code: 'UG', country: 'Uganda', city: 'Kampala', id: '800', ll: [32.5825, 0.3476], tz: 'Africa/Kampala' },
+    { code: 'PL', country: 'Poland', city: 'Warsaw', id: '616', ll: [21.0122, 52.2297], tz: 'Europe/Warsaw' }
+  ];
+
+  componentDidMount() {
+    this.onScroll = () => { const h = this.headRef.current; if (h) h.style.borderBottomColor = scrollY > 30 ? 'rgba(10,12,36,.12)' : 'transparent'; };
+    this.onResize = () => { const m = innerWidth < 900, n = innerWidth < 1100; if (m !== this.state.mobile) this.setState({ mobile: m, menu: false }); if (n !== this.state.narrow) this.setState({ narrow: n }); };
+    addEventListener('scroll', this.onScroll, { passive: true }); addEventListener('resize', this.onResize); this.onResize();
+    this.clock = setInterval(() => this.setState({ now: Date.now() }), 20000);
+    this.waitLibs();
+  }
+  componentWillUnmount() {
+    removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize);
+    clearInterval(this.clock); clearTimeout(this.libT); cancelAnimationFrame(this.raf);
+    this.ro && this.ro.disconnect(); this.vio && this.vio.disconnect();
+  }
+  waitLibs = () => { if (window.d3 && window.topojson && this.globeRef.current) this.initGlobe(); else this.libT = setTimeout(this.waitLibs, 80); };
+
+  initGlobe() {
+    const d3 = window.d3, host = this.globeRef.current;
+    const cv = document.createElement('canvas'); cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y';
+    cv.setAttribute('aria-label', 'Interactive globe showing PluzBuzz office locations'); cv.setAttribute('role', 'img');
+    host.appendChild(cv); this.cv = cv; this.ctx = cv.getContext('2d');
+    this.proj = d3.geoOrthographic().clipAngle(90).precision(0.4);
+    this.path = d3.geoPath(this.proj, this.ctx);
+    this.grat = d3.geoGraticule10();
+    const o = this.offices[0].ll; this.rot = [-o[0] - 18, -o[1] + 14, 0];
+    this.zoom = 1; this.lastInteract = -1e9; this.visible = true;
+    this.ro = new ResizeObserver(() => this.resize()); this.ro.observe(host); this.resize();
+    this.vio = new IntersectionObserver(([e]) => { this.visible = e.isIntersecting; if (this.visible) this.loop(); }); this.vio.observe(host);
+    this.bindPointer(cv);
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(r => r.json()).then(w => {
+      this.land = window.topojson.feature(w, w.objects.countries).features;
+      this.officeIds = new Set(this.offices.map(x => x.id));
+      this.flyTo(this.state.sel, 1800);
+    }).catch(() => {});
+    this.loop();
+  }
+  resize() {
+    const host = this.globeRef.current; if (!host || !this.cv) return;
+    const dpr = Math.min(devicePixelRatio || 1, 2), w = host.clientWidth, h = host.clientHeight;
+    this.cv.width = w * dpr; this.cv.height = h * dpr; this.W = w; this.H = h; this.dpr = dpr;
+    if (w < 640) { const avail = h - 280; this.R = Math.min(w, avail) * 0.45; this.CY = avail / 2 + 16; }
+    else { this.R = Math.min(w, h) * 0.43; this.CY = h / 2; }
+  }
+  bindPointer(cv) {
+    let drag = null;
+    const pos = e => { const b = cv.getBoundingClientRect(); return [e.clientX - b.left, e.clientY - b.top]; };
+    cv.addEventListener('pointerdown', e => { drag = { p: pos(e), r: this.rot.slice(), moved: 0 }; cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing'; this.fly = null; this.lastInteract = performance.now(); });
+    cv.addEventListener('pointermove', e => {
+      const p = pos(e); this.mouse = p;
+      if (drag) {
+        const dx = p[0] - drag.p[0], dy = p[1] - drag.p[1], k = 70 / this.R;
+        drag.moved = Math.max(drag.moved, Math.abs(dx) + Math.abs(dy));
+        this.rot = [drag.r[0] + dx * k, Math.max(-75, Math.min(75, drag.r[1] - dy * k)), 0];
+        this.lastInteract = performance.now();
+      }
+      this.updateHover(p);
+    });
+    const up = e => {
+      if (!drag) return; cv.style.cursor = 'grab';
+      if (drag.moved < 5) { const f = this.featureAt(pos(e)); if (f) { const i = this.offices.findIndex(x => x.id === f.id); if (i >= 0) this.pick({ currentTarget: { dataset: { i } } }); } }
+      drag = null;
+    };
+    cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', () => { drag = null; cv.style.cursor = 'grab'; });
+    cv.addEventListener('pointerleave', () => { this.mouse = null; this.hoverF = null; if (this.state.hover) this.setState({ hover: '', coord: '' }); });
+  }
+  featureAt(p) {
+    if (!this.land) return null; const ll = this.proj.invert(p); if (!ll) return null;
+    const c = this.proj.rotate(); if (window.d3.geoDistance(ll, [-c[0], -c[1]]) > Math.PI / 2) return null;
+    const f = this.land.find(f => window.d3.geoContains(f, ll)); return f ? f : null;
+  }
+  updateHover(p) {
+    const now = performance.now(); if (now - (this.hT || 0) < 60) return; this.hT = now;
+    const f = this.featureAt(p); this.hoverF = f;
+    const ll = this.proj.invert(p), c = this.proj.rotate();
+    const onGlobe = ll && window.d3.geoDistance(ll, [-c[0], -c[1]]) <= Math.PI / 2;
+    const coord = onGlobe ? `${Math.abs(ll[1]).toFixed(2)}° ${ll[1] >= 0 ? 'N' : 'S'} · ${Math.abs(ll[0]).toFixed(2)}° ${ll[0] >= 0 ? 'E' : 'W'}` : '';
+    const isOff = f && this.officeIds && this.officeIds.has(f.id);
+    const hover = f ? (f.properties.name + (isOff ? ' · office' : '')) : '';
+    this.cv.style.cursor = isOff ? 'pointer' : 'grab';
+    if (hover !== this.state.hover || coord !== this.state.coord) this.setState({ hover, coord });
+  }
+  flyTo(i, dur) {
+    const [lon, lat] = this.offices[i].ll, r0 = this.rot.slice();
+    let tLon = -lon; const d = ((tLon - r0[0]) % 360 + 540) % 360 - 180; tLon = r0[0] + d;
+    const r1 = [tLon, Math.max(-60, Math.min(60, -lat + 8)), 0];
+    const dist = Math.hypot(d, r1[1] - r0[1]);
+    this.fly = { r0, r1, t0: performance.now(), dur: dur || Math.max(900, Math.min(2000, 500 + dist * 9)), dip: Math.min(0.16, dist / 900) };
+    this.lastInteract = performance.now();
+  }
+  loop = () => {
+    cancelAnimationFrame(this.raf);
+    if (!this.visible) return;
+    const now = performance.now();
+    if (this.fly) {
+      const f = this.fly, t = Math.min(1, (now - f.t0) / f.dur), e = window.d3.easeCubicInOut(t);
+      this.rot = [f.r0[0] + (f.r1[0] - f.r0[0]) * e, f.r0[1] + (f.r1[1] - f.r0[1]) * e, 0];
+      this.zoom = 1 - f.dip * Math.sin(Math.PI * t);
+      if (t >= 1) { this.fly = null; this.zoom = 1; this.lastInteract = now; }
+    } else if ((this.props.autoSpin ?? true) && now - this.lastInteract > 7000) {
+      this.rot = [this.rot[0] + 0.05, this.rot[1], 0];
+    }
+    this.draw(now);
+    this.raf = requestAnimationFrame(this.loop);
+  };
+  draw(now) {
+    const d3 = window.d3, c = this.ctx; if (!c || !this.W) return;
+    const W = this.W, H = this.H, R = this.R * this.zoom, cx = W / 2, cy = this.CY;
+    const outline = (this.props.landStyle ?? 'solid') === 'outline';
+    c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0); c.clearRect(0, 0, W, H);
+    this.proj.scale(R).translate([cx, cy]).rotate(this.rot);
+    const g = c.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.25); g.addColorStop(0, 'rgba(58,91,255,.22)'); g.addColorStop(1, 'rgba(58,91,255,0)');
+    c.fillStyle = g; c.beginPath(); c.arc(cx, cy, R * 1.25, 0, 7); c.fill();
+    const sg = c.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R); sg.addColorStop(0, '#16206e'); sg.addColorStop(1, '#0a0f45');
+    c.beginPath(); this.path({ type: 'Sphere' }); c.fillStyle = sg; c.fill();
+    c.beginPath(); this.path(this.grat); c.strokeStyle = 'rgba(255,255,255,.06)'; c.lineWidth = 0.6; c.stroke();
+    const sel = this.offices[this.state.sel];
+    if (this.land) {
+      c.beginPath(); this.land.forEach(f => { if (!this.officeIds.has(f.id) && f !== this.hoverF) this.path(f); });
+      if (!outline) { c.fillStyle = '#232a72'; c.fill(); }
+      c.strokeStyle = outline ? 'rgba(255,255,255,.34)' : 'rgba(255,255,255,.13)'; c.lineWidth = 0.6; c.stroke();
+      if (this.hoverF && !this.officeIds.has(this.hoverF.id)) { c.beginPath(); this.path(this.hoverF); c.fillStyle = outline ? 'rgba(255,255,255,.08)' : '#2e3685'; c.fill(); c.strokeStyle = 'rgba(255,255,255,.4)'; c.stroke(); }
+      this.land.forEach(f => {
+        if (!this.officeIds.has(f.id)) return;
+        const on = f.id === sel.id, hov = f === this.hoverF;
+        c.beginPath(); this.path(f);
+        c.fillStyle = on ? '#3a5bff' : hov ? '#5268d6' : (outline ? 'rgba(58,91,255,.28)' : '#3a4598'); c.fill();
+        c.strokeStyle = on ? '#fff' : 'rgba(170,182,255,.7)'; c.lineWidth = on ? 1.1 : 0.7; c.stroke();
+      });
+    }
+    const center = [-this.rot[0], -this.rot[1]], vis = ll => d3.geoDistance(ll, center) < Math.PI / 2 - 0.02;
+    if (this.props.showRoutes ?? true) {
+      const hq = this.offices[0].ll;
+      this.offices.forEach((o, i) => {
+        if (i === 0) return; const on = i === this.state.sel;
+        c.beginPath(); this.path({ type: 'LineString', coordinates: [hq, o.ll] });
+        c.setLineDash(on ? [] : [3, 4]); c.lineDashOffset = on ? 0 : -now / 60;
+        c.strokeStyle = on ? '#ffc83d' : 'rgba(255,200,61,.3)'; c.lineWidth = on ? 1.6 : 0.9; c.stroke();
+      });
+      c.setLineDash([]);
+    }
+    this.offices.forEach((o, i) => {
+      if (!vis(o.ll)) return; const [x, y] = this.proj(o.ll), on = i === this.state.sel;
+      if (on) { const ph = (now % 1800) / 1800; c.beginPath(); c.arc(x, y, 5 + ph * 18, 0, 7); c.strokeStyle = `rgba(255,200,61,${0.8 * (1 - ph)})`; c.lineWidth = 1.5; c.stroke(); }
+      c.beginPath(); c.arc(x, y, on ? 5 : 3, 0, 7); c.fillStyle = on ? '#ffc83d' : '#fff'; c.fill();
+      if (on) { c.lineWidth = 2; c.strokeStyle = '#080b38'; c.stroke(); }
+      if (on || o.hub) {
+        c.font = "500 11px 'IBM Plex Mono', monospace"; const t = o.city.toUpperCase() + (o.hub && !on ? ' · HQ' : ''); const tw = c.measureText(t).width;
+        c.fillStyle = on ? '#ffc83d' : 'rgba(8,11,56,.85)'; c.fillRect(x + 10, y - 19, tw + 12, 18);
+        c.fillStyle = on ? '#080b38' : '#fff'; c.fillText(t, x + 16, y - 6);
+      }
+    });
+    c.beginPath(); this.path({ type: 'Sphere' }); c.strokeStyle = 'rgba(255,255,255,.22)'; c.lineWidth = 1; c.stroke();
+    if (!this.land) { c.font = "500 12px 'IBM Plex Mono', monospace"; c.fillStyle = 'rgba(255,255,255,.6)'; c.textAlign = 'center'; c.fillText('LOADING MAP…', cx, cy); c.textAlign = 'left'; }
+  }
+
+  pick = e => { const i = +e.currentTarget.dataset.i; this.setState({ sel: i }); if (this.proj) this.flyTo(i); };
+  tzOff(tz, d) { const s = d.toLocaleString('en-US', { timeZone: tz }), u = d.toLocaleString('en-US', { timeZone: 'UTC' }); return Math.round((new Date(s) - new Date(u)) / 60000); }
+  fmtTime(tz, d) { return new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: tz }).format(d); }
+  km(a, b) { const r = Math.PI / 180, dLat = (b[1] - a[1]) * r, dLon = (b[0] - a[0]) * r; const h = Math.sin(dLat / 2) ** 2 + Math.cos(a[1] * r) * Math.cos(b[1] * r) * Math.sin(dLon / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(h)); }
+
+  renderVals() {
+    const st = this.state, d = new Date(st.now), lonOff = this.tzOff('Europe/London', d);
+    const offices = this.offices.map((o, i) => ({ ...o, i, on: i === st.sel, bg: i === st.sel ? 'rgba(255,255,255,.1)' : 'transparent', codeC: i === st.sel ? '#ffc83d' : 'rgba(255,255,255,.5)', hubTag: o.hub ? ' · Main Hub' : '', time: this.fmtTime(o.tz, d) }));
+    const o = this.offices[st.sel], diffM = this.tzOff(o.tz, d) - lonOff;
+    const diff = diffM === 0 ? 'Same time' : `${diffM > 0 ? '+' : '−'}${Math.floor(Math.abs(diffM) / 60)}h${Math.abs(diffM) % 60 ? ' ' + Math.abs(diffM) % 60 + 'm' : ''}`;
+    const sel = {
+      ...o, num: String(st.sel + 1).padStart(2, '0'), role: o.hub ? 'Main hub' : 'Regional delivery',
+      time: this.fmtTime(o.tz, d), diff: o.hub ? 'Headquarters' : diff,
+      dist: o.hub ? '—' : Math.round(this.km(this.offices[0].ll, o.ll)).toLocaleString('en-GB') + ' km',
+      note: o.hub ? 'Primary coordination hub. Supporting partners across United Kingdom.' : `Regional delivery presence. Supporting partners across ${o.country}.`
+    };
+    return {
+      headRef: this.headRef, globeRef: this.globeRef, offices, sel, pick: this.pick,
+      londonTime: this.fmtTime('Europe/London', d),
+      showLinks: !st.mobile, showBurger: st.mobile, menuVisible: st.mobile && st.menu, burgerIcon: st.menu ? '✕' : '☰',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })), closeMenu: () => this.setState({ menu: false }),
+      globeCols: st.narrow ? 'minmax(0,1fr)' : 'minmax(280px,380px) minmax(0,1fr)', listOrder: st.narrow ? 2 : 0,
+      globeH: st.mobile ? '640px' : '680px', coordTxt: st.coord || 'Drag to explore', hoverTxt: st.hover,
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); e.currentTarget.reset(); },
+      sentMsg: st.sent ? 'Thanks, we’ve received your enquiry.' : '',
+      subscribe: e => { e.preventDefault(); this.setState({ subbed: true }); e.currentTarget.reset(); },
+      subMsg: st.subbed ? 'You’re on the list.' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>
