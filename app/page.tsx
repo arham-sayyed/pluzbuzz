@@ -1,69 +1,109 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import MotionRoot from '@/components/site/MotionRoot';
+import SiteHeader from '@/components/site/SiteHeader';
+import SiteFooter from '@/components/site/SiteFooter';
+import ContactSection from '@/components/site/ContactSection';
+import Hero from '@/components/home/Hero';
+import Services from '@/components/home/Services';
+import HowWeWork from '@/components/home/HowWeWork';
+import WhoWeAre from '@/components/home/WhoWeAre';
+import WhoReveal from '@/components/home/WhoReveal';
+import WhyUs from '@/components/home/WhyUs';
+import ClearPicture from '@/components/home/ClearPicture';
+import SelectedWork from '@/components/home/SelectedWork';
+import Rebrand from '@/components/home/Rebrand';
+import GlobalPresence from '@/components/home/GlobalPresence';
+import Journal from '@/components/home/Journal';
+import StrategyTicket from '@/components/home/StrategyTicket';
+import { WEBSITE_DEVELOPMENT, type NavLink } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title: 'Digital Agency London | SEO, Marketing & Web Development UK | PluzBuzz',
+  description:
+    'PluzBuzz is a London digital agency delivering SEO, web development, app development, AI marketing, creative production, and scalable digital growth services across the UK.',
+  alternates: { canonical: 'https://pluzbuzz.com' }
+};
+
+const NAV: NavLink[] = [
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#about', label: 'About' },
+  { href: '#global', label: 'Global' },
+  { href: '#journal', label: 'Journal' }
+];
+const DISCOVER: NavLink[] = [
+  { href: '#work', label: 'Our Work' },
+  { href: '#journal', label: 'Insights' },
+  { href: '#global', label: 'Global Presence' },
+  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'About' }
+];
+const SERVICE_LINKS: NavLink[] = [
+  { href: WEBSITE_DEVELOPMENT, label: 'Web Development' },
+  { href: '#svc-2', label: 'SEO Services' },
+  { href: '#svc-3', label: 'Digital Marketing' },
+  { href: '#svc-4', label: 'App & SaaS' },
+  { href: '#svc-5', label: 'AI Marketing' },
+  { href: '#svc-6', label: 'Photography' },
+  { href: '#svc-6', label: 'Video Production' },
+  { href: '#svc-3', label: 'Social Media' },
+  { href: '#svc-3', label: 'Advertising' }
+];
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'PluzBuzz',
+  url: 'https://pluzbuzz.com/',
+  slogan: 'We Create the Buzz, You Own the Spotlight',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Old Street, Shoreditch',
+    addressLocality: 'London',
+    addressRegion: 'Greater London',
+    addressCountry: 'GB'
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 51.5255, longitude: -0.0888 },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '10:00',
+    closes: '19:00'
+  }
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness).replace(/</g, '\\u003c') }}
+      />
+      <MotionRoot>
+        <SiteHeader links={NAV} />
+        <main>
+          <Hero />
+          <Services />
+          <HowWeWork />
+          <WhoWeAre />
+          <WhoReveal />
+          <WhyUs />
+          <ClearPicture />
+          <SelectedWork />
+          <Rebrand />
+          <GlobalPresence />
+          <Journal />
+          <StrategyTicket />
+          <ContactSection
+            heading={["Let's build", 'the buzz.']}
+            intro="From conversion-focused websites to AI-assisted campaign systems, PluzBuzz builds the digital foundations brands need to attract better traffic, improve lead quality, and move with more confidence online."
+            services={{ placeholder: 'Website, SEO, app, content, or campaign support' }}
+            messagePlaceholder="Tell us about your goals, timelines, deliverables, or what needs fixing."
+            frosted
+          />
+        </main>
+        <SiteFooter discover={DISCOVER} services={SERVICE_LINKS} />
+      </MotionRoot>
+    </>
   );
 }

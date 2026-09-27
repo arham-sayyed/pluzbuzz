@@ -1,26 +1,194 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #0a0c24;
+  font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #0a0c24;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3a5bff;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+::selection {
+  background: #ffc83d;
+  color: #080b38;
+}
+
+/* Hover / focus states (win over inline styles, as in the design) */
+.hv1:hover {
+  background: #3a5bff !important;
+  color: #fff !important;
+}
+
+.hv2:hover {
+  background: #0a0c24 !important;
+  color: #fff !important;
+}
+
+.hv3:hover {
+  background: #080b38 !important;
+  color: #fff !important;
+  padding-left: 20px !important;
+}
+
+.hv4:hover {
+  background: #10154f !important;
+  color: #fff !important;
+}
+
+.hv5:hover {
+  padding-left: 14px !important;
+  color: #0a0c24 !important;
+}
+
+.hv6:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 30px 50px -30px rgba(8, 11, 56, 0.45) !important;
+  color: #0a0c24 !important;
+}
+
+.hv7:hover {
+  background: #3a5bff !important;
+}
+
+.hv8:hover {
+  background: #fff !important;
+  color: #080b38 !important;
+}
+
+/* ServiceCard */
+.hv-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 30px 50px -30px rgba(8, 11, 56, 0.5) !important;
+}
+
+/* Website Development: review rows stack below the layout breakpoint */
+.wd-rev {
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+}
+
+@media (max-width: 899.98px) {
+  .wd-rev {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Website Development: redesign "after" mockup sheds detail when the panel is narrow */
+.wd-after {
+  container-type: size;
+}
+
+@container (max-width: 520px) {
+  .wd-after-links {
+    display: none !important;
+  }
+}
+
+@container (max-width: 400px) {
+  .wd-after-stats {
+    display: none !important;
+  }
+
+  .wd-after-body {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+.fc1:focus {
+  border-color: #ffc83d !important;
+}
+
+/* ScrollExpand — "Who We Are" */
+.pb-se .scroll-expand__frame {
+  background: #220848;
+}
+
+.pb-se .scroll-expand__media {
+  transform-origin: 50% 50%;
+}
+
+.pb-se .scroll-expand__scrim {
+  background: linear-gradient(to top, rgba(8, 11, 56, 0.92), rgba(8, 11, 56, 0.55) 55%, rgba(8, 11, 56, 0.7));
+}
+
+.pb-se .scroll-expand__overlay {
+  align-items: stretch;
+  justify-content: center;
+  text-align: left;
+  gap: clamp(18px, 2.4vw, 28px);
+  padding: 96px clamp(20px, 6vw, 96px) 48px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.pb-se .scroll-expand__title {
+  font-family: 'Barlow Condensed';
+  font-weight: 800;
+  font-size: clamp(44px, 8vw, 132px);
+  line-height: 0.9;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  mix-blend-mode: difference;
+}
+
+.pb-se .scroll-expand__hint {
+  bottom: 22px;
+  font-family: 'IBM Plex Mono';
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #55566a;
+}
+
+/* RefineFrame — "Clear picture": pixel mosaic only, no blur/saturation pass */
+.refine-frame.pb-refine[data-status] .refine-frame__media {
+  filter: none;
+  transform: none;
+  animation: none;
+  transition: opacity var(--rf-stage) cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.refine-frame.pb-refine .refine-frame__chip {
+  gap: 7px;
+  height: 28px;
+  padding: 0 12px 0 9px;
+  border-radius: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* SlideCommit — contact form */
+.slide-commit.pb-slide .slide-commit__text--plain {
+  color: color-mix(in srgb, #ffffff 55%, transparent);
 }
